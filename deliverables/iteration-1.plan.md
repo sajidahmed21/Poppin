@@ -1,4 +1,4 @@
-# Pingle/DroPin (WIP)
+# Pingle / Hapin / DroPin (WIP)
 Team 16
 
 ## Iteration 01
@@ -27,7 +27,6 @@ Anshay - TBD
 ### Events
 
 We will be meeting at least once a week to discuss any issues or blockers we are encountering, as well as our current progress on what we are working on individually. These meetings will be held online (mainly using Google Hangout).
-
 
 In addition to this, we will also review our overall progress on our eventual goal of producing a minimum viable product. The goal of this would be to decide whether any changes to our plans need to be made to accommodate to changing circumstances as we move forward in our project.
 
