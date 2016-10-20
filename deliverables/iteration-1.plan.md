@@ -58,7 +58,9 @@ In addition to this, our next most important goal is to finish the first team de
 
 ### Artifacts
 
-For this iteration, we are planning to create mock-up diagrams of different app screens? To demonstrate the planned functionality of our planned product.
+For this iteration, we are planning to create mock-up diagrams of our possible key pages which would be used to display hypothetical UI elements. In addition to this, it will allow everyone to succinctly identify not only any UX issues that may not be immediately apparent but to also makes notes and charts of how the myriad of elements will potentially interact with one another such as outlining all the information we could possibly store, to the DBMS possibly required, to the resulting views of various users.
+
+To demonstrate the planned functionality of our planned product.
 
 ### Resources
 
