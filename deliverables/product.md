@@ -1,4 +1,4 @@
-# Pingle / Hapin
+# Pingle / Hapin / DroPin (WIP)
 
 #### Q1: What are you planning to build?
 
@@ -27,6 +27,8 @@ other user's at the event or who themselves are interested in attending.
  * __size of event__: Small, Medium, Large, or if the event creator decides to
  release the information (consent checkbox), the actual number of users
  who have said they are attending with this app will be shown.
+ * __max size__: The Event organizer can specify a max attendee size. If the maximum
+ number of people RSVP to the event, the event will be "remove/hidden/marked as inactive".
  * __event type__: Preset choices. An event can be a party, a fundraiser,
  a hackathon, a networking event, a carnival, etc...
  * __price__: Free or $.
@@ -63,12 +65,69 @@ We are targeting the existing user base of _EventBrite_, _Facebook Events_ and
 other event services, with an emphasis on smaller social events. We will
 not be handling tickets/payments (which _EventBrite_ does do).
 
+There are two sides to this user base, the _Event Organizer_ and the _Event Attendee_.
+
+More specifically, the _Event Attendee_ could be a hard working adult, wanting an excuse to catch up with some friends (or maybe even give them pleasant surprise!) after having spent a tad too much time at work. On the other side, a younger student that had just moved to a new area or town and wants to find out what activities and events are around. Definitely a newly met acquaintance could show you around but how could they know all your interests already? Heading to an event of your choice and size would be much more preferable. 
+
+
 #### Q3: Why would your users choose your product? What are they using today to solve their problem?
 
-YOUR ANSWER GOES HERE ...
+Currently, if an _Event Organizer_ wants to advertise for an event, he/she
+will create an Event on _Facebook_ and/or _EventBrite_ (or other similar service).
+At this point, the majority of the attendee demographic is from word of mouth,
+and from _Facebook_'s "Suggested Events" algorithms which relies mostly on mutual
+friends attending. Larger events may pay for additional advertising, either
+through traditional advertising media or by "boosting" their _Facebook_ posts.
 
- * Short (3 min' read max)
- * Essentially, we want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Highlight significant prodcut decisions that you've made:
-    * Mention which alternatives you were considering.
-    * Explain why the option you decided on makes the most sense for your product/users.
+On the other side of the coin, an _Event Attendee_ will see an advertisement
+for an event, hear about an event via word of mouth, or possibly browse events
+on _EventBrite_ (mainly limited to larger events).
+
+###### Spur of the Moment
+
+When the _Event Attendee_ is deciding on an event to attend, there's no
+straightforward tool to inquire about the Event. Was it run well in the past?
+Is it busy now? Is it going well? As a result, there _isn't_ much __"spur of the moment"__
+events - events which an attendee may decide to go to the day of because of
+boredom (and a plethora of other reasons).
+
+In the case of smaller events, take for example a club which decides to hold
+a small meeting to discuss the state of the environment and climate change, it
+is unlikely that a Facebook Event will be made, considering time is pressing and
+Facebook events take time to reach an audience.
+
+Our product provides the __solution__ to the __"spur of the moment"__ events, to
+reaching the right demographic, to quickly making and managing events and gatherings.
+We provide the social component, which makes discovering events, and inquiring
+about events fast and easy.
+
+###### Communities
+
+The core of our app is our communities. Communities can be exclusive to a group
+of friends, or open to everyone. Communities are centered around a common
+interest, activity, locale, or organization. Users join communities they find
+interesting so that future events can be catered to their interests.
+
+No existing service has this concept targeted towards events. `Meetup.com`,
+an app with a similar __spur of the moment__ functionality, allows users to form
+and join Meetup Groups, which are run as online organizations, whose sole purpose
+it to create and facilitate common interest events. Rather than have users join
+specific "organizations" (or Meetup Groups), we give users the freedom to specify
+their interests, through communities of similar tastes, thus enabling our
+application to serve targeted content, instead of relying on the well maintenance
+of individual "groups".
+
+In addition, rather than targeting "recurring" meetups, our focus is to provide
+a platform for the one time event (although nothing stops a user from creating
+two consecutive events with the same community tags).
+
+> There is no service out on the market now which allows the same flexibility that
+our app will provide, with the same level of social comfort, the same level
+of customization (communities), and with the same level of ease. And yet, we have
+all encountered situations where we wish we had some way to quickly announce
+the presence of an event we made (as an Event Organizer) or to discover what's
+happening in the city on a Saturday night.
+
+Our product is solely a mobile application, as the nature of our application
+(social, community based, quick & easy, "the moment") works well with the mobile platform. From a purely practical standpoint, especially for this course,
+by limiting our scope, we manage our goals, and keep our vision realistic and focused.
