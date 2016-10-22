@@ -80,6 +80,8 @@ On the other side of the coin, an _Event Attendee_ will see an advertisement
 for an event, hear about an event via word of mouth, or possibly browse events
 on _EventBrite_ (mainly limited to larger events).
 
+###### Spur of the Moment
+
 When the _Event Attendee_ is deciding on an event to attend, there's no
 straightforward tool to inquire about the Event. Was it run well in the past?
 Is it busy now? Is it going well? As a result, there _isn't_ much __"spur of the moment"__
@@ -96,7 +98,33 @@ reaching the right demographic, to quickly making and managing events and gather
 We provide the social component, which makes discovering events, and inquiring
 about events fast and easy.
 
+###### Communities
+
+The core of our app is our communities. Communities can be exclusive to a group
+of friends, or open to everyone. Communities are centered around a common
+interest, activity, locale, or organization. Users join communities they find
+interesting so that future events can be catered to their interests.
+
+No existing service has this concept targeted towards events. `Meetup.com`,
+an app with a similar __spur of the moment__ functionality, allows users to form
+and join Meetup Groups, which are run as online organizations, whose sole purpose
+it to create and facilitate common interest events. Rather than have users join
+specific "organizations" (or Meetup Groups), we give users the freedom to specify
+their interests, through communities of similar tastes, thus enabling our
+application to serve targeted content, instead of relying on the well maintenance
+of individual "groups".
+
+In addition, rather than targeting "recurring" meetups, our focus is to provide
+a platform for the one time event (although nothing stops a user from creating
+two consecutive events with the same community tags).
+
+> There is no service out on the market now which allows the same flexibility that
+our app will provide, with the same level of social comfort, the same level
+of customization (communities), and with the same level of ease. And yet, we have
+all encountered situations where we wish we had some way to quickly announce
+the presence of an event we made (as an Event Organizer) or to discover what's
+happening in the city on a Saturday night.
+
 Our product is solely a mobile application, as the nature of our application
-(social, quick & easy, "the moment") works well with the mobile platform.
-From a purely practical standpoint, especially for this course, by limiting our
-scope, we manage our goals, and keep our vision realistic and focused.
+(social, community based, quick & easy, "the moment") works well with the mobile platform. From a purely practical standpoint, especially for this course,
+by limiting our scope, we manage our goals, and keep our vision realistic and focused.
