@@ -4,7 +4,7 @@ Team 16
 ## Iteration 01
 
  * Start date: October 11, 5:30pm - 7:00pm
- * End date: October 16 _(End date tentative?)_
+ * End date: October 21
 
 ## Process
 
@@ -12,17 +12,17 @@ TODO: Introduction
 
 ### Roles & Responsibilities
 
-Noah - TBD
+Noah - Front end.
 
-Andy - TBD
+Anshay - Front end.
 
-Sajid - Will be maintaining a record of meeting minutes.
+Sajid - Recording meeting minutes; Back end.
 
-Kenneth - TBD
+Kenneth - Back end; Database.
 
-Darshan - TBD
+Andy - Back end.
 
-Anshay - TBD
+Darshan - Back end.
 
 ### Events
 
