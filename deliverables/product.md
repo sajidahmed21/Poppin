@@ -17,9 +17,9 @@ traveling distance, providing a search and filters for __start time__,
 __duration__, __size of event__, __event type__, __community__, __exclusivity__,
 amongst other event features.
 
-Users can click an event they are interested in attending to see more
-information, to see which of their friends are attending, and to chat with
-other user's at the event or who themselves are interested in attending.
+Users can click on an event they are interested in attending to see more
+information, to see which of their friends are attending, and to chat with 
+users at the event or others who are also interested in attending.
 
 ##### Event Features
 
@@ -46,8 +46,8 @@ other user's at the event or who themselves are interested in attending.
  by invite).
 
 When the user signs up, they can connect their Facebook and/or Phone contacts
-to sync "friends list". This enables the app to see events where friends are
-attending.
+to sync "friends list". This enables the app to see the events that your friends
+are attending.
 
 ##### Facebook Integration
 In addition to seeing and interacting with events created through the app,
@@ -58,8 +58,8 @@ also be shown. Their status as a "Facebook" event will be indicated.
 Users can chat with other users who are either interested in attending an event
 or are already at an event. If the user at the event consents (by checking in
 at the event), they will be indicated as "At The Event" in the chat next to
-their name. This allows people interested in going to ask about what the event
-is like.
+their name. This allows people interested in going to ask about exactly what is
+occurring at the event and their opinions of the ongoings of the event.
 
 #### Q2: Who are your target users?
 
@@ -115,7 +115,7 @@ an app with a similar __spur of the moment__ functionality, allows users to form
 and join Meetup Groups, which are run as online organizations, whose sole purpose
 it to create and facilitate common interest events. Rather than have users join
 specific "organizations" (or Meetup Groups), we give users the freedom to specify
-their interests, through communities of similar tastes, thus enabling our
+their interests, through communities of similar tastes. This enables our
 application to serve targeted content, instead of relying on the well maintenance
 of individual "groups".
 
@@ -132,4 +132,4 @@ happening in the city on a Saturday night.
 
 Our product is solely a mobile application, as the nature of our application
 (social, community based, quick & easy, "the moment") works well with the mobile platform. From a purely practical standpoint, especially for this course,
-by limiting our scope, we manage our goals, and keep our vision realistic and focused.
+we will be limiting our scope, goals, and will keep our vision realistic and focused.
