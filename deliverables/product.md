@@ -7,7 +7,9 @@ browse what's happening in the area, and decide on which event to attend,
 is not social at all.
 
 `PRODUCT` is a social network for events, enabling the end-user to discover
-events in his/her vicinity which cater to his/her preferences.
+events in his/her vicinity which cater to his/her preferences. How we cater to
+personal interests through the use of "communities" is the key factor
+differentiating us from competitors.
 
 The `PRODUCT` mobile application (iOS & Android) provides the end-user
 with an interactive map and event listing, featuring all events within
@@ -67,7 +69,7 @@ not be handling tickets/payments (which _EventBrite_ does do).
 
 There are two sides to this user base, the _Event Organizer_ and the _Event Attendee_.
 
-More specifically, the _Event Attendee_ could be a hard working adult, wanting an excuse to catch up with some friends (or maybe even give them pleasant surprise!) after having spent a tad too much time at work. On the other side, a younger student that had just moved to a new area or town and wants to find out what activities and events are around. Definitely a newly met acquaintance could show you around but how could they know all your interests already? Heading to an event of your choice and size would be much more preferable. 
+More specifically, the _Event Attendee_ could be a hard working adult, wanting an excuse to catch up with some friends (or maybe even give them pleasant surprise!) after having spent a tad too much time at work. On the other side, a younger student that had just moved to a new area or town and wants to find out what activities and events are around. Definitely a newly met acquaintance could show you around but how could they know all your interests already? Heading to an event of your choice and size would be much more preferable.
 
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem?
