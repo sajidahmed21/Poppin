@@ -8,8 +8,6 @@ Team 16
 
 ## Process
 
-TODO: Introduction
-
 ### Roles & Responsibilities
 
 Noah - Front end.
@@ -26,18 +24,29 @@ Darshan - Back end.
 
 ### Events
 
-We will be meeting at least once a week to discuss any issues or blockers we are encountering, as well as our current progress on what we are working on individually. These meetings will be held online (mainly using Google Hangout).
+We will be meeting on a weekly basis, mainly online through the use of
+Google Hangout and Slack in order to keep each other up-to-date on our overall
+progress, and to ensure we are all on-track to complete each deliverable,
+according to our application's design plans and specifications.
 
-In addition to this, we will also review our overall progress on our eventual goal of producing a minimum viable product. The goal of this would be to decide whether any changes to our plans need to be made to accommodate to changing circumstances as we move forward in our project.
+At each meeting, every team member will update his fellow teammates on his
+progress, any roadblocks or difficulties he is having, and will define
+"actionable" items he will pursue and complete for our next meeting / deliverable.
+
+Notes for each meeting will be maintained, detailing key points of discussion,
+as well as a collection of all "actionable" items and important dates.
+
+We will plan these weekly meetings with contingency plans in case unforeseeable
+circumstances cause a particular meeting to be delayed.
 
 ### Artifacts
 
 We will be using GitHub Issues to keep track of all our tasks including bug, story, development and QA tickets.
 
-More specifically, we will post ".md" "files in our GitHub repositories which will contain:
+More specifically, we will post ".md" files to our team repository which will contain:
  * Minutes from weekly team meetings.
- * Task Assignment Lists decided upon in the meetings.
- * UML Diagrams and other diagrams/tools to help with the design of our product.
+ * Task Assignment Lists ("actionable" items) decided upon during each meeting.
+ * UML Diagrams and/or other diagrams and tools to help with the design and implementation of our product.
 
 ## Product
 
