@@ -10,17 +10,17 @@ Team 16
 
 ### Roles & Responsibilities
 
-Noah - Front end.
+Noah: Define and describe the product including its target user base as a part of the `product.md` file to be submitted for Deliverable 1; Create preliminary wireframes for the application.
 
-Anshay - Front end.
+Anshay: Create digital UI screen mockups that illustrate the look and feel of the key features of the app.
 
-Sajid - Recording meeting minutes; Back end.
+Sajid: Document discussions and work progress through taking meeting notes; Define meeting agendas prior to meetings; Document the roles and responsibilities of team members in `iteration.md`.
 
-Kenneth - Back end; Database.
+Kenneth: Create a preliminary and high-level database schema for the application.
 
-Andy - Back end.
+Andy: Document the goals and tasks of this iteration as a part of `iteration.md`.
 
-Darshan - Back end.
+Darshan: Document and explain the work process, methods of communication, and other artifacts that we plan to use in our project.
 
 ### Events
 
