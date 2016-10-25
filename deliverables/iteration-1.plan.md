@@ -10,7 +10,7 @@ Team 16
 
 ### Roles & Responsibilities
 
-Noah: Define and describe the product including its target user base as a part of the `product.md` file to be submitted for Deliverable 1; Create preliminary wireframes for the application.
+Noah: Define and describe the product, including its target user base, as a part of the `product.md` file to be submitted for Deliverable 1; Create preliminary wireframes for the application.
 
 Anshay: Create digital UI screen mockups that illustrate the look and feel of the key features of the app.
 
