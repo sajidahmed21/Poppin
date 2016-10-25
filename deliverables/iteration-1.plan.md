@@ -1,4 +1,4 @@
-# Pingle / Hapin / DroPin (WIP)
+# Poppin
 Team 16
 
 ## Iteration 01

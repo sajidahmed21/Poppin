@@ -1,4 +1,4 @@
-# Pingle / Hapin / DroPin (WIP)
+# Poppin
 
 #### Q1: What are you planning to build?
 
@@ -6,19 +6,19 @@ Events themselves are social in nature, and yet the way we organize events,
 browse what's happening in the area, and decide on which event to attend,
 is not social at all.
 
-`PRODUCT` is a social network for events, enabling the end-user to discover
+`Poppin` is a social network for events, enabling the end-user to discover
 events in his/her vicinity which cater to his/her preferences. How we cater to
 personal interests through the use of "communities" is the key factor
 differentiating us from competitors.
 
-The `PRODUCT` mobile application (iOS & Android) provides the end-user
+The `Poppin` mobile application (iOS & Android) provides the end-user
 with an interactive map and event listing, featuring all events within
 traveling distance, providing a search and filters for __start time__,
 __duration__, __size of event__, __event type__, __community__, __exclusivity__,
 amongst other event features.
 
 Users can click on an event they are interested in attending to see more
-information, to see which of their friends are attending, and to chat with 
+information, to see which of their friends are attending, and to chat with
 users at the event or others who are also interested in attending.
 
 ##### Event Features
@@ -49,10 +49,13 @@ When the user signs up, they can connect their Facebook and/or Phone contacts
 to sync "friends list". This enables the app to see the events that your friends
 are attending.
 
-##### Facebook Integration
+##### Facebook Integration (optional)
 In addition to seeing and interacting with events created through the app,
 public Facebook events and Facebook events from a connected account will
 also be shown. Their status as a "Facebook" event will be indicated.
+
+_Optional_ feature which we may add if the opportunity presents itself after we've
+completed the core of the application.
 
 ##### Event Chat
 Users can chat with other users who are either interested in attending an event
@@ -87,19 +90,29 @@ on _EventBrite_ (mainly limited to larger events).
 
 ###### Spur of the Moment
 
-When the _Event Attendee_ is deciding on an event to attend, there's no
-straightforward tool to inquire about the Event. Was it run well in the past?
-Is it busy now? Is it going well? As a result, there _isn't_ much __"spur of the moment"__
-events - events which an attendee may decide to go to the day of because of
-boredom (and a plethora of other reasons).
+It's 6pm on a Saturday night and John (an _Event Attendee_) is bored. He wants to
+go out and do something. He opens his favourite event app and after the laborious task
+of filtering by location, interest, date and time, he finds an event which seems interesting.
+He wants to find out what the event is like, however he doesn't know anyone attending. He
+really doesn't want to risk going to a boring event, so he stays home and watches Netflix.
 
-In the case of smaller events, take for example a club which decides to hold
-a small meeting to discuss the state of the environment and climate change, it
+What if John could chat live to someone at the event? What if he could interact with other
+_Event Attendee's_?
+
+Now consider the other side. An environmental club at UofT decides to hold
+a small meeting to discuss the state of the environment and climate change. It
 is unlikely that a Facebook Event will be made, considering time is pressing and
-Facebook events take time to reach an audience.
+Facebook events take time to reach an audience (what would be the point?). The club
+instead posts a status update on Facebook, it reaches some of the event organizer's
+mutual friends, but that's the extent of its reach. They really should have planned
+the event in advance.
 
-Our product provides the __solution__ to the __"spur of the moment"__ events, to
-reaching the right demographic, to quickly making and managing events and gatherings.
+What if the UofT club could post the event on an event discovery network,
+immediately reaching all those who are interested? Reaching all those "subscribed"
+to the "UofT" + "Environment" communities?
+
+Our product provides the __solution__ to the problems facing __"spur of the moment"__
+events, to reaching the right demographic, to quickly making and managing events and gatherings.
 We provide the social component, which makes discovering events, and inquiring
 about events fast and easy.
 
