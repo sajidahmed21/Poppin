@@ -26,7 +26,7 @@ __Decisions that did not prove to be pretty well include__:
 
 __Following are the changes we would like to make to our process__:
 
- * Ensure each meeting is more compact, to answer any lingering questions and concerns, rather than rely on Slack follow-up communications (although we will continue to to have follow-up discussions).
+ * Ensure each meeting is more compact and focused. One manner in which to do this, is to make a point of ending each meeting by addressing any questions and concerns team members have, rather than rely on Slack follow-up communications (although we will continue to to have follow-up discussions). This inevitably speeds up our planning processes.
 
  * Enforce deadlines and check-ins more strictly to ensure smooth progress throughout the iteration.
 
