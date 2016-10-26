@@ -13,7 +13,7 @@ Event(**event_id**, name, start_date,  end_date, longitude, latitude, descriptio
 
 EventCommunityMap(**_event_id_**, _community_id_)
 
-UserCommunityMap(**_userID_**, _communityID_, creation_date)
+UserCommunityMap(**_user_id_**, _communityID_, creation_date)
 
 
 User(**user_id**, email, password, facebook_id, active, is_verified, creation_date)
@@ -33,6 +33,6 @@ EventCommunityMap(**_event_id_**, _community_id_)
 A tuple in this relation represents the mapping of an event to its communities. The _event_id_ is the integer id of the event. The _community_id_ is the integer id of the community that is being mapped. This will allow us to find all the communities that are tagged to an event.
 
 
-UserCommunityMap(**_userID_**, _communityID_, creation_date)
+UserCommunityMap(**_user_id_**, _communityID_, creation_date)
 
 A tuple in this relation represents the mapping of a user to its communities. The _user_id_ is the integer id of the user that has joined this community. The _community_id_ is the integer id of the community that is being mapped to the user. The _creation_date_ is a date and time string showing the creation date of the event (e.g. “2016-10-10 18:00:39”) in the format YYYY-MM-DD HH:MM:SS.
