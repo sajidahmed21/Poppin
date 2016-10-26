@@ -52,22 +52,35 @@ More specifically, we will post ".md" files to our team repository which will co
 
 ### Goals and tasks:
 
-For this iteration, the most important goal is to brainstorm and finalize an idea that we can all agree on and is realistic enough given the time we have to work on it. This includes discussing the many features we may implement into our product, the platform we are using, and what each individual is capable of doing (frontend, backend, etc).
+The primary goal of this iteration is to brainstorm and finalize an idea that we all agree on and that is realistic enough given the time we have to implement it. Some of the tasks towards this goal include: identifying the needs of users that the product will address, discussing and finalizing the main features we want to implement in our product, identifying the platform(s) we are targeting,  and choosing a name for our product. While making the above decisions and as an important step towards our goal, we will be taking into account individual preferences and areas of comfort with respect to familiarity and experience with technologies (frontend, backend, known frameworks, etc).
 
-In addition to this, our next most important goal is to finish the first team deliverable.
+In addition to this, our next most important goal is to complete the requirements for the first team deliverable. The preliminary tasks towards this goal is to precisely document our idea and the iteration plan. Later, at the end of our iteration, we will create a review document based on the tasks we have completed from the initial plan we made.
 
 #### Order of Importance:
 
- * Brainstorm and Finalize on idea for product. Sub tasks are:
-   * Discuss problems/needs the product will address
-   * Discuss features that need to be implemented in order to achieve this
-   * Discuss possible technologies that could be used to implement the minimal viable product
-   * Discuss appropriate roles for team members according to their different skill sets
+ * Brainstorm and Finalize an idea for the product. Tasks include:
+   * Discuss and identify problems/needs the product will address
+   * Discuss and finalize the features that need to be implemented in order to achieve this
+   * Discuss possible technologies that could be used to implement the product
+   * Discuss and identify appropriate roles for team members based on their their skill sets and preferences
    * Work on team deliverable
+
+
+ * Complete Deliverable 1 Requirements. Tasks include:
+
+  * Defining and describing the product, including its target user base, as a part of  `product.md`
+  * Defining individual tasks towards our goal and documenting our iteration plan in `iteration.md`
+  * Documenting what we did or did not complete based on what we planned initially, into `iteration-review.md`
 
 ### Artifacts
 
-For this iteration, we are planning to create mock-up diagrams of our possible key pages, which would be used to display hypothetical UI elements, to demonstrate the planned functionality of our product. In addition to this, it will allow everyone to succinctly identify not only any UX issues that may not be immediately apparent but to also makes notes and charts of how the myriad of elements will potentially interact with one another such as outlining all the information we could possibly store, to the DBMS possibly required, to the resulting views of various users.
+* Define the product; identify the user base.
+
+* Create mock-up screens / wireframes for main features, which display the key UI elements also illustrate the expected flow of the application.
+
+* Create a high-level design for the database schema for both the front and back-end.
+
+* Complete each of `product.md`, `iteration-01.plan.md`, and `iteration-01.review.md` according to the given guidelines in the handout.
 
 ### Resources
 
