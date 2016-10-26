@@ -90,29 +90,28 @@ on _EventBrite_ (mainly limited to larger events).
 
 ###### Spur of the Moment
 
-It's 6pm on a Saturday night and John (an _Event Attendee_) is bored. He wants to
-go out and do something. He opens his favourite event app and after the laborious task
-of filtering by location, interest, date and time, he finds an event which seems interesting.
-He wants to find out what the event is like, however he doesn't know anyone attending. He
-really doesn't want to risk going to a boring event, so he stays home and watches Netflix.
+It's 6pm on a Saturday night and John (an _Event Attendee_) is bored but he would rather
+go out and have some fun. So he opens his favourite event app and after the laborious task
+of filtering by location, interest, date and time, he finally finds an event that seems interesting.
+He wants to find out what the event is like, however, he doesn't know anybody attending. He
+really doesn't want to risk going to a boring event, so he instead stays home and watches Netflix.
 
-What if John could chat live to someone at the event? What if he could interact with other
+What if John could have a live chat with someone at the event? What if he could interact with other
 _Event Attendee's_?
 
 Now consider the other side. An environmental club at UofT decides to hold
-a small meeting to discuss the state of the environment and climate change. It
+a small meeting to discuss the state of the environment with regards to climate change. It
 is unlikely that a Facebook Event will be made, considering time is pressing and
 Facebook events take time to reach an audience (what would be the point?). The club
-instead posts a status update on Facebook, it reaches some of the event organizer's
-mutual friends, but that's the extent of its reach. They really should have planned
-the event in advance.
+instead posts a status update on Facebook which subsequently only reaches some of the event organizer's
+mutual friends. They really should have planned the event more in advance.
 
 What if the UofT club could post the event on an event discovery network,
 immediately reaching all those who are interested? Reaching all those "subscribed"
 to the "UofT" + "Environment" communities?
 
 Our product provides the __solution__ to the problems facing __"spur of the moment"__
-events, to reaching the right demographic, to quickly making and managing events and gatherings.
+events, from reaching the right demographic to quickly making and managing events and gatherings.
 We provide the social component, which makes discovering events, and inquiring
 about events fast and easy.
 
