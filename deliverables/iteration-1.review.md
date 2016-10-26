@@ -37,9 +37,9 @@ Goals/tasks that were met/completed:
 
  * The most obvious and important one, having a product idea __finalized__.
  * Validated the above by successfully identifying a solution to the identified problem and target audience.
- * Summarized a list of main/wanted features in the application (in product.md)
- * Created a mock-up of the design/UI of our application (ui_mockups.png (various))
- * Technologies to use, for example, as shown in the schema_design_v1.md to use a DBMS.
+ * Summarized a list of main/wanted features in the application (in [product.md](product.md))
+ * Created a mock-up of the design/UI of our application ([ui_mockups_v1_a.jpg](designs/ui_mockups_v1_a.jpg) and [ui_mockups_v1_b.jpg](designs/ui_mockups_v1_b.jpg))
+ * Technologies to use, for example, as shown in the [schema_design_v1.md](designs/schema_design_v1.md) to use a DBMS.
  * Established a (possibly tentative) process for meeting minutes, documenting, and planning.
 
 
@@ -52,7 +52,7 @@ Goals/tasks that were planned but not met/completed:
 
  * Decided on roles / division of technology stack for actual development.
    This has mainly been in Slack, and is not included in the first deliverable
-   (although history of iteration-1.plan will show evidence of this).
+   (although history of [iteration-1.plan](iteration-1.plan.md) will show evidence of this).
 
 Going into the next iteration, our main insights are:
 
