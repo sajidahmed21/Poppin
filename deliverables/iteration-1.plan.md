@@ -76,7 +76,7 @@ In addition to this, our next most important goal is to complete the requirement
 
 * Define the product; identify the user base.
 
-* Create mock-up screens / wireframes for main features, which display the key UI elements also illustrate the expected flow of the application.
+* Create digital mock-up screens / wireframes for main features, which display the key UI elements and also illustrate the expected flow of the application.
 
 * Create a high-level design for the database schema for both the front and back-end.
 
