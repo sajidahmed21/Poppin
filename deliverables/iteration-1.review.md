@@ -18,11 +18,11 @@ __Decisions that proved to be pretty well include__:
 
 __Decisions that did not prove to be pretty well include__:
 
- * Not properly listing (or identifying) the different sources / ways to check for prior existence of similar applications has turned out be a bit frustrating. Google searches often did not reveal such similar applications, possbile due to their low popularity and / or cusomtomization of search results, amongst many other reasons.
+ * Not properly listing (or identifying) the different sources / ways to check for prior existence of similar applications has turned out be a bit frustrating. Google searches often did not reveal such similar applications, possibly due to their low popularity and / or cusomtomization of search results, amongst many other reasons.
 
  We therefore, came up with a couple of ideas and were on the verge of finalizing them, before we were informed about the existence of similar applications by our TA (Adam).
 
- * Managing our weekly meetings has been _challenging_, as everyone has conflicting schedules, although we've managed to make it work to some degree, especially by extending meetings which start on Google Hangout and extend into Slack.
+ * Managing our weekly meetings has been _challenging_, as everyone has conflicting schedules, although we've managed to make it work to some degree, especially by extending meetings which start on Google Hangouts to continue onto Slack.
 
 __Following are the changes we would like to make to our process__:
 
@@ -30,7 +30,7 @@ __Following are the changes we would like to make to our process__:
 
  * Enforce deadlines and check-ins more strictly to ensure smooth progress throughout the iteration.
 
- * Make Slack more transparent to avoid discussions from getting buried.
+ * Make Slack discussions more concise and to the point, in order to avoid getting deflected away from the main topic.
 
 
 
@@ -42,13 +42,15 @@ __Goals/tasks that were met/completed__:
  * Identified and documented the problems our product will address, including the potential user base of our application (in [product.md](product.md))
  * Summarized a list of primary features we look to implement in the application (in [product.md](product.md))
  * Created a preliminary mock-up of the design/UI of our application ([ui_mockups_v1_a.jpg](designs/ui_mockups_v1_a.jpg) and [ui_mockups_v1_b.jpg](designs/ui_mockups_v1_b.jpg))
- * A high-level database schema for the back-end has been created [schema_design_v1.md](designs/schema_design_v1.md).
+ * A high-level database schema for the back-end has been created ([schema_design_v1.md](designs/schema_design_v1.md))
  * Established processes for assigning tasks and documenting meeting discussions.
 
 
 __Goals/tasks that were planned but not met or completed__:
 
 * There were multiple discussions on the possible technologies to be used, but we have not ironed out the details yet. We will doing this shortly, within the next few days.
+
+* Although we did create hand-sketched wireframes, we were not able create digital screen mockups by the end of our first iteration. However, we do plan on creating them early in our second iteration, so that we have more flexibility in terms of being able to change flows / designs in the user interface as we go along.
 
 __Goals/tasks that were not originally planned, but ended up being not met/completed__:
 
