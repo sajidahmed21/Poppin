@@ -1,0 +1,11 @@
+# Cordova Build
+cordova-app/www/css/*.css
+cordova-app/www/js/*.js
+
+# Cordova Platforms
+cordova-app/platforms/*
+!cordova-app/platforms/.keep
+
+# Cordova Plugins
+cordova-app/plugins/*
+!cordova-app/plugins/.keep
