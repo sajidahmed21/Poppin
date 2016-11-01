@@ -2,12 +2,15 @@ import React from 'react';
 
 import TitleBar from './TitleBar';
 
+/* Import our views. */
+import LoginView from './views/Login';
+
 export default class MainView extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            current: 'template'
+            current: 'login'
         };
     }
 
@@ -17,12 +20,12 @@ export default class MainView extends React.Component {
 
     render() {
         const views = {
-            'template': (<div>Template View</div>)
+            'login': (<LoginView />)
         };
 
         return (
             <div>
-                <TitleBar />
+                <TitleBar view={this.state.current} />
                 {views[this.state.current]}
             </div>
         );

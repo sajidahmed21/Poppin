@@ -1,10 +1,10 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
+import Appbar from 'muicss/lib/react/appbar';
 
 const TitleBar = () => (
-    <AppBar
-        title="Poppin"
-    />
+    <Appbar className="mui--text-display1">
+        Poppin
+    </Appbar>
 );
 
 export default TitleBar;

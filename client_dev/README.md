@@ -137,6 +137,7 @@ client_dev/
 │    └────www/
 │    │    |    index.html
 │    │    └────css/
+│    │    └────lib-css/
 │    │    └────fonts/
 │    │    └────img/
 │    │    └────js/
@@ -154,8 +155,8 @@ are not committed to Git.
 Core application development is written using [React](https://facebook.github.io/react/)
 and JavaScript for the views, and [SASS](http://sass-lang.com/) for the CSS styling.
 
-Much of the themes and React components come directly from [Material-UI](http://www.material-ui.com/#/),
-an open source project which implements Google's Material Design in React.
+Much of the themes and React components come directly from [MUI](https://github.com/muicss/mui),
+an open source project which implements Google's Material Design.
 
 [Babel](https://babeljs.io/) is used to transpile the ES6 code more compatible
 versions. [Webpack](https://webpack.github.io/) is then used to bundle the transpiled

@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/csc301-fall-2016/project-team-16",
   "dependencies": {
-    "material-ui": "^0.16.1",
+    "muicss": "^0.9.3",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-tap-event-plugin": "^1.0.0"
