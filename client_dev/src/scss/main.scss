@@ -1,7 +1,12 @@
 @import '_fonts';
+@import '_colours';
 
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html {
+    min-height: 100%;
 }
 
 body {
@@ -20,4 +25,67 @@ body {
     margin: 0;
 
     background: #fff;
+}
+
+/* As we develop new css rules, we will decide on organization. E.g. imports. */
+
+/* TitleBar */
+
+.mui-appbar {
+    text-align: center;
+
+    span.title {
+        font-size: 36px;
+    }
+}
+
+/* LoginView */
+
+.message {
+    padding: 10px;
+    margin: 3px;
+    color: #000;
+    font-size: 14px;
+
+    &.bordered {
+        border: 1px solid #a2d0f5;
+        border-radius: 2px;
+        background: rgb(209, 235, 255);
+    }
+
+    &.large {
+        font-size: 18px;
+    }
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.mui-container.login-view, .mui-container.signup-view {
+    margin-top: 20px;
+}
+
+form.login-form, form.signup-form {
+    margin: 20px 0;
+
+    .buttons {
+        margin-top: 40px;
+        width: 100%;
+        text-align: center;
+
+        button {
+            width: 90%;
+            line-height: 50px;
+            height: 50px;
+            margin: 8px 0;
+        }
+    }
+
+    .hint {
+        margin: 25px 0;
+        text-align: right;
+        font-size: 16px;
+    }
+
 }
