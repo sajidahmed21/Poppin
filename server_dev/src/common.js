@@ -21,7 +21,7 @@ exports.sendSuccessResponse = function (content, response) {
 /* Sends an error response back to client.
  * `message` is the error message that will be included as part of the response.
  */
-exports.sendErrorReponse = function (message, response) {
+exports.sendErrorResponse = function (message, response) {
     response.writeHead(500, {
         'Content-Type': 'application/json'
     });

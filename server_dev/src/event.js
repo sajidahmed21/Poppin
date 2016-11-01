@@ -19,7 +19,7 @@ exports.handleGetNearbyEventsRequest = function (request, response) {
         }
         else {
             var message = "Database error";
-            common.sendErrorReponse(message, response);
+            common.sendErrorResponse(message, response);
         }
     });
 };
@@ -32,7 +32,25 @@ exports.handleGetNearbyEventsRequest = function (request, response) {
 exports.handleEventDetailsRequest = function (request, response) {
     
     var eventId = request.body.event_id;
+    var name = request.body.name;
+    var description = request.body.description;
+    var startDate = request.body.start_date;
+    var endDate = request.body.end_date;
+    var longitude = request.body.longitude;
+    var latitude = request.body.latitude;
+    var isActive = request.body.is_active;
+    var dateCreated = request.body.date_created;
+
     console.log("Event Id: " + eventId);
+    console.log("Name: " + name);
+    console.log("Description: " + description);
+    console.log("Start Date: " + startDate);
+    console.log("End Date: " + endDate);
+    console.log("Longitude: " + longitude);
+    console.log("Latitude: " + latitude);
+    console.log("Active: " + isActive);
+    console.log("Date Created: " + dateCreated);
+
     
     dbAdapter.getEventDetails(eventId, function (result, data) {
         
@@ -41,7 +59,7 @@ exports.handleEventDetailsRequest = function (request, response) {
         }
         else {
             var message = "Database error";
-            common.sendErrorReponse(message, response);
+            common.sendErrorResponse(message, response);
         }
     });
 };
