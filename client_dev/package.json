@@ -6,7 +6,11 @@
   "scripts": {
     "build-css": "node-sass --include-path src/scss src/scss/main.scss cordova-app/www/css/main.css",
     "build-js": "webpack",
-    "build": "npm run build-css && npm run build-js",
+    "build-cordova": "(cd cordova-app && cordova build android)",
+    "deploy-android": "(cd cordova-app && cordova run android)",
+    "deploy": "npm run build-src && npm run deploy-android",
+    "build-src": "npm run build-css && npm run build-js",
+    "build": "npm run build-src && npm run build-cordova",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "homepage": "https://github.com/csc301-fall-2016/project-team-16",

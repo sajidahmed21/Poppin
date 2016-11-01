@@ -17,9 +17,7 @@ const App = () => (
 
 document.addEventListener('deviceready', () => {
     /* Request all necessary permissions. */
-    RequirePermissions([
-        cordova.plugins.permissions.READ_CONTACTS
-    ]).then(() => {
+    RequirePermissions([]).then(() => {
         ReactDOM.render(
             <App />,
             document.getElementById('root')
