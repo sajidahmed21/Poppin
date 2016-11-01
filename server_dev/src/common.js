@@ -1,13 +1,35 @@
-const SUCCESS = "SUCCESS";
+var constants = require("./constants");
 
-exports.sendJSONResponse = function (content, response) {
+
+/* Sends a success response back to client.
+ * `content` is the data that will be included as part of the response.
+ */
+exports.sendSuccessResponse = function (content, response) {
     response.writeHead(200, {
         'Content-Type': 'application/json'
     });
-    response.end(JSON.stringify(content));
+    
+    var responseBody = {
+        status: constants.SUCCESS,
+        data: content
+    };
+    
+    response.end(JSON.stringify(responseBody));
 };
 
-exports.sendSuccessResponse = function(response) {
-    var body = {result: SUCCESS};
-    exports.sendJSONResponse(body, response);
+
+/* Sends an error response back to client.
+ * `message` is the error message that will be included as part of the response.
+ */
+exports.sendErrorReponse = function (message, response) {
+    response.writeHead(500, {
+        'Content-Type': 'application/json'
+    });
+    
+    var responseBody = {
+        status: constants.ERROR,
+        message: message
+    };
+    
+    response.end(JSON.stringify(responseBody));
 };

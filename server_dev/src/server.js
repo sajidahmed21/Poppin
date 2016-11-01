@@ -13,12 +13,26 @@ var server = require('http').Server(app);
 
 
 // Modules specific to our project
-var user = require('./user');
+var constants = require('./constants');
+var user = require(constants.user);
+var event = require(constants.event);
 
 
 /* -------- User Sign Up and Authentication -------- */
 
 app.post('/user/signup', user.handleSignUpRequest);
+
+
+/* ------------------- Events ---------------------- */
+app.post('/event/nearby-events', event.handleGetNearbyEventsRequest);
+
+app.post('/event/details', event.handleEventDetailsRequest);
+
+
+/* ----------------- Communities ------------------ */
+
+// TODO
+
 
 
 /* ---------- Server Start up  -------------------- */
