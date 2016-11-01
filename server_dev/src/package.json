@@ -1,5 +1,5 @@
 {
-  "name": "Poppin",
+  "name": "Poppin-Server",
   "version": "1.0.0",
   "description": "CSC301 Team Project: Poppin",
   "main": "server.js",

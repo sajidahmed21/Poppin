@@ -1,0 +1,31 @@
+{
+  "name": "Poppin-Client",
+  "version": "1.0.0",
+  "description": "CSC301 Team Project: Poppin",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --include-path src/scss src/scss/main.scss cordova-app/www/css/main.css",
+    "build-js": "webpack",
+    "build": "npm run build-css && npm run build-js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/csc301-fall-2016/project-team-16",
+  "dependencies": {
+    "material-ui": "^0.16.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-tap-event-plugin": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "cordova": "^6.4.0",
+    "node-sass": "^3.10.1",
+    "nodemon": "^1.11.0",
+    "webpack": "^1.13.3"
+  }
+}
