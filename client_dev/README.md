@@ -141,6 +141,7 @@ client_dev/
 │    │    └────fonts/
 │    │    └────img/
 │    │    └────js/
+│    │    └────lib-js/
 │    └────plugins/
 │    └────platforms/
 │    └────hooks/

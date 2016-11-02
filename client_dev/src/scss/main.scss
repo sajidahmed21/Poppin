@@ -39,7 +39,10 @@ body {
     }
 }
 
-/* LoginView */
+.mui-container.expand {
+    width: 100%;
+    padding: 0;
+}
 
 .message {
     padding: 10px;
@@ -61,6 +64,8 @@ body {
         text-align: center;
     }
 }
+
+/* Login / Signup */
 
 .mui-container.login-view, .mui-container.signup-view {
     margin-top: 20px;
@@ -87,5 +92,92 @@ form.login-form, form.signup-form {
         text-align: right;
         font-size: 16px;
     }
+}
 
+/* Discover */
+
+.discover-header {
+    padding: 20px 20px 4px 20px;
+
+    .title {
+        font-size: 30px;
+        display: block;
+        margin: 0 0 -10px 0;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+}
+
+.map-listings {
+    .map, .leaflet-container {
+        width: 100%;
+        height: 200px;
+        /*background: #cbdbff;*/
+
+        .leaflet-control-container {
+            display: none;
+        }
+    }
+
+    .event-list {
+        margin-top: 3px;
+
+        overflow-y: scroll;
+
+        /* hardware accel */
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+
+        .event-list-item {
+            $padding: 8px;
+            $right_column_width: 45px;
+
+            position: relative;
+            height: 55px;
+            margin: 0;
+            padding: 0 #{$padding};
+
+            border-bottom: 1px solid #fff;
+
+            &:active, &:focus {
+                background: #f0f8ff;
+            }
+
+            .left-column, .right-column {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                height: 100%;
+            }
+
+            .left-column {
+                left: #{$padding};
+                width: calc(100% - #{$padding} - #{$padding} - #{$right_column_width});
+
+                .name {
+                    font-size: 18px;
+                }
+
+                .communities {
+
+                    span {
+                        margin-right: 2px;
+                    }
+                }
+            }
+
+            .right-column {
+                right: #{$padding};
+                width: #{$right_column_width};
+                text-align: right;
+
+                .distance {
+                    font-size: 15px;
+                }
+            }
+        }
+
+    }
 }

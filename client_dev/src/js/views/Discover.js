@@ -3,6 +3,8 @@ import React from 'react';
 /* Import Material UI Components. */
 import Container from 'muicss/lib/react/container';
 
+import MapListings from '../components/MapListings';
+
 export default class Discover extends React.Component {
     constructor() {
         super();
@@ -12,9 +14,18 @@ export default class Discover extends React.Component {
     }
 
     render() {
+        const text = {
+            title: 'Discover',
+            subtitle: "What's happening near you!"
+        };
+
         return (
-            <Container>
-                <div className="message bordered large center">Template Message: Discover</div>
+            <Container className='expand'>
+                <div className='discover-header'>
+                    <span className='title'>{text['title']}</span>
+                    <span className='subtitle'>{text['subtitle']}</span>
+                </div>
+                <MapListings />
             </Container>
         );
     }
