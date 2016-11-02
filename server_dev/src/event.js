@@ -15,11 +15,31 @@ exports.handleGetNearbyEventsRequest = function (request, response) {
     dbAdapter.getListOfNearbyEvents(longitude, latitude, function (result, data) {
         
         if (result == constants.SUCCESS) {
+            var today = new Date();
+
+            for(var i = 0; i < data.length; i++){
+                var curr_event = data[i];
+                var year = curr_event.end_date.substring(6,10);
+                var month = curr_event.end_date.substring(3,5);
+                var day = curr_event.end_date.substring(0,2);
+
+                //if(parseInt(year)>= today.getFullYear() && parseInt(month) + 1 >= today.getMonth()){
+                if(parseInt(year)== today.getFullYear() && parseInt(month) == today.getMonth() + 1 && parseInt(day) < today.getDate()){
+                    data.splice(i, i + 1);
+                    i--;
+                }
+
+                //}
+                else if(parseInt(year)< today.getFullYear() || (parseInt(year) == today.getFullYear() && parseInt(month) < today.getMonth() + 1)){
+                    data.splice(i, i + 1);
+                    i--;
+                }
+            }
             common.sendSuccessResponse(data, response);
         }
         else {
             var message = "Database error";
-            common.sendErrorReponse(message, response);
+            common.sendErrorResponse(message, response);
         }
     });
 };
@@ -32,7 +52,25 @@ exports.handleGetNearbyEventsRequest = function (request, response) {
 exports.handleEventDetailsRequest = function (request, response) {
     
     var eventId = request.body.event_id;
+    var name = request.body.name;
+    var description = request.body.description;
+    var startDate = request.body.start_date;
+    var endDate = request.body.end_date;
+    var longitude = request.body.longitude;
+    var latitude = request.body.latitude;
+    var isActive = request.body.is_active;
+    var dateCreated = request.body.date_created;
+
     console.log("Event Id: " + eventId);
+    console.log("Name: " + name);
+    console.log("Description: " + description);
+    console.log("Start Date: " + startDate);
+    console.log("End Date: " + endDate);
+    console.log("Longitude: " + longitude);
+    console.log("Latitude: " + latitude);
+    console.log("Active: " + isActive);
+    console.log("Date Created: " + dateCreated);
+
     
     dbAdapter.getEventDetails(eventId, function (result, data) {
         
@@ -41,7 +79,7 @@ exports.handleEventDetailsRequest = function (request, response) {
         }
         else {
             var message = "Database error";
-            common.sendErrorReponse(message, response);
+            common.sendErrorResponse(message, response);
         }
     });
 };
