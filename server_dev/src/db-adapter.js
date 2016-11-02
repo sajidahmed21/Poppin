@@ -16,15 +16,39 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
     
     var mockData = [
         {
-            // name: "some name",
-            // start_date: "some date"
-            // end_date: "some date"
+            name: "301 Study Group",
+            start_date: "31-09-2016",
+            end_date: "31-09-2016",
+            longitude: "",//todo
+            latitude: "",//todo
+            distance: ""
             // .. etc
         },
         {
-            // name: "some name",
-            // start_date: "some date"
-            // end_date: "some date"
+            name: "Gamer's Club League of Legends Tournement",
+            start_date: "05-11-2016",
+            end_date: "10-11-2016",
+            longitude: "",//todo
+            latitude: "",//todo
+            distance: ""
+            // .. etc
+        },
+        {
+            name: "Party at Sigma Delta Phi house.",
+            start_date: "25-12-2016",
+            end_date: "01-01-2017",
+            longitude:"",//todo
+            latitude:"",//todo,
+            distance:""
+            // .. etc
+        },
+        {
+            name: "Music Concert",
+            start_date: "31-11-2015",
+            end_date: "31-11-2015",
+            longitude: "",//todo
+            latitude: "",//todo
+            distance: ""
             // .. etc
         }
         // .. {}, {}, May be a few more events
