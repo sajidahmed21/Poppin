@@ -28,6 +28,8 @@ app.post('/event/nearby-events', event.handleGetNearbyEventsRequest);
 
 app.post('/event/details', event.handleEventDetailsRequest);
 
+app.post('/event/create-event', event.createNewEvent);
+
 
 /* ----------------- Communities ------------------ */
 

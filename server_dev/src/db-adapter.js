@@ -84,3 +84,10 @@ exports.getEventDetails = function (eventId, callback) {
     
     callback(constants.SUCCESS, mockData);
 };
+
+exports.createNewEvent = function(event, callback){
+
+    // Insert into database.
+    console.log(event);
+    callback(constants.SUCCESS);
+}

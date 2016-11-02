@@ -83,3 +83,39 @@ exports.handleEventDetailsRequest = function (request, response) {
         }
     });
 };
+
+/* Creates a new event 
+ */
+exports.createNewEvent = function (request, response){
+    var name = request.body.name;
+    var description = request.body.description;
+    var startDate = request.body.start_date;
+    var endDate = request.body.end_date;
+
+    //Probably modify these to match schema after.
+    //lat/long
+    var dateCreated = new Date();
+
+    var event = {
+        name: name,
+        description: description,
+        startDate: startDate,
+        endDate: endDate,
+        //longitude: 
+        //latitude:
+        //is_active
+        dateCreated: dateCreated
+    };
+    
+    dbAdapter.createNewEvent(event, function(result){
+        if (result == constants.SUCCESS) {
+            common.sendSuccessResponse(null, response);
+        }
+        else {
+            var message = "Database error";
+            common.sendErrorResponse(message, response);
+        }
+    });
+
+
+};
