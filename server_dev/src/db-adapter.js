@@ -46,9 +46,16 @@ exports.getEventDetails = function (eventId, callback) {
     // TODO:
     
     var mockData = {
-        // name: "some name",
-        // start_time: "some time"
-        // .. etc
+
+        "name":"CSC301 Club",
+        "description":"This is an event description",
+        "start_date":"2016-10-10 18:00:00",
+        "end_date":"2016-10-10 21:00:00",
+        "longitude":"22.943218",
+        "latitude":"17.753906",
+        "is_active":"0",
+        "date_created":"2016-10-19 01:00:00"
+
     };
     
     callback(constants.SUCCESS, mockData);
