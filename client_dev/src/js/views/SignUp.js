@@ -12,26 +12,53 @@ export default class SignUp extends React.Component {
 
         /* Initialize blank state. */
         this.state = {};
+
+        this.doAlreadyAccount = this.doAlreadyAccount.bind(this);
+        this.doSignup = this.doSignup.bind(this);
+    }
+
+    doAlreadyAccount(e) {
+        e.preventDefault();
+        this.props.onViewChange('login');
+    }
+
+    doSignup() {
+        this.props.onViewChange('firsttimeinterests');
     }
 
     render() {
         return (
             <Container className="signup-view">
                 <div className="message bordered large center">Signup to start Poppin!</div>
-                <Form className="signup-form">
+                <div className="signup-form">
                     <div>
-                        <Input hint="Email" type="email" />
-                        <Input hint="Password" type="password" />
+                        <Input
+                            hint="Email"
+                            type="email"
+                            defaultValue={this.props.viewOpts.email || ''}
+                        />
+                        <Input
+                            hint="First Name"
+                            type="text"
+                        />
+                        <Input
+                            hint="Last Name"
+                            type="text"
+                        />
+                        <Input
+                            hint="Password"
+                            type="password"
+                        />
                     </div>
                     <div className="buttons">
                         <div>
-                            <Button color="primary">Continue</Button>
+                            <Button color="primary" onClick={this.doSignup}>Continue</Button>
                         </div>
                     </div>
                     <div className="hint">
-                        <a href="#" className="link">Already have an account?</a>
+                        <a href="#" className="link" onClick={this.doAlreadyAccount}>Already have an account?</a>
                     </div>
-                </Form>
+                </div>
             </Container>
         );
     }

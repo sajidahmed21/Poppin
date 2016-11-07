@@ -11,6 +11,12 @@ export default class Discover extends React.Component {
 
         /* Initialize blank state. */
         this.state = {};
+
+        this.onEventSelect = this.onEventSelect.bind(this);
+    }
+
+    onEventSelect(eventId) {
+        this.props.onViewChange('event', { id: eventId });
     }
 
     render() {
@@ -25,7 +31,7 @@ export default class Discover extends React.Component {
                     <span className='title'>{text['title']}</span>
                     <span className='subtitle'>{text['subtitle']}</span>
                 </div>
-                <MapListings />
+                <MapListings onEventSelect={this.onEventSelect} />
             </Container>
         );
     }

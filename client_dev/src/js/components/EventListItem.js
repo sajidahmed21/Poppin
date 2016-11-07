@@ -10,7 +10,11 @@ export default class EventListItem extends React.Component {
 
     render() {
         return (
-            <div className='event-list-item'>
+            <div className='event-list-item' onClick={(e) => {
+                if (this.props.onClick) {
+                    this.props.onClick(e);
+                }
+            }}>
                 <div className='left-column'>
                     <span className='name'>{this.props.name}</span>
                     <div className='communities'>

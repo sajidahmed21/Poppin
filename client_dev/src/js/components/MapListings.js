@@ -20,7 +20,7 @@ export default class MapListings extends React.Component {
         return (
             <div className='map-listings'>
                 <MapContainer />
-                <EventList />
+                <EventList onEventSelect={this.props.onEventSelect} />
             </div>
         );
     }

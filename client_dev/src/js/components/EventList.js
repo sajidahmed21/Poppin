@@ -22,8 +22,6 @@ export default class EventList extends React.Component {
             },
             events: Dummy.events
         });
-
-
     }
 
     render() {
@@ -35,6 +33,11 @@ export default class EventList extends React.Component {
                         name={this.state.events[key].name}
                         communities={this.state.events[key].communities}
                         distance={this.state.events[key].distance}
+                        onClick={() => {
+                            if (this.props.onEventSelect) {
+                                this.props.onEventSelect(key);
+                            }
+                        }}
                     />
                 ))}
             </div>

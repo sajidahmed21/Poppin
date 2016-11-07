@@ -1,5 +1,7 @@
 import React from 'react';
 
+import update from 'immutability-helper';
+
 /* Import Material UI Components. */
 import Container from 'muicss/lib/react/container';
 import Form from 'muicss/lib/react/form';
@@ -11,30 +13,68 @@ export default class Login extends React.Component {
         super();
 
         /* Initialize blank state. */
-        this.state = {};
+        this.state = {
+            fields: {
+                email: '',
+                password: ''
+            }
+        };
+
+        this.doLogin = this.doLogin.bind(this);
+        this.doSignup = this.doSignup.bind(this);
+        this.doForgotPassword = this.doForgotPassword.bind(this);
+        this.onEmailChange = this.onEmailChange.bind(this);
+        this.onPasswordChange = this.onPasswordChange.bind(this);
     }
+
+    doLogin() {
+        this.props.onViewChange('discover');
+    }
+
+    doSignup() {
+        this.props.onViewChange('signup', this.state.fields);
+    }
+
+    doForgotPassword(e) {
+        e.preventDefault();
+        return false;
+    }
+
+    onEmailChange(e) {
+        this.setState({fields: update(this.state.fields, {$merge: { email: e.target.value }})});
+    }
+
+    onPasswordChange(e) {
+        this.setState({fields: update(this.state.fields, {$merge: { password: e.target.value }})});
+    };
 
     render() {
         return (
             <Container className="login-view">
                 <div className="message bordered large center">Login to start Poppin!</div>
-                <Form className="login-form">
+                <div className="login-form">
                     <div>
-                        <Input hint="Email" type="email" />
-                        <Input hint="Password" type="password" />
+                        <Input hint="Email" type="email" onChange={this.onEmailChange} />
+                        <Input hint="Password" type="password" onChange={this.onPasswordChange} />
                     </div>
                     <div className="buttons">
                         <div>
-                            <Button color="primary">Login</Button>
+                            <Button
+                                color="primary"
+                                onClick={this.doLogin}
+                            >Login</Button>
                         </div>
                         <div>
-                            <Button variant="raised">Sign Up</Button>
+                            <Button
+                                variant="raised"
+                                onClick={this.doSignup}
+                            >Sign Up</Button>
                         </div>
                     </div>
                     <div className="hint">
-                        <a href="#" className="link">Forgot your password?</a>
+                        <a href="#" className="link" onClick={this.doForgotPassword}>Forgot your password?</a>
                     </div>
-                </Form>
+                </div>
             </Container>
         );
     }
