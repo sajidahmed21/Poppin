@@ -52,7 +52,7 @@ export default class Login extends React.Component {
         return (
             <Container className="login-view">
                 <div className="message bordered large center">Login to start Poppin!</div>
-                <div className="login-form">
+                <div className="login-form form form-1">
                     <div>
                         <Input hint="Email" type="email" onChange={this.onEmailChange} />
                         <Input hint="Password" type="password" onChange={this.onPasswordChange} />

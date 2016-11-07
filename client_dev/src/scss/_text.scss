@@ -1,0 +1,20 @@
+.message {
+    padding: 10px;
+    margin: 3px;
+    color: #000;
+    font-size: 14px;
+
+    &.bordered {
+        border: 1px solid #a2d0f5;
+        border-radius: 2px;
+        background: rgb(209, 235, 255);
+    }
+
+    &.large {
+        font-size: 18px;
+    }
+
+    &.center {
+        text-align: center;
+    }
+}

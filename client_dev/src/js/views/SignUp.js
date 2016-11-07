@@ -30,7 +30,7 @@ export default class SignUp extends React.Component {
         return (
             <Container className="signup-view">
                 <div className="message bordered large center">Signup to start Poppin!</div>
-                <div className="signup-form">
+                <div className="signup-form form form-1">
                     <div>
                         <Input
                             hint="Email"
