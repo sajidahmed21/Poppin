@@ -14,7 +14,7 @@
     text-align                  : center;
     font-size                   : 30px;
     font-weight                 : bold;
-    animation                   : check 1.2s cubic-bezier(.75,.17,.33,.82) 0.1s 1 normal forwards;
+    animation                   : check 1s cubic-bezier(.75,.17,.33,.82) 0.1s 1 normal forwards;
     -webkit-animation-fill-mode : forwards;
     transform                   : translate3d(0px,0px,0px);
   }
@@ -30,7 +30,7 @@
     opacity                     : 0;
     border-radius               : 50%;
     background                  : #2196F3;
-    animation                   : check-circle 0.65s cubic-bezier(.75,.17,.33,.82) 0.4s 1;
+    animation                   : check-circle 0.45s cubic-bezier(.75,.17,.33,.82) 0.4s 1;
     -webkit-animation-fill-mode : forwards;
     transform                   : translate3d(0px,0px,0px);
   }

@@ -16,7 +16,7 @@ export default class EventListItem extends React.Component {
                 }
             }}>
                 <div className='left-column'>
-                    <span className='name'>{this.props.name}</span>
+                    <div className='name'>{this.props.name}</div>
                     <div className='communities'>
                     {this.props.communities.map((community) => (
                         <span key={community.id}>({community.name})</span>

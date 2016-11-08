@@ -6,7 +6,7 @@ export default class Checkbox extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            checked: (typeof props.selected === 'undefined' ? false : props.selected)
+            checked: (typeof props.selected !== 'boolean' ? false : props.selected)
         };
 
         this.change = this.change.bind(this);

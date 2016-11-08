@@ -15,10 +15,16 @@ export default class TitleBar extends React.Component {
         return (
             <div className={this.props.loggedIn ? 'titlebar logged-in' : 'titlebar'}>
                 <Appbar>
-                    <div className="drawer-btn" onClick={this.props.onDrawerClick}>
+                    <div className="btn-drawer" onClick={this.props.onDrawerClick}>
                         <span className="fa fa-bars"></span>
                     </div>
                     <span className="title">Poppin</span>
+                    { this.props.view === 'firsttimeinterests' && (
+                        <div className="btn-next" onClick={() => { this.props.onViewChange('discover'); }}>
+                            <span className="fa fa-arrow-circle-right"></span>
+                            <span className="label">Next</span>
+                        </div>
+                    ) }
                 </Appbar>
                 <div className={this.props.drawerOpen ? 'drawer open' : 'drawer closed'}>
                     <ul>
