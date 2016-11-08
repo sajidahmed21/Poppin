@@ -22,12 +22,12 @@ export default class Discover extends React.Component {
     render() {
         const text = {
             title: 'Discover',
-            subtitle: "What's happening near you!"
+            subtitle: "Looking for somewhere to Poppin?"
         };
 
         return (
-            <Container className='expand'>
-                <div className='discover-header'>
+            <Container className='expand discover-view'>
+                <div className='discover-header header'>
                     <span className='title'>{text['title']}</span>
                     <span className='subtitle'>{text['subtitle']}</span>
                 </div>

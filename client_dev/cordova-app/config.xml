@@ -9,12 +9,15 @@
     <access origin="*" />
     <allow-intent href="*" />
     <allow-intent href="data:*" />
+    <preference name="Orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <preference name="OverrideUserAgent" value="Poppin Client/1.0" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <preference name="OverrideUserAgent" value="Poppin Client/1.0" />
     </platform>
     <engine name="android" spec="~5.2.2" />
     <plugin name="cordova-plugin-android-permissions" spec="~0.10.0" />

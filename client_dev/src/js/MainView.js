@@ -1,4 +1,7 @@
 import React from 'react';
+import update from 'immutability-helper';
+
+import Hammer from 'react-hammerjs';
 
 import TitleBar from './TitleBar';
 
@@ -18,17 +21,48 @@ export default class MainView extends React.Component {
 
         this.state = {
             current: 'login',
+            drawerOpen: false,
             opts: {}
         };
 
+        this.hammerOpts = {
+            direction: Hammer.DIRECTION_HORIZONTAL,
+            threshold: 10
+        };
+
         this.change = this.change.bind(this);
+        this.onSwipe = this.onSwipe.bind(this);
+        this.onDrawerClick = this.onDrawerClick.bind(this);
+        this.isLoggedIn = this.isLoggedIn.bind(this);
 
         /* Attach view changer for debugging. */
         window.changeView = this.change;
     }
 
     change(view, opts = {}) {
-        this.setState({ current: view, opts: opts });
+        this.setState(update(this.state, { $merge: {
+            current: view,
+            opts: opts,
+            drawerOpen: false
+        }}));
+    }
+
+    onSwipe(e) {
+        if ((e.deltaX > 0 && !this.state.drawerOpen) || (e.deltaX < 0 && this.state.drawerOpen)) {
+            this.onDrawerClick();
+        }
+    }
+
+    onDrawerClick() {
+        if (this.isLoggedIn()) {
+            this.setState(update(this.state, { $merge: { drawerOpen: !this.state.drawerOpen }}));
+        } else {
+            this.setState(update(this.state, { $merge: { drawerOpen: false }}));
+        }
+    }
+
+    isLoggedIn() {
+        return !['login', 'signup', 'firsttimeinterests'].includes(this.state.current);
     }
 
     render() {
@@ -46,8 +80,16 @@ export default class MainView extends React.Component {
 
         return (
             <div>
-                <TitleBar view={this.state.current} onViewChange={this.change} />
-                {views[this.state.current]}
+                <TitleBar
+                    view={this.state.current}
+                    onViewChange={this.change}
+                    drawerOpen={this.state.drawerOpen}
+                    onDrawerClick={this.onDrawerClick}
+                    loggedIn={this.isLoggedIn()}
+                />
+                <Hammer onSwipe={this.onSwipe} options={this.hammerOpts}>
+                    {views[this.state.current]}
+                </Hammer>
             </div>
         );
     }

@@ -10,23 +10,19 @@ export default class EventList extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            'event-list-style': {},
             events: {}
         };
     }
 
     componentDidMount() {
         this.setState({
-            'event-list-style': {
-                height: window.innerHeight - document.querySelector('.event-list').offsetTop
-            },
             events: Dummy.events
         });
     }
 
     render() {
         return (
-            <div className='event-list' style={this.state['event-list-style']}>
+            <div className='event-list'>
                 {Object.keys(this.state.events).map((key) => (
                     <EventListItem
                         key={key}

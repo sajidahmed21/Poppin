@@ -7,14 +7,7 @@
 /* As we develop new css rules, we will decide on organization. E.g. imports. */
 
 /* TitleBar */
-
-.mui-appbar {
-    text-align: center;
-
-    span.title {
-        font-size: 36px;
-    }
-}
+@import '_titlebar';
 
 .mui-container.expand {
     width: 100%;

@@ -1,0 +1,91 @@
+.mui-appbar {
+    text-align: center;
+    position: relative;
+
+    span.title {
+        font-size: 36px;
+    }
+}
+
+.titlebar {
+
+    div.drawer-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        left: 12.5px;
+        padding: 2.5px 5px;
+
+        transition: transform 0.5s;
+
+        &:hover, &:focus {
+            transform: translateY(-50%) scale(1.2);
+        }
+    }
+
+    div.drawer {
+        width: 65vw;
+        background: $blue;
+        padding: 30px 0 0 0;
+        margin: 0;
+        z-index: 9990;
+        position: absolute;
+        top: 56px;
+
+        height: calc(100vh - 56px);
+
+        transition: transform 0.4s ease;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            width: 100%;
+
+            li {
+                padding: 0.8em 0;
+                text-align: center;
+                color: #fff;
+                font-size: 1.4em;
+                background: #56adf3;
+                border-radius: 2px;
+                margin: 0 2px;
+            }
+
+            li:hover, li:active {
+                background: #3da5f9;
+            }
+        }
+
+        ul.settings {
+            margin-top: 20px;
+        }
+
+        div.divider {
+            width: 90%;
+            margin: 0 auto;
+            height: 2px;
+            background: #ccc;
+            opacity: 0.2;
+        }
+    }
+
+    div.drawer.closed {
+        transform: translate3d(-65vw,0px,0px);
+    }
+
+    div.drawer.open {
+        transform: translate3d(0vw,0px,0px);
+    }
+}
+
+.titlebar:not(.logged-in) {
+    div.drawer-btn {
+        display: none;
+    }
+
+    div.drawer {
+        display: none;
+    }
+}

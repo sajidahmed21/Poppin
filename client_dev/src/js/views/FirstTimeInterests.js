@@ -19,7 +19,7 @@ export default class FirstTimeInterests extends React.Component {
         };
 
         return (
-            <Container>
+            <Container className="firsttimeinterests-view">
                 <div className="message center">{text['header']}</div>
                 <CommunityList />
             </Container>

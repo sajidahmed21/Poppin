@@ -41,9 +41,6 @@ export default class CommunityList extends React.Component {
 
     componentDidMount() {
         this.setState({
-            'community-list-style': {
-                height: window.innerHeight - document.querySelector('.community-list-items').offsetTop
-            },
             communities: Dummy.communities
         });
     }
@@ -56,7 +53,7 @@ export default class CommunityList extends React.Component {
                     hint='Search communities...'
                     onChange={this.onSearch}
                 />
-                <div className='community-list-items' style={this.state['community-list-style']}>
+                <div className='community-list-items'>
                     {Object.keys(this.state.communities).map((key) => (
                         <CommunityListItem
                             key={key}
