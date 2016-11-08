@@ -13,7 +13,8 @@ const App = () => (
 
 document.addEventListener('deviceready', () => {
     /* Request all necessary permissions. */
-    RequirePermissions([]).then(() => {
+    RequirePermissions(['ACCESS_COARSE_LOCATION',
+                        'ACCESS_FINE_LOCATION']).then(() => {
         ReactDOM.render(
             <App />,
             document.getElementById('root')

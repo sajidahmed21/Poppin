@@ -36,4 +36,8 @@
         <variable name="XWALK_MODE" value="embedded" />
         <variable name="XWALK_MULTIPLEAPK" value="true" />
     </plugin>
+    <plugin name="cordova-plugin-device" spec="~1.1.3" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.4.0">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Location services are used to find events in your area." />
+    </plugin>
 </widget>
