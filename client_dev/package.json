@@ -16,7 +16,7 @@
   "homepage": "https://github.com/csc301-fall-2016/project-team-16",
   "dependencies": {
     "immutability-helper": "^2.0.0",
-    "leaflet": "^1.0.1",
+    "leaflet": "^0.7.5",
     "muicss": "^0.9.3",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

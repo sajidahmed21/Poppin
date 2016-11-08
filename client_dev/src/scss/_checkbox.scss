@@ -5,6 +5,7 @@
   height   : 45px;
   margin   : 2px;
   border   : 2px solid #ccc;
+  overflow : hidden;
 
   &.checked::after {
     content                     : '\2713';
