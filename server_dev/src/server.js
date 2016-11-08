@@ -20,15 +20,17 @@ var event = require(constants.event);
 
 /* -------- User Sign Up and Authentication -------- */
 
-app.post('/user/signup', user.handleSignUpRequest);
+app.post('/user', user.signUp);
+
+// app.post('/auth', ....) TODO
 
 
 /* ------------------- Events ---------------------- */
-app.post('/event/nearby-events', event.handleGetNearbyEventsRequest);
+app.get('/events', event.getEvents);
 
-app.post('/event/details', event.handleEventDetailsRequest);
+app.get('/event/:id', event.getEventDetails);
 
-app.post('/event/create-event', event.createNewEvent);
+app.post('/event', event.createNewEvent);
 
 
 /* ----------------- Communities ------------------ */

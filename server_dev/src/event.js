@@ -7,10 +7,14 @@ var dbAdapter = require(constants.dbAdapter);
  * This function is the first trigger point
  * whenever a NearbyEvents request is received.
 */
-exports.handleGetNearbyEventsRequest = function (request, response) {
+exports.getEvents = function (request, response) {
     
-    var longitude = request.body.longitude;
-    var latitude = request.body.latitude;
+    var radius = request.query.radius;
+    var longitude = request.query.longitude;
+    var latitude = request.query.latitude;
+    console.log("Long: " + longitude);
+    console.log("Lat: " + latitude);
+    console.log("Rad: " + radius);
     
     dbAdapter.getListOfNearbyEvents(longitude, latitude, function (result, data) {
         
@@ -49,28 +53,10 @@ exports.handleGetNearbyEventsRequest = function (request, response) {
  * This function is the first trigger point
  * whenever an EventDetails request is received.
 */
-exports.handleEventDetailsRequest = function (request, response) {
+exports.getEventDetails = function (request, response) {
     
-    var eventId = request.body.event_id;
-    var name = request.body.name;
-    var description = request.body.description;
-    var startDate = request.body.start_date;
-    var endDate = request.body.end_date;
-    var longitude = request.body.longitude;
-    var latitude = request.body.latitude;
-    var isActive = request.body.is_active;
-    var dateCreated = request.body.date_created;
-
+    var eventId = request.params.id;
     console.log("Event Id: " + eventId);
-    console.log("Name: " + name);
-    console.log("Description: " + description);
-    console.log("Start Date: " + startDate);
-    console.log("End Date: " + endDate);
-    console.log("Longitude: " + longitude);
-    console.log("Latitude: " + latitude);
-    console.log("Active: " + isActive);
-    console.log("Date Created: " + dateCreated);
-
     
     dbAdapter.getEventDetails(eventId, function (result, data) {
         

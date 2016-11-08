@@ -90,4 +90,4 @@ exports.createNewEvent = function(event, callback){
     // Insert into database.
     console.log(event);
     callback(constants.SUCCESS);
-}
+};
