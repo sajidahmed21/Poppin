@@ -19,26 +19,18 @@ exports.getEvents = function (request, response) {
     dbAdapter.getListOfNearbyEvents(longitude, latitude, function (result, data) {
         
         if (result == constants.SUCCESS) {
-            var today = new Date();
-
+            var today = new Date()/1000;
+            
             for(var i = 0; i < data.length; i++){
                 var curr_event = data[i];
-                var year = curr_event.end_date.substring(6,10);
-                var month = curr_event.end_date.substring(3,5);
-                var day = curr_event.end_date.substring(0,2);
-
-                //if(parseInt(year)>= today.getFullYear() && parseInt(month) + 1 >= today.getMonth()){
-                if(parseInt(year)== today.getFullYear() && parseInt(month) == today.getMonth() + 1 && parseInt(day) < today.getDate()){
-                    data.splice(i, i + 1);
-                    i--;
-                }
-
-                //}
-                else if(parseInt(year)< today.getFullYear() || (parseInt(year) == today.getFullYear() && parseInt(month) < today.getMonth() + 1)){
-                    data.splice(i, i + 1);
+                var event_date = curr_event.end_date;
+                if(event_date < today){
+                    data.splice(i, 1);
                     i--;
                 }
             }
+
+
             common.sendSuccessResponse(data, response);
         }
         else {

@@ -12,13 +12,18 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
     console.log("Longitude: " + longitude);
     console.log("Latitude: " + latitude);
     
+    var today = new Date()/1000;
+    var date1 = today - (60*60*24); //event 1 day ago
+    var date2 = today + (60*60*24); //event in 1 day
+    var date3 = today - (60*60*24 * 31); //event was 1 month ago
+    var date4 = today + (60*60*24*31); //event is coming up next month
     // TODO:
     
     var mockData = [
         {
             name: "301 Study Group",
-            start_date: "31-09-2016",
-            end_date: "31-09-2016",
+            start_date: date1,
+            end_date: date1,
             longitude: "",//todo
             latitude: "",//todo
             distance: ""
@@ -26,8 +31,8 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
         },
         {
             name: "Gamer's Club League of Legends Tournement",
-            start_date: "05-11-2016",
-            end_date: "10-11-2016",
+            start_date: date2,
+            end_date: date2,
             longitude: "",//todo
             latitude: "",//todo
             distance: ""
@@ -35,8 +40,8 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
         },
         {
             name: "Party at Sigma Delta Phi house.",
-            start_date: "25-12-2016",
-            end_date: "01-01-2017",
+            start_date: date3,
+            end_date: date3,
             longitude:"",//todo
             latitude:"",//todo,
             distance:""
@@ -44,8 +49,8 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
         },
         {
             name: "Music Concert",
-            start_date: "31-11-2015",
-            end_date: "31-11-2015",
+            start_date: date4,
+            end_date: date4,
             longitude: "",//todo
             latitude: "",//todo
             distance: ""
