@@ -21,6 +21,7 @@ exports.getEvents = function (request, response) {
         if (result == constants.SUCCESS) {
             var today = new Date()/1000;
             
+            /*
             for(var i = 0; i < data.length; i++){
                 var curr_event = data[i];
                 var event_date = curr_event.end_date;
@@ -28,7 +29,7 @@ exports.getEvents = function (request, response) {
                     data.splice(i, 1);
                     i--;
                 }
-            }
+            }*/
 
 
             common.sendSuccessResponse(data, response);

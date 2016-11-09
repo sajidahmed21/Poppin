@@ -13,10 +13,10 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
     console.log("Latitude: " + latitude);
     
     var today = new Date()/1000;
-    var date1 = today - (60*60*24); //event 1 day ago
+    var date1 = today + (60*60*24 * 4); //event 1 day ago
     var date2 = today + (60*60*24); //event in 1 day
-    var date3 = today - (60*60*24 * 31); //event was 1 month ago
-    var date4 = today + (60*60*24*31); //event is coming up next month
+    var date3 = today + (60*60*24 * 3); //event was 1 month ago
+    var date4 = today + (60*60*24*5); //event is coming up next month
     // TODO:
     
     var mockData = [
