@@ -5,6 +5,7 @@ import Container from 'muicss/lib/react/container';
 import Form from 'muicss/lib/react/form';
 import Button from 'muicss/lib/react/button';
 import Input from 'muicss/lib/react/input';
+import Textarea from 'muicss/lib/react/textarea';
 
 export default class CreateEvent extends React.Component {
     constructor() {
@@ -17,14 +18,14 @@ export default class CreateEvent extends React.Component {
     }
 
     create() {
-        this.props.onViewChange('firsttimeinterests');
+        this.props.onViewChange('createeventinterests');
     }
 
     render() {
         return (
-            <Container className="signup-view">
+            <Container className="createevent-view">
                 <div className="message bordered large center">Create New Event</div>
-                <div className="signup-form form form-1">
+                <div className="form form-1">
                     <div>
                         <Input
                             hint="Event Name"
@@ -42,6 +43,9 @@ export default class CreateEvent extends React.Component {
                         <Input
                             hint="Address"
                             type="text"
+                        />
+                        <Textarea
+                            hint="Describe the event."
                         />
                     </div>
                     <div className="buttons">
