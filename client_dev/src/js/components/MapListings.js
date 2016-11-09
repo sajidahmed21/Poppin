@@ -44,7 +44,7 @@ export default class MapListings extends React.Component {
         };
 
         return (
-            <div className='map-listings'>
+            <div className='map-listings map-container'>
                 { this.state.latitude !== false && <MapContainer latitude={this.state.latitude} longitude={this.state.longitude} /> }
                 { this.state.latitude === false && this.state.loading === false && (
                     <div className='map map-error'>{text['error']}</div>

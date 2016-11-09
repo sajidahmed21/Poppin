@@ -3,31 +3,6 @@
 }
 
 .map-listings {
-    .map, .leaflet-container {
-        width: 100%;
-        height: 200px;
-        /*background: #cbdbff;*/
-
-        .leaflet-control-container {
-            display: none;
-        }
-    }
-
-    .map.map-error {
-        font-size: 1.5em;
-        text-align: center;
-        padding: 20px;
-        background: $blue;
-        color: #fff;
-
-        i.fa {
-            display: block;
-            font-size: 3em;
-            margin: 20px 0;
-            transform: translate3d(0px,0px,0px);
-        }
-    }
-
     .event-list {
         margin-top: 3px;
 

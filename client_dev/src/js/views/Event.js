@@ -1,41 +1,79 @@
 import React from 'react';
 
-
 import MapContainer from '../components/MapContainer';
 /* Import Material UI Components. */
 import Container from 'muicss/lib/react/container';
+import Button from 'muicss/lib/react/button';
+
+import Dummy from '../lib/Dummy';
 
 export default class Event extends React.Component {
     constructor() {
         super();
 
         /* Initialize blank state. */
-        this.state = {};
+        this.state = {
+            event: {
+                name: "",
+                description: "",
+                start_date: 0,
+                end_date: 0,
+                longitude: 0,
+                latitude: 0,
+                distance: 0,
+                communities: []
+            }
+        };
+    }
+
+    componentWillMount() {
+        if (this.props.viewOpts.id) {
+            this.setState({
+                event: Dummy.events[this.props.viewOpts.id]
+            });
+        }
     }
 
     render() {
-        const text = {
-            title: 'Go Leafs Go',
-            subtitle: "Join us to cheer on the leafs while they win the Stanley cup. Tell your friends about us."
+        const dateFormat = "MMM. Do, YYYY, h:mm:ss a";
+
+        const renderDate = () => {
+            if (this.state.event.start_date === this.state.event.end_date) {
+                return (
+                    <div className='date'>
+                        <span className='single'>{moment(this.state.event.start_date).format(dateFormat)}</span>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className='date'>
+                        <span className='start'>{moment(this.state.event.start_date).format(dateFormat)}</span>
+                        <span className='to'>to</span>
+                        <span className='end'>{moment(this.state.event.end_date).format(dateFormat)}</span>
+                    </div>
+                );
+            }
         };
 
         return (
             <Container className='expand'>
                 <div className='event-header'>
-                    <span className='title'>{text['title']}</span>
+                    <span className='title'>{this.state.event.name}</span>
                 </div>
-                <div className='map-display'>
-                    <MapContainer latitude={38.898556}longitude={-77.037852} />
+                <div className='map-container small'>
+                    <MapContainer latitude={this.state.event.latitude} longitude={this.state.event.longitude} />
                 </div>
                 <div className='event-details'>
-                    <span className='subtitle'>{text['subtitle']} </span><br />
-                    <span className='subtitle'>Duration: </span><br />
-                    <span className='date'> 1478045486 - 1478049486 </span><br />
-                    <span className='subtitle'>Distance: </span><br />
-                    <span className='date'> 3.2 </span><br />
-                    <span className='subtitle'>Communities: </span>
+                    {renderDate()}
+                    <div className='communities'>{this.state.event.communities.map((community) => (
+                        <span className='community' key={community.id} id={community.id}>{community.name}</span>
+                    ))}</div>
+                    <div className='description'>{this.state.event.description}</div>
                 </div>
-
+                <div className='event-actions'>
+                    <Button color="primary">{"I'm Going"}</Button>
+                    <Button color="primary">{"I'm Interested"}</Button>
+                </div>
             </Container>
         );
     }

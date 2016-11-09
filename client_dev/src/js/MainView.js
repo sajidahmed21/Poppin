@@ -14,6 +14,7 @@ import EventView from './views/Event';
 import CreateEventView from './views/CreateEvent';
 import MyEventsView from './views/MyEvents';
 import MyInterestsView from './views/MyInterests';
+import CreateEventInterests from './views/CreateEventInterests';
 
 export default class MainView extends React.Component {
     constructor() {
@@ -74,6 +75,7 @@ export default class MainView extends React.Component {
             'discover': (<DiscoverView onViewChange={this.change} viewOpts={this.state.opts} />),
             'event': (<EventView onViewChange={this.change} viewOpts={this.state.opts} />),
             'createevent': (<CreateEventView onViewChange={this.change} viewOpts={this.state.opts} />),
+            'createeventinterests': (<CreateEventInterests onViewChange={this.change} viewOpts={this.state.opts} />),
             'myevents': (<MyEventsView onViewChange={this.change} viewOpts={this.state.opts} />),
             'myinterests': (<MyInterestsView onViewChange={this.change} viewOpts={this.state.opts} />)
         };

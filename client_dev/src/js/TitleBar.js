@@ -31,6 +31,7 @@ export default class TitleBar extends React.Component {
                         <li onClick={() => { this.props.onViewChange('discover'); }}>Discover</li>
                         <li onClick={() => { this.props.onViewChange('myevents'); }}>My Events</li>
                         <li onClick={() => { this.props.onViewChange('createevent'); }}>Create Event</li>
+                        <li onClick={() => { this.props.onViewChange('myinterests'); }}>Communities</li>
                     </ul>
                     <ul>
                         <li>Settings</li>

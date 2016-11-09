@@ -51,7 +51,7 @@ export default {
     events: {
         '1': {
             name: "Go Leafs Go!",
-            description: "Join us to cheer on the leafs while they win the Stanley cup. Tell your friends about us.",
+            description: "Join us to cheer on the leafs while they win the Stanley cup. Tell your friends about us.\n\nThis is actually a very long description.",
             start_date: 1478045486,
             end_date: 1478049486,
             longitude: -77.037852,

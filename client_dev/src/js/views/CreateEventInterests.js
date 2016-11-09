@@ -5,7 +5,7 @@ import Container from 'muicss/lib/react/container';
 
 import CommunityList from '../components/CommunityList';
 
-export default class MyInterests extends React.Component {
+export default class CreateEventInterests extends React.Component {
     constructor() {
         super();
 
@@ -15,11 +15,11 @@ export default class MyInterests extends React.Component {
 
     render() {
         const text = {
-            'header': "Join communities which interests you..."
+            'header': "Select communities to post your event in..."
         };
 
         return (
-            <Container className="myinterests-view">
+            <Container className="createeventinterests-view">
                 <div className="message center">{text['header']}</div>
                 <CommunityList />
             </Container>
