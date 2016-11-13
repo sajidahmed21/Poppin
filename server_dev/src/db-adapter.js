@@ -92,7 +92,24 @@ exports.getEventDetails = function (eventId, callback) {
 
 exports.createNewEvent = function(event, callback){
 
+    var data = {name: event.name,
+                description: event.description,
+                start_date: event.startDate,
+                end_date: event.endDate,
+                longitude: event.longitude,
+                latitude: event.latitude,
+                is_active: event.is_active,
+                date_created: dateCreated}
+    var queryString = "INSERT INTO event SET ?"
+
     // Insert into database.
-    console.log(event);
-    callback(constants.SUCCESS);
+    connection.query(queryString, data, function(error, response){
+        if (err) {
+            callback(constants.ERROR);
+        } else {
+            callback(constants.SUCCESS);
+        }
+    })
+    console.log(response);
+
 };
