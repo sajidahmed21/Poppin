@@ -13,6 +13,11 @@ export default class Event extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
+            current: {
+                loading: true,
+                latitude: false,
+                longitude: false
+            },
             event: {
                 name: "",
                 description: "",
@@ -32,6 +37,30 @@ export default class Event extends React.Component {
                 event: Dummy.events[this.props.viewOpts.id]
             });
         }
+    }
+
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.setState({
+                current: {
+                    loading: false,
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                }
+            });
+        }, (err) => {
+            this.setState({
+                current: {
+                    loading: false,
+                    latitude: false,
+                    longitude: false
+                }
+            });
+        }, {
+            maximumAge: 3000,
+            timeout: 5000,
+            enableHighAccuracy: true
+        });
     }
 
     render() {
@@ -61,7 +90,12 @@ export default class Event extends React.Component {
                     <span className='title'>{this.state.event.name}</span>
                 </div>
                 <div className='map-container small'>
-                    <MapContainer latitude={this.state.event.latitude} longitude={this.state.event.longitude} />
+                    <MapContainer
+                        latitude={this.state.event.latitude}
+                        longitude={this.state.event.longitude}
+                        isEvent={true}
+                        current={this.state.current.loading ? false : this.state.current}
+                    />
                 </div>
                 <div className='event-details'>
                     {renderDate()}

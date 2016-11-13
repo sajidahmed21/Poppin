@@ -9,24 +9,30 @@ export default class MapListings extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            loading: true,
-            latitude: false,
-            longitude: false
+            current: {
+                loading: true,
+                latitude: false,
+                longitude: false
+            }
         };
     }
 
     componentDidMount() {
         navigator.geolocation.getCurrentPosition((position) => {
             this.setState({
-                loading: false,
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
+                current: {
+                    loading: false,
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                }
             });
         }, (err) => {
             this.setState({
-                loading: false,
-                latitude: false,
-                longitude: false
+                current: {
+                    loading: false,
+                    latitude: false,
+                    longitude: false
+                }
             });
         }, {
             maximumAge: 3000,
@@ -45,11 +51,18 @@ export default class MapListings extends React.Component {
 
         return (
             <div className='map-listings map-container'>
-                { this.state.latitude !== false && <MapContainer latitude={this.state.latitude} longitude={this.state.longitude} /> }
-                { this.state.latitude === false && this.state.loading === false && (
+                { this.state.current.latitude !== false && <MapContainer
+                                                        latitude={this.state.current.latitude}
+                                                        longitude={this.state.current.longitude}
+                                                        current={this.state.current.loading ? false : this.state.current}
+                                                        nearbyEvents={true}
+                                                        isEvent={false}
+                                                        onEventSelect={this.props.onEventSelect}
+                                                    /> }
+                { this.state.current.latitude === false && this.state.current.loading === false && (
                     <div className='map map-error'>{text['error']}</div>
                 ) }
-                { this.state.latitude === false && this.state.loading === true && (
+                { this.state.current.latitude === false && this.state.current.loading === true && (
                     <div className='map map-error'>
                         {text['loading']}
                         <i className='fa fa-circle-o-notch fa-spin'></i>
