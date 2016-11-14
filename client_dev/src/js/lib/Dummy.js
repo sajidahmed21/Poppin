@@ -68,6 +68,16 @@ export default {
             id: '95'
             name: 'Media'
             description: 'People who love books, movies, etc.'
+        },
+        '101':{
+            id: '101'
+            name: 'Video Games'
+            description: 'For all people who enjoy video games.'
+        },
+        '110':{
+            id: '110'
+            name: 'Dance'
+            description: 'For those who enjoy to dance.'
         }
     },
     events: {
@@ -192,6 +202,45 @@ export default {
                { id: 89, name: "Tourism"},
                { id: 33, name: "Party"},
                { id: 39, name: "Swimming"}
+            ]
+        },
+        '104': {
+            name: "University of Toronto League of Legends Championship Series"
+            description: "Enjoy a day of exciting LOL games. Players from all tiers are welcome!"
+            start_date: 1479902400,
+            end_date: 1479938400,
+            latitude: 43.667730,
+            longitude: -79.393872,
+            distance: 1.0,
+            communities: [
+               { id: 24, name: "University of Toronto"},
+               { id: 101, name: "Video Games"}
+            ]
+        },
+        '105':{
+            name: "Yugoslavian Dance Meetup"
+            description: "Come one, come all to enjoy a full 24 hours of nonstop Yugoslavian dance!"
+            start_date: 1480161600,
+            end_date: 1480248000,
+            latitude: 43.667730,
+            longitude: -79.393872,
+            distance: 1.0,
+            communities: [
+               { id: 24, name: "University of Toronto"},
+               { id: 110, name: "Dance"}
+            ]
+        },
+        '106':{
+            name: "The Grande Duel"
+            description: "For one full day UC has been booked by the Fencing Club! Join us as different factions duel for control of UC."
+            start_date: 1482667200,
+            end_date: 1482753600,
+            latitude: 43.660974,
+            longitude: -79.395370,
+            distance: 2.5,
+            communities: [
+               { id: 24, name: "University of Toronto"},
+               { id: 31, name: "Fencing"}
             ]
         }
     }
