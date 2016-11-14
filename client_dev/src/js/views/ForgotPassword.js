@@ -13,10 +13,15 @@ export default class ForgotPassword extends React.Component {
         /* Initialize blank state. */
         this.state = {};
         this.doResetEmail = this.doResetEmail.bind(this);
+        this.onEmailChange = this.onEmailChange.bind(this);
     }
 
     doResetEmail() {
         this.props.onViewChange('login');
+    }
+
+    onEmailChange() {
+        
     }
 
     render() {
