@@ -55,18 +55,18 @@ export default {
             description: 'Lots of sports.'
         },
         '88': {
-            id: '88'
-            name: 'Other'
+            id: '88',
+            name: 'Other',
             description: 'Miscellaneous general events.'
         },
         '89': {
-            id: '89'
-            name: 'Tourism'
+            id: '89',
+            name: 'Tourism',
             description: 'For sightseeing and places of interest.'
         },
         '95': {
-            id: '95'
-            name: 'Media'
+            id: '95',
+            name: 'Media',
             description: 'People who love books, movies, etc.'
         },
         '101':{
@@ -178,10 +178,10 @@ export default {
             ]
         },
         '83': {
-            name: "The Lord of the Rings Concert"
-            description: "Sit back as we bring to life Tolkien's classic fantasy featuring a live cast!"
+            name: "The Lord of the Rings Concert",
+            description: "Sit back as we bring to life Tolkien's classic fantasy featuring a live cast!",
             start_date: 1480914000,
-            end_date:1481432340 1481432340,
+            end_date: 1481432340,
             longitude: -79.386426,
             latitude: 43.648562,
             distance: 4.0,
@@ -191,8 +191,8 @@ export default {
             ]
         },
         '90': {
-            name: "Swimming with the fishes"
-            description: "Enjoy a special night with the release of our new tropical sea life with special events just for the occasion!"
+            name: "Swimming with the fishes",
+            description: "Enjoy a special night with the release of our new tropical sea life with special events just for the occasion!",
             start_date: 1480986000,
             end_date: 1481004000,
             latitude: 43.642475,
