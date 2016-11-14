@@ -58,6 +58,16 @@ export default {
             id: '88'
             name: 'Other'
             description: 'Miscellaneous general events.'
+        },
+        '89': {
+            id: '89'
+            name: 'Tourism'
+            description: 'For sightseeing and places of interest.'
+        },
+        '95': {
+            id: '95'
+            name: 'Media'
+            description: 'People who love books, movies, etc.'
         }
     },
     events: {
@@ -144,5 +154,45 @@ export default {
                 { id: 24, name: "University of Toronto" }
             ]
         },
+        '80': {
+            name: "Free Admission to CN Tower.",
+            description: "Access to the SkyPod will be free for one day only!",
+            start_date: 1479132000,
+            end_date: 1479164400,
+            longitude: -79.379458,
+            latitude: 43.643026,
+            distance: 6.2,
+            communities: [
+                { id: 89, name: "Tourism"},
+                { id: 88, name: "Other"}
+            ]
+        },
+        '83': {
+            name: "The Lord of the Rings Concert"
+            description: "Sit back as we bring to life Tolkien's classic fantasy featuring a live cast!"
+            start_date: 1480914000,
+            end_date:1481432340 1481432340,
+            longitude: -79.386426,
+            latitude: 43.648562,
+            distance: 4.0,
+            communities: [
+                { id: 32, name: "Arts"},
+                { id: 95, name: "Media"}
+            ]
+        },
+        '90': {
+            name: "Swimming with the fishes"
+            description: "Enjoy a special night with the release of our new tropical sea life with special events just for the occasion!"
+            start_date: 1480986000,
+            end_date: 1481004000,
+            latitude: 43.642475,
+            longitude: -79.385987,
+            distance: 5.8,
+            communities: [
+               { id: 89, name: "Tourism"},
+               { id: 33, name: "Party"},
+               { id: 39, name: "Swimming"}
+            ]
+        }
     }
 };
