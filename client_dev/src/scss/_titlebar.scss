@@ -29,7 +29,42 @@
         }
 
         &:hover, &:active {
-            color: #6cbeff;
+            opacity: 0.8;
+        }
+    }
+
+    div.btn-notifications {
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 25px;
+
+        > .fa {
+            font-size: 2.75rem;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+
+            .label {
+                position: absolute;
+                background: #fff;
+                color: $orange;
+                text-align: center;
+                height: 2rem;
+                top: -0.6rem;
+                right: -0.3rem;
+                width: 2rem;
+                line-height: 2rem;
+                font-size: 1rem;
+                border-radius: 50%;
+                border: 1px solid #fff;
+            }
+        }
+
+        &:hover, &:active {
+            opacity: 0.8;
         }
     }
 

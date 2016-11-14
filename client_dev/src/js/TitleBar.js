@@ -19,7 +19,7 @@ export default class TitleBar extends React.Component {
                         <span className="fa fa-bars"></span>
                     </div>
                     <span className="title">Poppin</span>
-                    { ['firsttimeinterests', 'createeventinterests'].includes(this.props.view) && (
+                    { (['firsttimeinterests', 'createeventinterests'].includes(this.props.view) && (
                         <div className="btn-next" onClick={
                                 () => {
                                     if (this.props.view === 'firsttimeinterests') {
@@ -32,7 +32,13 @@ export default class TitleBar extends React.Component {
                             <span className="fa fa-arrow-circle-right"></span>
                             <span className="label">Next</span>
                         </div>
-                    ) }
+                    )) || (this.props.loggedIn && (
+                        <div className='btn-notifications'>
+                            <span className='fa fa-bell-o'>
+                                <span className='label'>{this.props.notificationCount}</span>
+                            </span>
+                        </div>
+                    ))}
                 </Appbar>
                 <div className={this.props.drawerOpen ? 'drawer open' : 'drawer closed'}>
                     <ul>
