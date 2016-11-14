@@ -19,7 +19,7 @@ export default class CreateEventInterests extends React.Component {
         };
 
         return (
-            <Container className="createeventinterests-view">
+            <Container className="createeventinterests-view expand">
                 <div className="message center">{text['header']}</div>
                 <CommunityList />
             </Container>

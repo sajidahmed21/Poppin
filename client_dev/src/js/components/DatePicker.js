@@ -12,13 +12,23 @@ export default class DatePicker extends React.Component {
         this.show = this.show.bind(this);
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
     show() {
         DateTimePicker.show({
             mode: 'date'
         }).then(date => {
+            if (!this._isMounted) return;
             DateTimePicker.show({
                 mode: 'time'
             }).then(time => {
+                if (!this._isMounted) return;
                 this.setState({
                     epoch: new Date(date.year, date.month, date.day, time.hour, time.minute).getTime() / 1000
                 });

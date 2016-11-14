@@ -49,7 +49,7 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <Container className="login-view">
+            <Container className="login-view expand">
                 <div className="message bordered large center">Login to start Poppin!</div>
                 <div className="login-form form form-1">
                     <div>

@@ -25,12 +25,14 @@ export default {
         '64': {
             id: '64',
             name: 'Club',
-            description: 'A group of individuals aspiring to succeed.'
+            description: 'A group of individuals aspiring to succeed.',
+            private: true
         },
         '31': {
             id: '31',
             name: 'Fencing',
-            description: 'The teenager\'s chivalry.'
+            description: 'The teenager\'s chivalry.',
+            private: true
         },
         '32': {
             id: '32',
@@ -46,6 +48,11 @@ export default {
             id: '39',
             name: 'Swimming',
             description: 'Another sport.'
+        },
+        '87': {
+            id: '87',
+            name: 'Sports',
+            description: 'Lots of sports.'
         }
     },
     events: {

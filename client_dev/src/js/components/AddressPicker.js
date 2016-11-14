@@ -22,7 +22,10 @@ export default class AddressPicker extends React.Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
+
         navigator.geolocation.getCurrentPosition((position) => {
+            if (!this._isMounted) return;
             this.setState({
                 current: {
                     loading: false,
@@ -33,6 +36,7 @@ export default class AddressPicker extends React.Component {
                 longitude: position.coords.longitude
             });
         }, (err) => {
+            if (!this._isMounted) return;
             this.setState({
                 current: {
                     loading: false,
@@ -45,6 +49,10 @@ export default class AddressPicker extends React.Component {
             timeout: 5000,
             enableHighAccuracy: true
         });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     show() {

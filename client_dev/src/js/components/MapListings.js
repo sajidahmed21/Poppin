@@ -18,7 +18,10 @@ export default class MapListings extends React.Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
+
         navigator.geolocation.getCurrentPosition((position) => {
+            if (!this._isMounted) return;
             this.setState({
                 current: {
                     loading: false,
@@ -27,6 +30,7 @@ export default class MapListings extends React.Component {
                 }
             });
         }, (err) => {
+            if (!this._isMounted) return;
             this.setState({
                 current: {
                     loading: false,
@@ -39,6 +43,10 @@ export default class MapListings extends React.Component {
             timeout: 15000,
             enableHighAccuracy: true
         });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {

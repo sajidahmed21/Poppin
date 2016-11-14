@@ -13,7 +13,7 @@ export default class MyEvents extends React.Component {
 
     render() {
         return (
-            <Container>
+            <Container className='expand'>
                 <div className="message bordered large center">Template Message: My Events</div>
             </Container>
         );

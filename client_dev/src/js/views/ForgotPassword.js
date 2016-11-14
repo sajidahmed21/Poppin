@@ -21,12 +21,12 @@ export default class ForgotPassword extends React.Component {
     }
 
     onEmailChange() {
-        
+
     }
 
     render() {
         return (
-            <Container>
+            <Container className='expand'>
                 <div className="message bordered large center">Reset Password</div>
                 <div className="login-form form form-1">
                     <div>

@@ -1,6 +1,7 @@
 .mui-appbar {
     text-align: center;
     position: relative;
+    background: $orange;
 
     span.title {
         font-size: 36px;
@@ -49,7 +50,7 @@
 
     div.drawer {
         width: 65vw;
-        background: $blue;
+        background: $orange;
         padding: 30px 0 0 0;
         margin: 0;
         z-index: 9990;
@@ -69,15 +70,15 @@
             li {
                 padding: 0.8em 0;
                 text-align: center;
-                color: #fff;
+                color: #333;
                 font-size: 1.4em;
-                background: #56adf3;
+                background: #ffc482;
                 border-radius: 2px;
-                margin: 0 2px;
+                margin: 2px;
             }
 
             li:hover, li:active {
-                background: #3da5f9;
+                background: $orange;
             }
         }
 

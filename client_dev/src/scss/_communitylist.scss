@@ -4,6 +4,12 @@
     height: calc(100vh - 170px);
 }
 
+.community-list {
+    > .mui-textfield {
+        margin: 0 15px 20px 10px;
+    }
+}
+
 .community-list-items {
     margin-top: 3px;
 

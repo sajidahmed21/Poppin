@@ -11,6 +11,12 @@ export default class MyInterests extends React.Component {
 
         /* Initialize blank state. */
         this.state = {};
+
+        this.onCommunitySelect = this.onCommunitySelect.bind(this);
+    }
+
+    onCommunitySelect(id) {
+        this.props.onViewChange('community', { id: id });
     }
 
     render() {
@@ -19,9 +25,9 @@ export default class MyInterests extends React.Component {
         };
 
         return (
-            <Container className="myinterests-view">
-                <div className="message center">{text['header']}</div>
-                <CommunityList />
+            <Container className="myinterests-view expand">
+                <div className="message center bordered">{text['header']}</div>
+                <CommunityList onCommunitySelect={this.onCommunitySelect} />
             </Container>
         );
     }

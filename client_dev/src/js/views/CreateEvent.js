@@ -26,7 +26,7 @@ export default class CreateEvent extends React.Component {
 
     render() {
         return (
-            <Container className="createevent-view">
+            <Container className="createevent-view expand">
                 <div className="message bordered large center">Create New Event</div>
                 <div className="form form-1">
                     <div>
