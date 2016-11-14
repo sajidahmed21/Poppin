@@ -13,12 +13,23 @@ export default class MapContainer extends React.Component {
         this.state = {
             events: {}
         };
+
+        this.mapClicked = this.mapClicked.bind(this);
     }
 
     componentDidMount() {
         this.setState({
             events: Dummy.events
         });
+    }
+
+    mapClicked(e) {
+        if (this.props.onLocationSelected) {
+            this.props.onLocationSelected({
+                latitude: e.latlng.lat,
+                longitude: e.latlng.lng
+            });
+        }
     }
 
     render() {
@@ -34,7 +45,7 @@ export default class MapContainer extends React.Component {
         });
 
         return (
-            <Map center={position} zoom={16}>
+            <Map center={position} zoom={16} onClick={this.mapClicked} >
               <TileLayer
                 url={tileProvider}
               />

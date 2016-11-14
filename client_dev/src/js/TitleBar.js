@@ -19,8 +19,16 @@ export default class TitleBar extends React.Component {
                         <span className="fa fa-bars"></span>
                     </div>
                     <span className="title">Poppin</span>
-                    { this.props.view === 'firsttimeinterests' && (
-                        <div className="btn-next" onClick={() => { this.props.onViewChange('discover'); }}>
+                    { ['firsttimeinterests', 'createeventinterests'].includes(this.props.view) && (
+                        <div className="btn-next" onClick={
+                                () => {
+                                    if (this.props.view === 'firsttimeinterests') {
+                                        this.props.onViewChange('discover');
+                                    } else if (this.props.view === 'createeventinterests') {
+                                        this.props.onViewChange('event', { id: 5 });
+                                    }
+                                }
+                            }>
                             <span className="fa fa-arrow-circle-right"></span>
                             <span className="label">Next</span>
                         </div>

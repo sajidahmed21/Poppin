@@ -40,4 +40,5 @@
     <plugin name="cordova-plugin-geolocation" spec="~2.4.0">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Location services are used to find events in your area." />
     </plugin>
+    <plugin name="com.noahnu.cordova.datetimepicker" spec="https://github.com/noahnu/cordova-datetimepicker.git" />
 </widget>

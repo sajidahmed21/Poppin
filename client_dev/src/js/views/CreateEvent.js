@@ -7,6 +7,9 @@ import Button from 'muicss/lib/react/button';
 import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 
+import DatePicker from '../components/DatePicker';
+import AddressPicker from '../components/AddressPicker';
+
 export default class CreateEvent extends React.Component {
     constructor() {
         super();
@@ -30,27 +33,29 @@ export default class CreateEvent extends React.Component {
                         <Input
                             hint="Event Name"
                             type="text"
+                            label="What is the name of your event?"
                             defaultValue={this.props.viewOpts.name || ''}
                         />
-                        <Input
-                            hint="Start Time"
-                            type="text"
+                        <DatePicker
+                            placeholder='Start Time'
+                            label='When does your event start?'
                         />
-                        <Input
-                            hint="End Time"
-                            type="text"
+                        <DatePicker
+                            placeholder='End Time'
+                            label='When does your event end?'
                         />
-                        <Input
-                            hint="Address"
-                            type="text"
+                        <AddressPicker
+                            label='Click a location on the map:'
+                            onLocationSelected={(loc) => {}}
                         />
                         <Textarea
-                            hint="Describe the event."
+                            hint="Description"
+                            label='Describe your event:'
                         />
                     </div>
                     <div className="buttons">
                         <div>
-                            <Button color="primary" onClick={this.create}>Create!</Button>
+                            <Button color="primary" onClick={this.create}>Create Event</Button>
                         </div>
                     </div>
                 </div>

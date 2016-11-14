@@ -57,8 +57,8 @@ export default class Event extends React.Component {
                 }
             });
         }, {
-            maximumAge: 3000,
-            timeout: 5000,
+            maximumAge: 60000,
+            timeout: 15000,
             enableHighAccuracy: true
         });
     }
