@@ -15,6 +15,8 @@ import CreateEventView from './views/CreateEvent';
 import MyEventsView from './views/MyEvents';
 import MyInterestsView from './views/MyInterests';
 import CreateEventInterests from './views/CreateEventInterests';
+import ForgotPasswordView from './views/ForgotPassword';
+import SettingsView from './views/Settings';
 
 export default class MainView extends React.Component {
     constructor() {
@@ -77,7 +79,9 @@ export default class MainView extends React.Component {
             'createevent': (<CreateEventView onViewChange={this.change} viewOpts={this.state.opts} />),
             'createeventinterests': (<CreateEventInterests onViewChange={this.change} viewOpts={this.state.opts} />),
             'myevents': (<MyEventsView onViewChange={this.change} viewOpts={this.state.opts} />),
-            'myinterests': (<MyInterestsView onViewChange={this.change} viewOpts={this.state.opts} />)
+            'myinterests': (<MyInterestsView onViewChange={this.change} viewOpts={this.state.opts} />),
+            'forgotpassword': (<ForgotPasswordView onViewChange={this.change} viewOpts={this.state.opts} />),
+            'settings': (<SettingsView onViewChange={this.change} viewOpts={this.state.opts} />)
         };
 
         return (

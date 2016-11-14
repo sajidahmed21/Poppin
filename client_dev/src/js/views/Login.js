@@ -36,8 +36,7 @@ export default class Login extends React.Component {
     }
 
     doForgotPassword(e) {
-        e.preventDefault();
-        return false;
+        this.props.onViewChange('forgotpassword');
     }
 
     onEmailChange(e) {
