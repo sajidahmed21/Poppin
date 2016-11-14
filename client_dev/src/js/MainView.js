@@ -26,7 +26,13 @@ export default class MainView extends React.Component {
         this.state = {
             current: 'login',
             drawerOpen: false,
-            opts: {}
+            opts: {},
+            notifications: [
+                { type: 'request', message: "James has accepted your request to join Elite Clubs.", link: '' },
+                { type: 'chat', message: "Alexander has replied to you on the event: Iron Chef at UofT.", link: '' },
+                { type: 'invite', message: "Sam has invited you to the community: Hackers of Toronto", link: '' },
+                { type: 'chat', message: "Dylan has replied to you on the event: Iron Chef at UofT.", link: '' }
+            ]
         };
 
         this.hammerOpts = {
@@ -94,6 +100,7 @@ export default class MainView extends React.Component {
                     drawerOpen={this.state.drawerOpen}
                     onDrawerClick={this.onDrawerClick}
                     loggedIn={this.isLoggedIn()}
+                    notificationCount={this.state.notifications.length}
                 />
                 <Hammer onSwipe={this.onSwipe} options={this.hammerOpts}>
                     {views[this.state.current]}
