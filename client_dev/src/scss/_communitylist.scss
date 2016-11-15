@@ -1,7 +1,7 @@
 .firsttimeinterests-view .community-list-items,
 .createeventinterests-view .community-list-items,
 .myinterests-view .community-list-items {
-    height: calc(100vh - 170px);
+    max-height: calc(100vh - 170px);
 }
 
 .community-list {
@@ -37,7 +37,7 @@
         border-bottom: 1px solid #fff;
 
         &:active, &:focus {
-            background: #f0f8ff;
+            background: $faded_orange;
         }
 
         .left-column, .right-column {

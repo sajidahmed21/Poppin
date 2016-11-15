@@ -13,11 +13,6 @@ export default class Event extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            current: {
-                loading: true,
-                latitude: false,
-                longitude: false
-            },
             event: {
                 name: "",
                 description: "",
@@ -37,38 +32,6 @@ export default class Event extends React.Component {
                 event: Dummy.events[this.props.viewOpts.id]
             });
         }
-    }
-
-    componentDidMount() {
-        this._isMounted = true;
-
-        navigator.geolocation.getCurrentPosition((position) => {
-            if (!this._isMounted) return;
-            this.setState({
-                current: {
-                    loading: false,
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                }
-            });
-        }, (err) => {
-            if (!this._isMounted) return;
-            this.setState({
-                current: {
-                    loading: false,
-                    latitude: false,
-                    longitude: false
-                }
-            });
-        }, {
-            maximumAge: 60000,
-            timeout: 15000,
-            enableHighAccuracy: true
-        });
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
     }
 
     render() {
@@ -102,7 +65,6 @@ export default class Event extends React.Component {
                         latitude={this.state.event.latitude}
                         longitude={this.state.event.longitude}
                         isEvent={true}
-                        current={this.state.current.loading ? false : this.state.current}
                     />
                 </div>
                 <div className='details event-details'>

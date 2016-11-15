@@ -27,12 +27,18 @@ export default class MyEvents extends React.Component {
                         <div className='list-header'>Your Upcoming Events</div>
                         <EventList
                             onEventSelect={this.onEventSelect}
+                            filter={event => (
+                                event.start_date > ((+new Date()) / 1000)
+                            )}
                         />
                     </div>
                     <div className='map-listings'>
                         <div className='list-header'>Events You Organize</div>
                         <EventList
                             onEventSelect={this.onEventSelect}
+                            filter={event => (
+                                event.description.toLowerCase().match('cook|chef|bake')
+                            )}
                         />
                     </div>
                 </div>

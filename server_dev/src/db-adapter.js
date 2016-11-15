@@ -56,6 +56,18 @@ exports.getEventDetails = function (eventId, callback) {
     };
     
     callback(constants.SUCCESS, mockData);
+
+    var queryString = "SELECT * FROM event WHERE eventID = " + eventId;
+
+    connection.query(queryString, function(error, response){
+        if (err) {
+            callback(constants.ERROR);
+        } else {
+            callback(constants.SUCCESS);
+        }
+    })
+    console.log(response);
+
 };
 
 exports.createNewEvent = function(event, callback){
