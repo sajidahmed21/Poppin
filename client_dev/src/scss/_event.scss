@@ -9,6 +9,7 @@
         display: block;
         margin: 0;
 
+        border-top: 1px solid #fff;
         background: $orange;
         color: #fff;
 
@@ -29,11 +30,17 @@
         }
     }
 
+    .description {
+        max-height: calc(100vh - 420px);
+        overflow-y: scroll;
+    }
+
     .communities {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: start;
         width: 100%;
+        overflow-x: scroll;
         margin: 0;
         text-align: center;
         border-bottom: 2px solid $orange;

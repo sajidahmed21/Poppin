@@ -7,6 +7,15 @@
   border   : 2px solid #ccc;
   overflow : hidden;
 
+  &.checked-static::after {
+      content                     : '\2713';
+      display                     : block;
+      color                       : $orange;
+      text-align                  : center;
+      font-size                   : 30px;
+      font-weight                 : bold;
+  }
+
   &.checked::after {
     content                     : '\2713';
     display                     : block;

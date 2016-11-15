@@ -9,56 +9,32 @@ export default class AddressPicker extends React.Component {
         /* Initialize blank state. */
         this.state = {
             visible: false,
-            current: {
-                loading: true,
-                latitude: false,
-                longitude: false
-            },
             latitude: false,
             longitude: false
         };
 
         this.show = this.show.bind(this);
-    }
-
-    componentDidMount() {
-        this._isMounted = true;
-
-        navigator.geolocation.getCurrentPosition((position) => {
-            if (!this._isMounted) return;
-            this.setState({
-                current: {
-                    loading: false,
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                },
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            });
-        }, (err) => {
-            if (!this._isMounted) return;
-            this.setState({
-                current: {
-                    loading: false,
-                    latitude: false,
-                    longitude: false
-                }
-            });
-        }, {
-            maximumAge: 60000,
-            timeout: 5000,
-            enableHighAccuracy: true
-        });
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
+        this.updateLocation = this.updateLocation.bind(this);
     }
 
     show() {
         this.setState({
             visible: true
         });
+    }
+
+    updateLocation(loc) {
+        this.setState({
+            latitude: loc.latitude,
+            longitude: loc.longitude
+        });
+
+        if (this.props.onLocationSelected) {
+            this.props.onLocationSelected({
+                latitude: loc.latitude,
+                longitude: loc.longitude
+            });
+        }
     }
 
     render() {
@@ -82,29 +58,18 @@ export default class AddressPicker extends React.Component {
                         <label style={{transition: '0.15s ease-out'}}>{this.props.label}</label>
                     )}
                 </div>
-                {this.state.current.loading === false &&
-                    this.state.current.latitude !== false && (
-                    <MapContainer
-                        latitude={this.state.latitude}
-                        longitude={this.state.longitude}
-                        current={this.state.current.loading ? false : this.state.current}
-                        nearbyEvents={false}
-                        isEvent={true}
-                        onLocationSelected={(loc) => {
-                            this.setState({
-                                latitude: loc.latitude,
-                                longitude: loc.longitude
-                            });
-
-                            if (this.props.onLocationSelected) {
-                                this.props.onLocationSelected({
-                                    latitude: loc.latitude,
-                                    longitude: loc.longitude
-                                });
-                            }
-                        }}
-                    />
-                )}
+                <MapContainer
+                    latitude={this.state.latitude}
+                    longitude={this.state.longitude}
+                    nearbyEvents={false}
+                    isEvent={true}
+                    onCurrentLocation={(loc) => {
+                        if (this.state.latitude === false) {
+                            this.updateLocation(loc);
+                        }
+                    }}
+                    onLocationSelected={this.updateLocation}
+                />
             </div>
         );
     }

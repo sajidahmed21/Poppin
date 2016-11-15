@@ -37,7 +37,7 @@
         border-bottom: 1px solid #fff;
 
         &:active, &:focus {
-            background: #f0f8ff;
+            background: $faded_orange;
         }
 
         .left-column, .right-column {
