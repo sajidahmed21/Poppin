@@ -1,7 +1,7 @@
 .firsttimeinterests-view .community-list-items,
 .createeventinterests-view .community-list-items,
 .myinterests-view .community-list-items {
-    height: calc(100vh - 170px);
+    max-height: calc(100vh - 170px);
 }
 
 .community-list {

@@ -10,7 +10,7 @@
   &.checked::after {
     content                     : '\2713';
     display                     : block;
-    color                       : $blue;
+    color                       : $orange;
     opacity                     : 0;
     text-align                  : center;
     font-size                   : 30px;
@@ -30,7 +30,7 @@
     height                      : 90%;
     opacity                     : 0;
     border-radius               : 50%;
-    background                  : #2196F3;
+    background                  : $faded_orange;
     animation                   : check-circle 0.3s cubic-bezier(.75,.17,.33,.82) 0.4s 1;
     -webkit-animation-fill-mode : forwards;
     transform                   : translate3d(0px,0px,0px);

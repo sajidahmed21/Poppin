@@ -1,15 +1,20 @@
-.discover-view .event-list {
+.discover-view .height-sizer {
     height: calc(100vh - 342px);
+    overflow-y: scroll;
+
+    /* hardware accel */
+    transform: translate3d(0px,0px,0px);
+    -webkit-backface-visibility: hidden;
 }
 
 .map-listings {
     .event-list {
-        margin-top: 3px;
-
-        overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
+        margin: 3px 0 0 0;
         padding: 0 5px;
+
+        display: table;
+        table-layout: fixed;
+        width: 100%;
 
         /* hardware accel */
         transform: translate3d(0px,0px,0px);
@@ -19,15 +24,15 @@
             $padding: 8px;
             $right_column_width: 45px;
 
-            flex-grow: 1;
             position: relative;
             margin: 3px 0;
             padding: 0 #{$padding};
+            display: table-row;
 
             border-bottom: 1px solid #fff;
 
             &:active, &:focus {
-                background: #f0f8ff;
+                background: $faded_orange;
             }
 
             .left-column, .right-column {
@@ -35,8 +40,8 @@
             }
 
             .left-column {
-                float: left;
-                width: calc(100% - #{$padding} - #{$padding} - #{$right_column_width});
+                width: 90%;
+                display: table-cell;
 
                 .name {
                     font-size: 18px;
@@ -57,12 +62,16 @@
             }
 
             .right-column {
-                width: #{$right_column_width};
-                text-align: right;
-                float: right;
+                display: table-cell;
+                text-align: center;
 
                 .distance {
                     font-size: 15px;
+
+                    .unit {
+                        font-size: 0.7em;
+                        display: block;
+                    }
                 }
             }
         }

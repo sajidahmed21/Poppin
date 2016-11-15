@@ -24,7 +24,7 @@ export default class EventListItem extends React.Component {
                     </div>
                 </div>
                 <div className='right-column'>
-                    <span className='distance'>{this.props.distance} km</span>
+                    <span className='distance'>{this.props.distance.toFixed(1)}<span className='unit'>{'km'}</span></span>
                 </div>
             </div>
         );
