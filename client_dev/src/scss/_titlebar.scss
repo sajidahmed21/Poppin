@@ -2,6 +2,7 @@
     text-align: center;
     position: relative;
     background: $orange;
+    z-index: 99999;
 
     span.title {
         font-size: 36px;
@@ -142,6 +143,64 @@
     div.drawer.open {
         transform: translate3d(0vw,0px,0px);
     }
+
+    div.notifications {
+        background: $orange;
+        position: fixed;
+        padding: 5px 0;
+        left: 0;
+        top: 56px;
+        width: 100%;
+        z-index: 999;
+
+        .notifications-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .notification {
+            display: flex;
+
+            margin: 2px 4.5px;
+            border-radius: 3px;
+            box-shadow: 0px 0px 1px #ccc;
+            border: 1px solid transparent;
+            background: #fff;
+            padding: 7px;
+
+            .msg {
+                flex-grow: 1;
+            }
+
+            .type {
+                flex-shrink: 1;
+                padding: 3px;
+                color: $orange;
+                font-size: 1.7rem;
+            }
+
+            &:hover, &:active {
+                background: $faded_orange;
+            }
+        }
+
+        transition: max-height 0.8s ease-out, opacity 0.05s linear;
+        transform: translate3d(0px,0px,0px);
+    }
+
+    div.notifications.closed {
+        max-height: 0;
+        opacity: 0;
+        overflow-y: hidden;
+    }
+
+    div.notifications.open {
+        max-height: 40vh;
+        opacity: 1;
+        overflow-y: scroll;
+        border-top: 2px solid #fff;
+    }
 }
 
 .titlebar:not(.logged-in) {
@@ -150,6 +209,10 @@
     }
 
     div.drawer {
+        display: none;
+    }
+
+    div.notifications {
         display: none;
     }
 }
