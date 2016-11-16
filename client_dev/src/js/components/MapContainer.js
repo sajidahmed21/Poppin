@@ -115,7 +115,7 @@ export default class MapContainer extends React.Component {
             }
 
             return (
-                <Map center={position} zoom={16} onClick={this.mapClicked} >
+                <Map center={position} zoom={14} onClick={this.mapClicked} >
                   <TileLayer
                     url={tileProvider}
                   />

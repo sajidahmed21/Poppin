@@ -27,6 +27,8 @@ export default class EventList extends React.Component {
                     {Object.keys(this.state.events).filter(key => (
                         typeof this.props.filter === 'undefined' ||
                         this.props.filter(this.state.events[key])
+                    )).sort((a, b) => (
+                        this.state.events[a].distance - this.state.events[b].distance
                     )).map(key => (
                         <EventListItem
                             key={key}

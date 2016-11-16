@@ -5,17 +5,17 @@ export default {
         '34': {
             id: '34',
             name: 'Hockey',
-            description: 'A sport.'
+            description: 'Canada\'s favourite pastime.'
         },
         '24': {
             id: '24',
             name: 'University of Toronto',
-            description: 'A great institute of higher education.'
+            description: 'Canada\'s premier institute of higher education.'
         },
         '14': {
             id: '14',
             name: 'Cooking',
-            description: 'Culinary arts of the 21st century.'
+            description: 'An exploration of the culinary arts.'
         },
         '74': {
             id: '74',
@@ -31,28 +31,28 @@ export default {
         '31': {
             id: '31',
             name: 'Fencing',
-            description: 'The teenager\'s chivalry.',
+            description: 'The 21st century solution to dwindling chivalry.',
             private: true
         },
         '32': {
             id: '32',
             name: 'Arts',
-            description: 'Modern face painting.'
+            description: 'The expression of the world\'s beauty.'
         },
         '33': {
             id: '33',
             name: 'Party',
-            description: 'A great time.'
+            description: 'A friendly gathering of well intentioned young adults.'
         },
         '39': {
             id: '39',
             name: 'Swimming',
-            description: 'Another sport.'
+            description: 'Aquatic activities in the aqua sea.'
         },
         '87': {
             id: '87',
             name: 'Sports',
-            description: 'Lots of sports.'
+            description: 'Exercise and have fun at the same time!'
         },
         '88': {
             id: '88',
@@ -77,7 +77,7 @@ export default {
         '110':{
             id: '110',
             name: 'Dance',
-            description: 'For those who enjoy to dance.'
+            description: 'For those who enjoy to dance and express themselves.'
         }
     },
     events: {
