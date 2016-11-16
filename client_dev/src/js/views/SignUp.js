@@ -28,7 +28,7 @@ export default class SignUp extends React.Component {
 
     render() {
         return (
-            <Container className="signup-view">
+            <Container className="signup-view expand">
                 <div className="message bordered large center">Signup to start Poppin!</div>
                 <div className="signup-form form form-1">
                     <div>

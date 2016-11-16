@@ -14,15 +14,21 @@
     padding: 0;
 }
 
+.mui-btn--primary {
+    background: $orange;
+}
+
+.mui-textfield>input:focus, .mui-textfield>textarea:focus {
+    border-color: $orange;
+}
+
+.mui-btn--primary:active, .mui-btn--primary:focus, .mui-btn--primary:hover {
+    background: $orange;
+}
+
 @import '_text';
 
 @import '_map';
-
-/* Login / Signup */
-
-.mui-container.login-view, .mui-container.signup-view {
-    margin-top: 20px;
-}
 
 /* Forms */
 @import '_forms';
@@ -36,8 +42,44 @@
 /* Checkbox */
 @import '_checkbox';
 
+/* Address Picker */
+@import '_addresspicker';
+
 /* Community List */
 @import '_communitylist';
 
 /* Event */
 @import '_event';
+
+/* Community */
+@import '_community';
+
+/* My Events */
+@import '_myevents';
+
+/* Common styles */
+
+.entity {
+    .header {
+        padding: 20px 20px 4px 20px;
+        border-bottom: 1px solid $orange;
+
+        .title {
+            font-size: 30px;
+        }
+    }
+
+    .details {
+        .description {
+            white-space: pre-wrap;
+            font-size: 1.45em;
+            padding: 1em 0.5em;
+            margin: 15px 0;
+        }
+    }
+
+    .actions {
+        text-align: center;
+        margin-top: 1em;
+    }
+}

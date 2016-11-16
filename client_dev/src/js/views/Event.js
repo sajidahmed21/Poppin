@@ -13,11 +13,6 @@ export default class Event extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            current: {
-                loading: true,
-                latitude: false,
-                longitude: false
-            },
             event: {
                 name: "",
                 description: "",
@@ -39,32 +34,8 @@ export default class Event extends React.Component {
         }
     }
 
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition((position) => {
-            this.setState({
-                current: {
-                    loading: false,
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                }
-            });
-        }, (err) => {
-            this.setState({
-                current: {
-                    loading: false,
-                    latitude: false,
-                    longitude: false
-                }
-            });
-        }, {
-            maximumAge: 3000,
-            timeout: 5000,
-            enableHighAccuracy: true
-        });
-    }
-
     render() {
-        const dateFormat = "MMM. Do, YYYY, h:mm:ss a";
+        const dateFormat = "h:mm:ss a, MMM. Do";
 
         const renderDate = () => {
             if (this.state.event.start_date === this.state.event.end_date) {
@@ -85,8 +56,8 @@ export default class Event extends React.Component {
         };
 
         return (
-            <Container className='expand'>
-                <div className='event-header'>
+            <Container className='expand entity'>
+                <div className='header event-header'>
                     <span className='title'>{this.state.event.name}</span>
                 </div>
                 <div className='map-container small'>
@@ -94,17 +65,23 @@ export default class Event extends React.Component {
                         latitude={this.state.event.latitude}
                         longitude={this.state.event.longitude}
                         isEvent={true}
-                        current={this.state.current.loading ? false : this.state.current}
                     />
                 </div>
-                <div className='event-details'>
+                <div className='details event-details'>
                     {renderDate()}
                     <div className='communities'>{this.state.event.communities.map((community) => (
-                        <span className='community' key={community.id} id={community.id}>{community.name}</span>
+                        <span
+                            className='community'
+                            key={community.id}
+                            id={community.id}
+                            onClick={() => {
+                                this.props.onViewChange('community', { id: community.id });
+                            }}
+                        >{community.name}</span>
                     ))}</div>
                     <div className='description'>{this.state.event.description}</div>
                 </div>
-                <div className='event-actions'>
+                <div className='actions event-actions'>
                     <Button color="primary">{"I'm Going"}</Button>
                     <Button color="primary">{"I'm Interested"}</Button>
                 </div>

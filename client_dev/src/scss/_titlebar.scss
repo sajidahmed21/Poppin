@@ -1,6 +1,8 @@
 .mui-appbar {
     text-align: center;
     position: relative;
+    background: $orange;
+    z-index: 99999;
 
     span.title {
         font-size: 36px;
@@ -8,6 +10,10 @@
 }
 
 .titlebar {
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
 
     div.btn-next {
         text-align: center;
@@ -28,7 +34,42 @@
         }
 
         &:hover, &:active {
-            color: #6cbeff;
+            opacity: 0.8;
+        }
+    }
+
+    div.btn-notifications {
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 25px;
+
+        > .fa {
+            font-size: 2.75rem;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+
+            .label {
+                position: absolute;
+                background: #fff;
+                color: $orange;
+                text-align: center;
+                height: 2rem;
+                top: -0.6rem;
+                right: -0.3rem;
+                width: 2rem;
+                line-height: 2rem;
+                font-size: 1rem;
+                border-radius: 50%;
+                border: 1px solid #fff;
+            }
+        }
+
+        &:hover, &:active {
+            opacity: 0.8;
         }
     }
 
@@ -49,7 +90,7 @@
 
     div.drawer {
         width: 65vw;
-        background: $blue;
+        background: $orange;
         padding: 30px 0 0 0;
         margin: 0;
         z-index: 9990;
@@ -70,14 +111,15 @@
                 padding: 0.8em 0;
                 text-align: center;
                 color: #fff;
+                font-weight: bold;
                 font-size: 1.4em;
-                background: #56adf3;
+                background: #ffc482;
                 border-radius: 2px;
-                margin: 0 2px;
+                margin: 2px;
             }
 
             li:hover, li:active {
-                background: #3da5f9;
+                background: $orange;
             }
         }
 
@@ -101,6 +143,64 @@
     div.drawer.open {
         transform: translate3d(0vw,0px,0px);
     }
+
+    div.notifications {
+        background: $orange;
+        position: fixed;
+        padding: 5px 0;
+        left: 0;
+        top: 56px;
+        width: 100%;
+        z-index: 999;
+
+        .notifications-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .notification {
+            display: flex;
+
+            margin: 2px 4.5px;
+            border-radius: 3px;
+            box-shadow: 0px 0px 1px #ccc;
+            border: 1px solid transparent;
+            background: #fff;
+            padding: 7px;
+
+            .msg {
+                flex-grow: 1;
+            }
+
+            .type {
+                flex-shrink: 1;
+                padding: 3px;
+                color: $orange;
+                font-size: 1.7rem;
+            }
+
+            &:hover, &:active {
+                background: $faded_orange;
+            }
+        }
+
+        transition: max-height 0.8s ease-out, opacity 0.05s linear;
+        transform: translate3d(0px,0px,0px);
+    }
+
+    div.notifications.closed {
+        max-height: 0;
+        opacity: 0;
+        overflow-y: hidden;
+    }
+
+    div.notifications.open {
+        max-height: 40vh;
+        opacity: 1;
+        overflow-y: scroll;
+        border-top: 2px solid #fff;
+    }
 }
 
 .titlebar:not(.logged-in) {
@@ -109,6 +209,10 @@
     }
 
     div.drawer {
+        display: none;
+    }
+
+    div.notifications {
         display: none;
     }
 }

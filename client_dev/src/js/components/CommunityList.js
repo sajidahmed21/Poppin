@@ -61,10 +61,10 @@ export default class CommunityList extends React.Component {
                 />
                 <div className='community-list-items'>
                     {Object.keys(this.state.communities).filter((key) => (
-                        this.state.search === '' || (
+                        (this.state.search === '' || (
                             this.state.communities[key].name.toLowerCase().indexOf(this.state.search) >= 0 ||
                             this.state.communities[key].description.toLowerCase().indexOf(this.state.search) >= 0
-                        )
+                        )) && (typeof this.props.filter === 'undefined' || this.props.filter(this.state.communities[key]))
                     )).map((key) => (
                         <CommunityListItem
                             key={key}
@@ -72,7 +72,13 @@ export default class CommunityList extends React.Component {
                             name={this.state.communities[key].name}
                             description={this.state.communities[key].description}
                             onSelected={this.onCommunityClick}
+                            onClick={() => {
+                                if (this.props.onCommunitySelect) {
+                                    this.props.onCommunitySelect(key);
+                                }
+                            }}
                             selected={this.state.selected.has(key)}
+                            private={this.state.communities[key].private === true}
                         />
                     ))}
                 </div>

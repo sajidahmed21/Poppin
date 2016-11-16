@@ -23,8 +23,14 @@ body {
 
     background: #fff;
     overflow-x: hidden;
+
+    color: #333;
 }
 
 .hidden {
     display: none;
+}
+
+#root {
+    padding-top: 56px;
 }

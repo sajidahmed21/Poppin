@@ -6,14 +6,18 @@ export default class Checkbox extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            checked: (typeof props.selected !== 'boolean' ? false : props.selected)
+            checked: (typeof props.selected !== 'boolean' ? false : props.selected),
+            initial: true
         };
 
         this.change = this.change.bind(this);
     }
 
     change() {
-        this.setState({checked: !this.state.checked}, () => {
+        this.setState({
+            checked: !this.state.checked,
+            initial: false
+        }, () => {
             if (this.props.onChange) {
                 this.props.onChange(this.props.id, this.state.checked);
             }
@@ -22,7 +26,9 @@ export default class Checkbox extends React.Component {
 
     render() {
         return (
-            <div className={'checkbox ' + (this.state.checked ? 'checked' : 'unchecked')} onClick={this.change}></div>
+            <div className={'checkbox ' + (this.state.checked ? (
+                    this.state.initial ? 'checked-static' : 'checked'
+                ) : 'unchecked')} onClick={this.change}></div>
         );
     }
 }

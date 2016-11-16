@@ -12,54 +12,22 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
     console.log("Longitude: " + longitude);
     console.log("Latitude: " + latitude);
     
-    var today = new Date()/1000;
-    var date1 = today + (60*60*24 * 4); //event 1 day ago
-    var date2 = today + (60*60*24); //event in 1 day
-    var date3 = today + (60*60*24 * 3); //event was 1 month ago
-    var date4 = today + (60*60*24*5); //event is coming up next month
-    // TODO:
     
-    var mockData = [
-        {
-            name: "301 Study Group",
-            start_date: date1,
-            end_date: date1,
-            longitude: "",//todo
-            latitude: "",//todo
-            distance: ""
-            // .. etc
-        },
-        {
-            name: "Gamer's Club League of Legends Tournement",
-            start_date: date2,
-            end_date: date2,
-            longitude: "",//todo
-            latitude: "",//todo
-            distance: ""
-            // .. etc
-        },
-        {
-            name: "Party at Sigma Delta Phi house.",
-            start_date: date3,
-            end_date: date3,
-            longitude:"",//todo
-            latitude:"",//todo,
-            distance:""
-            // .. etc
-        },
-        {
-            name: "Music Concert",
-            start_date: date4,
-            end_date: date4,
-            longitude: "",//todo
-            latitude: "",//todo
-            distance: ""
-            // .. etc
+
+    var queryString = 'SELECT * FROM event WHERE (latitude -' + latitude + ')^2 <= 0.09 AND WHERE (longitude - ' + longitude + ')^2 <= 0.09';
+    
+
+    connection.query(queryString, function(err, rows){
+        if(err)
+            callback(constants.ERROR, err);//throw err;
+        else{
+            callback(constants.SUCCESS, rows);
         }
-        // .. {}, {}, May be a few more events
-    ];
+        console.log('Data Recieved from the db\n');
+        console.log(rows);
+    });
     
-    callback(constants.SUCCESS, mockData);
+    //callback(constants.SUCCESS, mockData);
 };
 
 
@@ -88,6 +56,18 @@ exports.getEventDetails = function (eventId, callback) {
     };
     
     callback(constants.SUCCESS, mockData);
+
+    var queryString = "SELECT * FROM event WHERE eventID = " + eventId;
+
+    connection.query(queryString, function(error, response){
+        if (err) {
+            callback(constants.ERROR);
+        } else {
+            callback(constants.SUCCESS);
+        }
+    })
+    console.log(response);
+
 };
 
 exports.createNewEvent = function(event, callback){

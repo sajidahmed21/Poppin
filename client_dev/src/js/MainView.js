@@ -15,6 +15,9 @@ import CreateEventView from './views/CreateEvent';
 import MyEventsView from './views/MyEvents';
 import MyInterestsView from './views/MyInterests';
 import CreateEventInterests from './views/CreateEventInterests';
+import ForgotPasswordView from './views/ForgotPassword';
+import SettingsView from './views/Settings';
+import CommunityView from './views/Community';
 
 export default class MainView extends React.Component {
     constructor() {
@@ -23,17 +26,25 @@ export default class MainView extends React.Component {
         this.state = {
             current: 'login',
             drawerOpen: false,
-            opts: {}
+            notificationsOpen: false,
+            opts: {},
+            notifications: [
+                { id: 1, type: 'request', message: "James has accepted your request to join Elite Clubs.", link: '' },
+                { id: 2, type: 'chat', message: "Alexander has replied to you on the event: Iron Chef at UofT.", link: '' },
+                { id: 3, type: 'invite', message: "Sam has invited you to the community: Hackers of Toronto", link: '' },
+                { id: 4, type: 'chat', message: "Dylan has replied to you on the event: Iron Chef at UofT.", link: '' }
+            ]
         };
 
         this.hammerOpts = {
-            direction: Hammer.DIRECTION_HORIZONTAL,
-            threshold: 10
+            direction: Hammer.DIRECTION_HORIZONTAL
         };
 
         this.change = this.change.bind(this);
         this.onSwipe = this.onSwipe.bind(this);
         this.onDrawerClick = this.onDrawerClick.bind(this);
+        this.onNotificationsClick = this.onNotificationsClick.bind(this);
+        this.onNotificationClick = this.onNotificationClick.bind(this);
         this.isLoggedIn = this.isLoggedIn.bind(this);
 
         /* Attach view changer for debugging. */
@@ -62,6 +73,18 @@ export default class MainView extends React.Component {
         }
     }
 
+    onNotificationsClick() {
+        if (this.isLoggedIn()) {
+            this.setState(update(this.state, { $merge: { notificationsOpen: !this.state.notificationsOpen }}));
+        } else {
+            this.setState(update(this.state, { $merge: { notificationsOpen: false }}));
+        }
+    }
+
+    onNotificationClick(id) {
+        // TODO
+    }
+
     isLoggedIn() {
         return !['login', 'signup', 'firsttimeinterests'].includes(this.state.current);
     }
@@ -77,22 +100,29 @@ export default class MainView extends React.Component {
             'createevent': (<CreateEventView onViewChange={this.change} viewOpts={this.state.opts} />),
             'createeventinterests': (<CreateEventInterests onViewChange={this.change} viewOpts={this.state.opts} />),
             'myevents': (<MyEventsView onViewChange={this.change} viewOpts={this.state.opts} />),
-            'myinterests': (<MyInterestsView onViewChange={this.change} viewOpts={this.state.opts} />)
+            'myinterests': (<MyInterestsView onViewChange={this.change} viewOpts={this.state.opts} />),
+            'forgotpassword': (<ForgotPasswordView onViewChange={this.change} viewOpts={this.state.opts} />),
+            'settings': (<SettingsView onViewChange={this.change} viewOpts={this.state.opts} />),
+            'community': (<CommunityView onViewChange={this.change} viewOpts={this.state.opts} />)
         };
 
         return (
-            <div>
-                <TitleBar
-                    view={this.state.current}
-                    onViewChange={this.change}
-                    drawerOpen={this.state.drawerOpen}
-                    onDrawerClick={this.onDrawerClick}
-                    loggedIn={this.isLoggedIn()}
-                />
-                <Hammer onSwipe={this.onSwipe} options={this.hammerOpts}>
+            <Hammer onSwipe={this.onSwipe} options={this.hammerOpts}>
+                <div>
+                    <TitleBar
+                        view={this.state.current}
+                        onViewChange={this.change}
+                        drawerOpen={this.state.drawerOpen}
+                        onDrawerClick={this.onDrawerClick}
+                        notificationsOpen={this.state.notificationsOpen}
+                        onNotificationsClick={this.onNotificationsClick}
+                        onNotificationClick={this.onNotificationClick}
+                        loggedIn={this.isLoggedIn()}
+                        notifications={this.state.notifications}
+                    />
                     {views[this.state.current]}
-                </Hammer>
-            </div>
+                </div>
+            </Hammer>
         );
     }
 }

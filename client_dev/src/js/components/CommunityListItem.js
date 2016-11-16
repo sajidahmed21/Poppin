@@ -24,7 +24,12 @@ export default class CommunityListItem extends React.Component {
                 <div className='left-column'>
                     <Checkbox id={this.props.id} onChange={this.props.onSelected} selected={this.props.selected} />
                 </div>
-                <div className={'right-column ' + (this.state.expanded ? 'expanded' : '')} onClick={this.toggleExpanded}>
+                <div className={'right-column ' + (this.state.expanded ? 'expanded' : '')} onClick={() => {
+                        this.toggleExpanded();
+                        if (this.props.onClick) {
+                            this.props.onClick(this.props.id);
+                        }
+                    }}>
                     <div className='name'>{this.props.name}</div>
                     <div className='description'>{this.props.description}</div>
                 </div>

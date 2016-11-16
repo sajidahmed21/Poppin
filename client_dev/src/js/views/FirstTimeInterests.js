@@ -19,9 +19,9 @@ export default class FirstTimeInterests extends React.Component {
         };
 
         return (
-            <Container className="firsttimeinterests-view">
-                <div className="message center">{text['header']}</div>
-                <CommunityList />
+            <Container className="firsttimeinterests-view expand">
+                <div className="message center bordered">{text['header']}</div>
+                <CommunityList filter={el => (el.private !== true)} />
             </Container>
         );
     }

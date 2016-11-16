@@ -22,20 +22,25 @@ export default class EventList extends React.Component {
 
     render() {
         return (
-            <div className='event-list'>
-                {Object.keys(this.state.events).map((key) => (
-                    <EventListItem
-                        key={key}
-                        name={this.state.events[key].name}
-                        communities={this.state.events[key].communities}
-                        distance={this.state.events[key].distance}
-                        onClick={() => {
-                            if (this.props.onEventSelect) {
-                                this.props.onEventSelect(key);
-                            }
-                        }}
-                    />
-                ))}
+            <div className='height-sizer'>
+                <div className='event-list'>
+                    {Object.keys(this.state.events).filter(key => (
+                        typeof this.props.filter === 'undefined' ||
+                        this.props.filter(this.state.events[key])
+                    )).map(key => (
+                        <EventListItem
+                            key={key}
+                            name={this.state.events[key].name}
+                            communities={this.state.events[key].communities}
+                            distance={this.state.events[key].distance}
+                            onClick={() => {
+                                if (this.props.onEventSelect) {
+                                    this.props.onEventSelect(key);
+                                }
+                            }}
+                        />
+                    ))}
+                </div>
             </div>
         );
     }
