@@ -106,51 +106,64 @@ Individual contribution / progress will be evaluated based on the aggregate *siz
 
 ### Goals and tasks
 
-__1) Develop the following screens, which exhibit the primary features of our application:__
+*Ordered based on priority (from most to least)*
 
- * __*Discover* page__ - which shows both a list and a map view of nearby events. This will be the home screen of the application.
- * __*Sign in* / *Sign up* page__
- * __*Create Event* page__
- * __*Event Details* page__ - which shows complete details about an event and allows the user to indicate their interest towards an event
- * __*Create / Join Communities* page__
+* __User Interface:__ Develop primary screens that are part of the main flow(s) of the application. These include:
+
+ * __*Discover* page__ - which shows both a list and a map view of nearby events. This is the home screen of the application.
+
+ * __*Create Event* page__ - which allows the user to create an event. Contains input fields for *event name*, *start date and time*, *end date and time*, *event description*, and a map interface for choosing the *location* of the event.
+
+ * __*Event Details* page__ - which shows complete details about an event and allows the user to indicate their interest towards joining the event. Details for an event include all attributes mentioned above for the *Create Event* page.
+
+ * __*Communities* page__ - which allows the user to create communities, as well as search for communities based on names.
 
 
-__2) Implement the following RESTful APIs using mock (hardcoded) data:__
+* __RESTful APIs (with dummy data):__ Develop RESTful APIs (serving static dummy data) that are required to implement the core functionalities of our application. These APIs include:
 
- * SignIn and SignUp
- * CreateEvent
- * GetNearbyEvents
- * GetEventDetails
+ * __*Create Event*__ - creates an *event* entity based on the *event details* passed in the request body.
 
-__3) Setup Database Server:__
+ * __*Get Nearby Events*__ - provides a list of nearby events based on the given GPS coordinates (i.e. longitude and latitude)
 
- * Write a SQL script for creating the schema based on the [schema design](designs/schema_design_v1.md)
- * Integrate necessary NodeJS modules to establish connectivity with database server.
+ * __*Get Event Details*__ - provides complete details about an event based on a given event id.
 
-__4) Integrate RESTful APIs mentioned in (3) with database:__
+ * __*Sign Up*__ - onboards a new user by creating an account using the *name*, *username*, and *password* they have provided.
 
- * Write appropriate SQL queries for querying / modifying data
- * Add any business logic required to process or further filter the data.
+ * __*Sign In*__ - enables a user to log in to their account based on their *username* and *password*.
 
-__5) Implement the following screens, which are *nice to haves* for the demo video:__
 
- * __*Event chat* page__ - which allows users planning to attend an event to chat amongst each other
- * __*Invites* Page__ - which enables a user to invite other users to communities, and also to view their list of pending invites from other users
+* __Demo Application__: Develop a working application that contains the above mentioned screens and is polished enough to be showcased in the demo video. Specific tasks include:
+
+ * Making UI elements (such buttons and maps) interactive.
+ * Ensuring proper and smooth navigation between different screens.
+
+* __Demo Video__: Create a video that briefly illustrates the motivation behind our application and demonstrates its core features. Specific tasks include:
+
+ * Preparing and writing out a concise script for the video.
+ * Learning to operate a basic video editing software.
+ * Recording the video and fine-tuning it for submission.
+
+* __RESTful APIs (serving actual data)__: Integrate RESTful APIs with database server, and ensure real data (from the database) is being served by each of the APIs that were implemented using dummy data before. Explicit tasks include:
+
+ * Writing a SQL script for creating the schema based on the [schema design](designs/schema_design_v1.md).
+ * Writing appropriate SQL queries for querying / modifying data.
+ * Adding any business logic required to further process the data.
+
 
 <br>
 ### Artifacts
 
-* __Front end:__ Upload device screenshots of all the screens that have been completed into the [screenshots](iteration2-artifacts/screenshots) directory in our Git repository.
+* __UI Screens:__ Upload device screenshots of all the screens that have been completed into the [screenshots](iteration2-artifacts/screenshots) directory in our Git repository.
 
-* __Back end__: Run the [RESTful APIs tests](../server_dev/test) and verify that all of them are passing without any errors or warnings. Upload the test results as two `.txt` files (on for each of the test collections) into [REST-API-Test-Results](iteration2-artifacts/REST-API-Tests) directory.
+* __RESTful APIs__: Ensure __both__ set of tests (one expecting dummy data and the other expecting actual data) in [RESTful APIs tests](../server_dev/test) are passing without any errors or warnings. Upload the test results as two separate `.txt` files (one for each of the test collections) into [REST-API-Test-Results](iteration2-artifacts/REST-API-Tests) directory.
 
-* __Demo Build__: Upload a working and stable build (Android or iOS) that can be installed and run on a physical device. This is the build that will be used in the demo video. Build is to be uploaded in the [iteration2-artifacts](iteration2-artifacts) directory.
+* __Demo Application__: Upload a working and stable application (Android or iOS) that can be installed and run on a physical device. This build should include the following screens according to the specifications mentioned under *Goals and Tasks* above: *Discover*, *Create Event*, *Event Details*, *Communities*. The application file (`.apk` or `.ipa`) is to be uploaded in the [iteration2-artifacts](iteration2-artifacts) directory.
 
-* __Demo Video__: Upload a demo video in the [iteration2-artifacts](iteration2-artifacts) directory, and verify that it meets the following requirements:
+* __Demo Video__: Upload a demo video in the [iteration2-artifacts](iteration2-artifacts) directory that meets the following requirements:
 
   * Total length is maximum 3 minutes (can be 5-6 seconds longer / shorter).
   * The narration is clear and audible.
   * Includes subtitles or text that highlights keywords.
-  * Contains an introduction of about 30-45 seconds giving the audience some context about what our app addresses / solves.
-  * Demonstrates the product by presenting the most common user flow(s) (roughly between 1.5 and 2 minutes).
-  * Concludes the demo by summarizing what was presented and a brief discussing about our plans ahead.
+  * Contains an introduction of about 30-45 seconds giving the audience some context about what our application addresses / solves.
+  * Demonstrates the product by presenting the most common user flow(s) -  (roughly between 1.5 and 2 minutes).
+  * Concludes the demo by summarizing what was presented and a brief discussion about our plans ahead - (roughly between 30 and 45 seconds).
