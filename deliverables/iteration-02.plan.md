@@ -142,13 +142,13 @@ __5) Implement the following screens, which are *nice to haves* for the demo vid
 
 * __Front end:__ Upload device screenshots of all the screens that have been completed into the [screenshots](iteration2-artifacts/screenshots) directory in our Git repository.
 
-* __Back end__: Run the [RESTful APIs tests `TODO: Include link`]() and verify that all of them are passing without any errors or warnings. Upload the test results as a single `.txt` file into [REST-API-Tests](iteration2-artifacts/REST-API-Tests) directory.
+* __Back end__: Run the [RESTful APIs tests](../server_dev/test) and verify that all of them are passing without any errors or warnings. Upload the test results as two `.txt` files (on for each of the test collections) into [REST-API-Test-Results](iteration2-artifacts/REST-API-Tests) directory.
 
 * __Demo Build__: Upload a working and stable build (Android or iOS) that can be installed and run on a physical device. This is the build that will be used in the demo video. Build is to be uploaded in the [iteration2-artifacts](iteration2-artifacts) directory.
 
 * __Demo Video__: Upload a demo video in the [iteration2-artifacts](iteration2-artifacts) directory, and verify that it meets the following requirements:
 
-  * Total length is maximum 3 minutes (can be a 5-6 seconds longer / shorter)
+  * Total length is maximum 3 minutes (can be 5-6 seconds longer / shorter).
   * The narration is clear and audible.
   * Includes subtitles or text that highlights keywords.
   * Contains an introduction of about 30-45 seconds giving the audience some context about what our app addresses / solves.
