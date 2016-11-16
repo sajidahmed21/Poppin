@@ -11,56 +11,38 @@ Team 16
 ### Roles & Responsibilities
 
 
-__Noah (Front-end Developer - UI and RESTful API Integration)__: 
+__Noah (Front-end Developer - Interactive UI and RESTful API Integration)__:
 
 * Setting up Cordova project for client-side development.
-
-* Developing the following screens, which exhibit the primary features of our application.
-
- * _Discover_ page - which shows both a list and a map view of nearby events. This will be the home page of the application.
-
- * Sign in / Sign up page
-
- * Event Details page - which shows complete details about an event.
-
+* Developing primary screens screens of the application.
 * Integrating core features in the above screens with RESTful APIs
 
 
 
-__Anshay (Front-end Developer - UI)__:
+__Anshay (Front-end Developer - Basic UI)__:
 
-* Setting up dev environment on local machine and becoming familiar with UI development using Cordova.
-
-* Developing the following screen:
-
-   * Create Event - which allows the user to create an event. Inputs include the same set of attributes as in the _Event Details_ page listed above.
+* Setting up dev environment on local machine and becoming familiar with basic application development using Cordova.
+* Developing UI layout for *Create Event* page.
 
 __Sajid (Back-end Developer and Facilitator)__:
 
- * Setting up the server side project. This includes:
-   * Adding the necessary dependencies
-   * Creating separate components for user-related, event-related, and community-related web APIs.
-   * Setting up connectivity with database server and creating SQL scripts based on the [schema design](designs/schema_design_v1.md).
+ * Setting up NodeJS project for server side development.
+ * Implementing RESTful APIs for user onboarding and authentication.
+ * Writing automated [test scripts](../server_dev/test) for RESTful APIs.
 
- * Documenting RESTful APIs in a separate folder in Git repository
 
- * Implementing the SigIn / SignUp RESTful APIs
+__Darshan (Back-end Developer for *Nearyby Events* API)__:
 
- * Documenting meeting discussions through taking proper [meeting notes](https://github.com/csc301-fall-2016/project-team-16/tree/master/meeting%20notes)
+ * Designing and implementing a RESTful API which provides a list of nearby events based on the user's GPS location.
 
-__Darshan (Back-end Developer - Business Logic and Computation)__:
 
- * Implementing the GetEvents RESTful API, initially using mock data (with no database connectivity), and later on using actual data stored in the database.
+__Kenneth (Backend Developer for *Event Details* API)__:
 
-__Kenneth (Backend Developer - Database Engineer)__:
-
- * Implementing the GetEventDetals RESTful API, initially using mock data (with no database connectivity), and later on using actual data from the database.
-
- * Creating the database module which will wrap all database operations in a single component.
+ * Developing a RESTful API which provides complete details about a given event.
 
 __Andy (Backend Developer - Business Logic and Computation)__:
 
- * Implementing the CreateEvent RESTful API, intially using mock data (with no database connectivity), and later on using actual data from the database.
+ * Implementing a RESTful API which creates an *event* entity based on a given set of *event details*.
 
 <br>
 
