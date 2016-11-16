@@ -22,7 +22,19 @@ export default class CommunityListItem extends React.Component {
         return (
             <div className='community-list-item'>
                 <div className='left-column'>
-                    <Checkbox id={this.props.id} onChange={this.props.onSelected} selected={this.props.selected} />
+                    {this.props.private && (
+                        <div className='private' onClick={()=>{
+                                this.toggleExpanded();
+                                if (this.props.onClick) {
+                                    this.props.onClick(this.props.id);
+                                }
+                            }}>
+                            <i className='fa fa-lock'></i>
+                        </div>
+                    )}
+                    {!this.props.private && (
+                        <Checkbox id={this.props.id} onChange={this.props.onSelected} selected={this.props.selected} />
+                    )}
                 </div>
                 <div className={'right-column ' + (this.state.expanded ? 'expanded' : '')} onClick={() => {
                         this.toggleExpanded();

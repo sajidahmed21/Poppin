@@ -47,6 +47,18 @@
         .left-column {
             float: left;
             text-align: center;
+
+            .private {
+                display: inline-block;
+                position: relative;
+                width: 45px;
+                height: 45px;
+                margin: 2px;
+                border: 2px solid #ccc;
+                overflow: hidden;
+                font-size: 3rem;
+                color: $orange;
+            }
         }
 
         .right-column {
