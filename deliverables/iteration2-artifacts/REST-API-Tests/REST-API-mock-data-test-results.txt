@@ -8,9 +8,9 @@ Poppin - RESTful API (Serving Mock Data)
   ✓  Response Body is correct
 
 → SignIn
-  POST http://localhost:8080/auth [404 Not Found, 221B, 7ms]
-  1. Status Code is 200 (OK)
-  2. Response Body is correct
+  POST http://localhost:8080/auth [200 OK, 201B, 35ms]
+  ✓  1. Status Code is 200 (OK)
+  ✓  Response Body is correct
 
 → CreateEvent
   POST http://localhost:8080/event [200 OK, 195B, 4ms]
@@ -38,7 +38,7 @@ Poppin - RESTful API (Serving Mock Data)
 ├─────────────────────────┼──────────┼──────────┤
 │      prerequest-scripts │        0 │        0 │
 ├─────────────────────────┼──────────┼──────────┤
-│              assertions │       10 │        2 │
+│              assertions │       10 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
 │ total run duration: 1043ms                    │
 ├───────────────────────────────────────────────┤
@@ -46,13 +46,3 @@ Poppin - RESTful API (Serving Mock Data)
 ├───────────────────────────────────────────────┤
 │ average response time: 10ms                   │
 └───────────────────────────────────────────────┘
-
-  #  failure           detail                                                        
-                                                                                     
- 1.  AssertionFailure  Status Code is 200 (OK)                                       
-                       at assertion:1 in test-script                                 
-                       inside "SignIn" of "Poppin - RESTful API (Serving Mock Data)" 
-                                                                                     
- 2.  AssertionFailure  Response Body is correct                                      
-                       at assertion:2 in test-script                                 
-                       inside "SignIn" of "Poppin - RESTful API (Serving Mock Data)" 
