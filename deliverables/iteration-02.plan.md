@@ -154,3 +154,8 @@ Tasks which must be completed before preparing the demo video will be prioritize
   * Contains an introduction of about 30-45 seconds giving the audience some context about what our application addresses / solves.
   * Demonstrates the product by presenting the most common user flow(s) -  (roughly between 1.5 and 2 minutes).
   * Concludes the demo by summarizing what was presented and a brief discussion about our plans ahead - (roughly between 30 and 45 seconds).
+
+
+### Resources
+
+[Original Meeting Notes from Planning Meeting](../meeting notes/Oct-30-2016.md)
