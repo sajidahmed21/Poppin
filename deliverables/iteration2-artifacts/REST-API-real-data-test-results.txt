@@ -1,0 +1,85 @@
+newman
+
+Poppin - RESTful API (Serving Mock Data)
+
+→ SignUp
+  POST http://localhost:8080/user [errored]
+  2⠄ ReferenceError in test-script
+
+→ SignIn
+  POST http://localhost:8080/auth [errored]
+  4⠄ ReferenceError in test-script
+
+→ CreateEvent
+  POST http://localhost:8080/event [errored]
+  6⠄ ReferenceError in test-script
+
+→ GetEvents
+  GET http://localhost:8080/events?longitude=89.6123&radius=1&latitude=98.40 [errored]
+  8⠄ ReferenceError in test-script
+
+→ GetEventDetails
+  GET http://localhost:8080/event/1 [errored]
+ 10⠄ ReferenceError in test-script
+
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        5 │        5 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │        5 │        5 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │        0 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │        0 │        0 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 1032ms                    │
+├───────────────────────────────────────────────┤
+│ total data received: 0B (approx)              │
+├───────────────────────────────────────────────┤
+│ average response time: 0ms                    │
+└───────────────────────────────────────────────┘
+
+   #  failure         detail                                                                 
+                                                                                             
+ 01.  Error           connect ECONNREFUSED 127.0.0.1:8080                                    
+                      at request                                                             
+                      inside "SignUp" of "Poppin - RESTful API (Serving Mock Data)"          
+                                                                                             
+ 02.  ReferenceError  responseCode is not defined                                            
+                      at test-script:1:36                                                    
+                      inside "SignUp" of "Poppin - RESTful API (Serving Mock Data)"          
+                                                                                             
+ 03.  Error           connect ECONNREFUSED 127.0.0.1:8080                                    
+                      at request                                                             
+                      inside "SignIn" of "Poppin - RESTful API (Serving Mock Data)"          
+                                                                                             
+ 04.  ReferenceError  responseCode is not defined                                            
+                      at test-script:1:36                                                    
+                      inside "SignIn" of "Poppin - RESTful API (Serving Mock Data)"          
+                                                                                             
+ 05.  Error           connect ECONNREFUSED 127.0.0.1:8080                                    
+                      at request                                                             
+                      inside "CreateEvent" of "Poppin - RESTful API (Serving Mock Data)"     
+                                                                                             
+ 06.  ReferenceError  responseCode is not defined                                            
+                      at test-script:1:36                                                    
+                      inside "CreateEvent" of "Poppin - RESTful API (Serving Mock Data)"     
+                                                                                             
+ 07.  Error           connect ECONNREFUSED 127.0.0.1:8080                                    
+                      at request                                                             
+                      inside "GetEvents" of "Poppin - RESTful API (Serving Mock Data)"       
+                                                                                             
+ 08.  ReferenceError  responseCode is not defined                                            
+                      at test-script:1:36                                                    
+                      inside "GetEvents" of "Poppin - RESTful API (Serving Mock Data)"       
+                                                                                             
+ 09.  Error           connect ECONNREFUSED 127.0.0.1:8080                                    
+                      at request                                                             
+                      inside "GetEventDetails" of "Poppin - RESTful API (Serving Mock Data)" 
+                                                                                             
+ 10.  ReferenceError  responseCode is not defined                                            
+                      at test-script:1:36                                                    
+                      inside "GetEventDetails" of "Poppin - RESTful API (Serving Mock Data)" 

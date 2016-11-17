@@ -11,15 +11,15 @@ Team 16
 __Decisions that proved to be pretty well include__:
 
 
-* Introducing a professional project management tool like [Waffle](https://waffle.io) turned out pretty helpful. It gave us clear [visibility of progress](), as well as [metrics]() that strongly reflect our productivity.
+* Introducing a professional project management tool like [Waffle](https://waffle.io) turned out pretty helpful. It gave us clear [visibility of progress](iteration2-artifacts/waffle/Kanban-board.PNG), as well as [metrics](iteration2-artifacts/waffle/Throughput-chart.PNG) that strongly reflect our productivity.
 
-* Creating [automated tests]() for RESTful APIs helped us to save time - both in terms of test execution and debugging.
+* Creating [automated tests](../server_dev/test) for RESTful APIs helped us to save time - both in terms of test execution and debugging.
 
-* Giving consideration to individual preferences and skill sets while choosing the technology stack turned out to be very conducive to productivity. For instance, choosing [Cordova](https://cordova.apache.org) (over native Android) for front end development has allowed our front end developers to be very efficient (as reflected by the completed tasks in the [Kanban chart](), the [demo application](iteration2-artifacts/DemoBuild.apk), and the [video](iteration2-artifacts/video.md)).
+* Giving consideration to individual preferences and skill sets while choosing the technology stack turned out to be very conducive to productivity. For instance, choosing [Cordova](https://cordova.apache.org) (over native Android) for front end development has allowed our front end developers to be very efficient (as reflected by the completed tasks in the [Kanban chart](iteration2-artifacts/waffle/Front-end-Kanban-Board.PNG), the [demo application](iteration2-artifacts/DemoBuild.apk), and the [video](iteration2-artifacts/video.md)).
 
 __Decisions that did not turn out as well as we hoped:__
 
-* Defining individual responsibilities and tasks in terms of an entire feature of the application did not turn out very well, since some of our team members were not familiar with the full set of technologies required to implement a complete feature. As reflected by the [failing test results](), we were not able to complete the implementation of our primary RESTful APIs since they are yet to be integrated with the database server.
+* Defining individual responsibilities and tasks in terms of an entire feature of the application did not turn out very well, since some of our team members were not familiar with the full set of technologies required to implement a complete feature. As reflected by the [failing test results](iteration2-artifacts/REST-API-real-data-test-results.txt), we were not able to complete the implementation of our primary RESTful APIs since they are yet to be integrated with the database server.
 
 * Not dedicating enough time towards video creation and editing turned out to be very stressful near the end of our iteration (as reflected by the [*last minute* upload](https://github.com/csc301-fall-2016/project-team-16/commit/c5c66132f00fe320dafd27a3aca3a0d84bad6e2c) of our demo video). Although we are very satisfied with the video we have created, it is worthwhile to note that we greatly underestimated the required effort for creating a video that meets the expected standard.
 
@@ -49,7 +49,7 @@ __Goals/tasks that were met / completed:__
   In addition we were able to implement the following screens / UI components, which were not part of our original iteration plan:
   
   * [Sliding Navigation Menu](iteration2-artifacts/screenshots/Menu.jpg)
-  * [Notifications panel] (iteration2-artifacts/screenshots/Notifications.jpg)
+  * [Notifications panel](iteration2-artifacts/screenshots/Notifications.jpg)
   * [Sign Up page](iteration2-artifacts/screenshots/Sign_Up.jpg)
   
 
