@@ -34,4 +34,39 @@ __We are planning to make the following changes to our process:__
 
 * Lastly, we certainly look forward towards hosting some in-person and face-to-face meetings to address any issues that demand more direct assistance / communication.
 
-<!--* of a shared machine / dev environment.-->
+
+## Product - Review
+
+__Goals/tasks that were met / completed:__
+
+* All primary screens in our front-end application were [implemented](iteration2-artifacts/screenshots) as planned:
+ 
+ * [*Discover*](iteration2-artifacts/screenshots/Discover.jpg) page
+ * [*Create Event*](iteration2-artifacts/screenshots/Create_Event.jpg) page
+ * [*Event Details*](iteration2-artifacts/screenshots/Event.jpg) page
+ * [*Communities*](iteration2-artifacts/screenshots/Communities.jpg) page
+
+  In addition we were able to implement the following screens / UI components, which were not part of our original iteration plan:
+  
+  * [Sliding Navigation Menu](iteration2-artifacts/screenshots/Menu.jpg)
+  * [Notifications panel] (iteration2-artifacts/screenshots/Notifications.jpg)
+  * [Sign Up page](iteration2-artifacts/screenshots/Sign_Up.jpg)
+  
+
+* All of our primary RESTful APIs have been implemented using dummy data. The [test results](iteration2-artifacts/REST-API-Tests/REST-API-mock-data-test-results.txt) from the [first set of test cases](../server_dev/test/REST-API-with-mock-data.json) indicate this.
+
+* A working and stable [application](iteration2-artifacts/DemoBuild.apk) has been developed with proper navigation across the different screens.
+
+* A well-polished [demo video](iteration2-artifacts/video.md) has been created which meets all specifications listed in our iteration plan document.
+
+__Goals/tasks that were planned but not met / completed:__
+
+* RESTful APIs have not been integrated with database server since connectivity between our application server and database has not been established yet. This is primarily because some of our team members are new to databases, and therefore required some extra time to get comfortable with implementing such components. As a result, we have not been able to [test](../server_dev/test/) our RESTful APIs with real data.
+
+__Going into the next iteration, our main insights are__:
+
+* Working on establishing connectivity between application server and database. This is currently the highest priority since it is critical for testing our app out in the real world, and gaining some extra motivation for the team demo in December.
+
+* Implementing the *event chat* feature that will allow users interested in attending an *event* to chat amongst each other.
+
+* Thoroughly testing both front and back end in order to ensure smooth functioning of our application and (hopefully) pull out a great demo!

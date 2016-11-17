@@ -1,0 +1,58 @@
+newman
+
+Poppin - RESTful API (Serving Mock Data)
+
+→ SignUp
+  POST http://localhost:8080/user [200 OK, 195B, 29ms]
+  ✓  Status Code is 200 (OK)
+  ✓  Response Body is correct
+
+→ SignIn
+  POST http://localhost:8080/auth [404 Not Found, 221B, 7ms]
+  1. Status Code is 200 (OK)
+  2. Response Body is correct
+
+→ CreateEvent
+  POST http://localhost:8080/event [200 OK, 195B, 4ms]
+  ✓  Status Code is 200 (OK)
+  ✓  Response Body is correct
+
+→ GetEvents
+  GET http://localhost:8080/events?longitude=89.6123&radius=1&latitude=98.40 [200 OK, 728B, 6ms]
+  ✓  Status Code is 200 (OK)
+  ✓  Response Body is correct
+
+→ GetEventDetails
+  GET http://localhost:8080/event/1 [200 OK, 426B, 4ms]
+  ✓  Status Code is 200 (OK)
+  ✓  Response Body is correct
+
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        5 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │        5 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │        0 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │       10 │        2 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 1043ms                    │
+├───────────────────────────────────────────────┤
+│ total data received: 910B (approx)            │
+├───────────────────────────────────────────────┤
+│ average response time: 10ms                   │
+└───────────────────────────────────────────────┘
+
+  #  failure           detail                                                        
+                                                                                     
+ 1.  AssertionFailure  Status Code is 200 (OK)                                       
+                       at assertion:1 in test-script                                 
+                       inside "SignIn" of "Poppin - RESTful API (Serving Mock Data)" 
+                                                                                     
+ 2.  AssertionFailure  Response Body is correct                                      
+                       at assertion:2 in test-script                                 
+                       inside "SignIn" of "Poppin - RESTful API (Serving Mock Data)" 
