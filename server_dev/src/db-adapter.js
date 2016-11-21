@@ -14,7 +14,7 @@ exports.getListOfNearbyEvents = function (longitude, latitude, callback) {
     
     
 
-    var queryString = 'SELECT * FROM event WHERE (latitude -' + latitude + ')^2 <= 0.09 AND WHERE (longitude - ' + longitude + ')^2 <= 0.09';
+    var queryString = "SELECT * FROM event WHERE latitude BETWEEN " + (latitude - 0.03) + " AND "+ (latitude + 0.03)" AND longitude BETWEEN " + (longitude - 0.03) + " AND " + (longitude + 0.03) ;
     
 
     connection.query(queryString, function(err, rows){
