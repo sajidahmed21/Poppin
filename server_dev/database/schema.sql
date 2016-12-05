@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS poppin_schema
-	DEFAULT CHARACTER SET utf8
-	DEFAULT COLLATE utf8_unicode_ci;
+    DEFAULT CHARACTER SET utf8
+    DEFAULT COLLATE utf8_unicode_ci;
 USE poppin_schema;
 
 SET default_storage_engine=InnoDB;
@@ -9,13 +9,13 @@ SET default_storage_engine=InnoDB;
 /* --- Users --- */
 
 /*
-	user
+    user
 
-	id: unique id for user
-	first_name: first name of user, i.e. what to address the user as
-	last_name: last name of the user (optional since names may come from 3rd party auth protocols)
-	email: used for communication and in conjunction with login_credential
-	date_created: datetime referring to date account was created
+    id: unique id for user
+    first_name: first name of user, i.e. what to address the user as
+    last_name: last name of the user (optional since names may come from 3rd party auth protocols)
+    email: used for communication and in conjunction with login_credential
+    date_created: datetime referring to date account was created
 */
 CREATE TABLE IF NOT EXISTS user (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,14 +26,14 @@ CREATE TABLE IF NOT EXISTS user (
 );
 
 /*
-	login_credential
+    login_credential
 
-	Log in with email + password.
+    Log in with email + password.
 
-	user_id: references user(id)
-	login_attempts: number of failed consecutive login attempts (inherent max at 127)
-	password: hashed + salted password
-	recovery_token: randomly generated (when needed) token to be used for password recovery
+    user_id: references user(id)
+    login_attempts: number of failed consecutive login attempts (inherent max at 127)
+    password: hashed + salted password
+    recovery_token: randomly generated (when needed) token to be used for password recovery
 */
 CREATE TABLE IF NOT EXISTS login_credential (
   user_id INT PRIMARY KEY,
@@ -45,11 +45,11 @@ CREATE TABLE IF NOT EXISTS login_credential (
 );
 
 /*
-	third_party_credential
+    third_party_credential
 
-	user_id: user id 3rd party credential is associated with
-	provider_id: google/facebook/etc...
-	token: token associated with provider
+    user_id: user id 3rd party credential is associated with
+    provider_id: google/facebook/etc...
+    token: token associated with provider
 */
 CREATE TABLE IF NOT EXISTS third_party_credential (
   user_id INT NOT NULL,
@@ -64,14 +64,14 @@ CREATE TABLE IF NOT EXISTS third_party_credential (
 /* --- Communities --- */
 
 /*
-	community
+    community
 
-	Communities represent interests groups which users subscribe to,
-	and events are associated with.
+    Communities represent interests groups which users subscribe to,
+    and events are associated with.
 
-	id: unique community id
-	name: unique community name; should be kept short
-	description: short (optional) description explaining the community
+    id: unique community id
+    name: unique community name; should be kept short
+    description: short (optional) description explaining the community
 */
 CREATE TABLE IF NOT EXISTS community (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -83,17 +83,17 @@ CREATE TABLE IF NOT EXISTS community (
 /* --- Events --- */
 
 /*
-	event
+    event
 
-	id: event id
-	name: short event name
-	start_date: start datetime of event
-	end_date: end datetime of event
-	longitude: longitude of event location
-	latitude: latitude of event location
-	description: description of event
-	is_active: TODO
-	date_created: datetimeevent was created
+    id: event id
+    name: short event name
+    start_date: start datetime of event
+    end_date: end datetime of event
+    longitude: longitude of event location
+    latitude: latitude of event location
+    description: description of event
+    is_active: TODO
+    date_created: datetimeevent was created
 */
 CREATE TABLE IF NOT EXISTS event (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -128,13 +128,28 @@ CREATE TABLE IF NOT EXISTS user_community_map (
   FOREIGN KEY(community_id) REFERENCES community(id) ON DELETE CASCADE
 );
 
+/* --- Intention --- */
+CREATE TABLE IF NOT EXISTS intention (
+    event_id INT NOT NULL,
+    user_id INT NOT NULL,
+    interested TINYINT(1) NOT NULL DEFAULT 0,
+    attending TINYINT(1) NOT NULL DEFAULT 0,
+    PRIMARY KEY (`event_id`, `user_id`),
+    FOREIGN KEY (`user_id`) REFERENCES user(`id`)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (`event_id`) REFERENCES event(`id`)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
+
 /* --- Notification --- */
 CREATE TABLE IF NOT EXISTS notification (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     type VARCHAR(255) NOT NULL,
     message TEXT NOT NULL,
-	link VARCHAR(255) NULL,
+    link VARCHAR(255) NULL,
     FOREIGN KEY (`user_id`) REFERENCES user(`id`)
         ON UPDATE CASCADE
         ON DELETE CASCADE
