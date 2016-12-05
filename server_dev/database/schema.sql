@@ -10,7 +10,7 @@ SET default_storage_engine=InnoDB;
 
 /*
 	user
-	
+
 	id: unique id for user
 	first_name: first name of user, i.e. what to address the user as
 	last_name: last name of the user (optional since names may come from 3rd party auth protocols)
@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS user (
 
 /*
 	login_credential
-	
+
 	Log in with email + password.
-	
+
 	user_id: references user(id)
 	login_attempts: number of failed consecutive login attempts (inherent max at 127)
 	password: hashed + salted password
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS login_credential (
 
 /*
 	third_party_credential
-	
+
 	user_id: user id 3rd party credential is associated with
 	provider_id: google/facebook/etc...
 	token: token associated with provider
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS third_party_credential (
   user_id INT NOT NULL,
   provider_id VARCHAR(255) NOT NULL,
   token VARCHAR(255) NOT NULL,
-  
+
   PRIMARY KEY(user_id, provider_id),
   FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE CASCADE
 );
@@ -65,10 +65,10 @@ CREATE TABLE IF NOT EXISTS third_party_credential (
 
 /*
 	community
-	
+
 	Communities represent interests groups which users subscribe to,
 	and events are associated with.
-	
+
 	id: unique community id
 	name: unique community name; should be kept short
 	description: short (optional) description explaining the community
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS community (
 
 /*
 	event
-	
+
 	id: event id
 	name: short event name
 	start_date: start datetime of event
@@ -127,3 +127,15 @@ CREATE TABLE IF NOT EXISTS user_community_map (
   FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE CASCADE,
   FOREIGN KEY(community_id) REFERENCES community(id) ON DELETE CASCADE
 );
+
+/* --- Notification --- */
+CREATE TABLE IF NOT EXISTS notification (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+	link VARCHAR(255) NULL,
+    FOREIGN KEY (`user_id`) REFERENCES user(`id`)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
