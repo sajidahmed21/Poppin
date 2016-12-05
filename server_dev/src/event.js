@@ -27,7 +27,7 @@ exports.getEvents = function (request, response) {
                     i--;
                 }
             }*/
-            
+
             //Format to readable data in sending response
             var formattedData = {};
             for (var i = 0; i < data.length; i++) {
@@ -55,9 +55,9 @@ exports.getEventDetails = function (request, response) {
     console.log("Event Id: " + eventId);
     
     dbAdapter.getEventDetails(eventId, function (result, data) {
-        
+        console.log(data);
         if (result === constants.SUCCESS) {
-            common.sendSuccessResponse(data, response);
+            common.sendSuccessResponse(data[0], response);
         }
         else {
             var message = "Database error";

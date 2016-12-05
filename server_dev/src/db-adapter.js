@@ -77,16 +77,15 @@ exports.getEventDetails = function (eventId, callback) {
     
     // callback(constants.SUCCESS, mockData);
 
-    var queryString = "SELECT * FROM event WHERE eventID = ?";
+    var queryString = "SELECT * FROM event WHERE id = ?";
 
     query(queryString, eventId, function(error, response){
-        if (err) {
-            callback(constants.ERROR);
-        } else {
+        if (error === constants.SUCCESS) {
             callback(constants.SUCCESS, response);
+        } else {
+            callback(constants.ERROR);
         }
     })
-    console.log(response);
 
 };
 
@@ -106,14 +105,42 @@ exports.createNewEvent = function(event, callback){
 
     // Insert into database.
     query(queryString, data, function(error, response){
-        console.log(error);
-        if (error) {
-            callback(constants.ERROR);
-        } else {
-            callback(constants.SUCCESS);
-        }
-
+        callback(error);
     });
     
 
 };
+
+
+exports.createNewCommunity = function(community, callback){
+    var queryString = "INSERT INTO community SET ?";
+
+    // Insert into database.
+    query(queryString, community, function(error, response){
+        callback(error);
+    });
+}
+
+exports.getAllCommunities = function(callback){
+    var queryString = "SELECT * FROM community";
+
+    query(queryString, null, function(error, response){
+        if(error === constants.SUCCESS){
+            callback(constants.SUCCESS, response);
+        } else {
+            callback(constants.ERROR, err);//throw err;
+        }
+    });
+}
+
+exports.getSingleCommunity = function(communityId, callback){
+    var queryString = "SELECT * FROM community WHERE id = ?";
+
+    query(queryString, communityId , function(error, response){
+        if(error === constants.SUCCESS){
+            callback(constants.SUCCESS, response);
+        } else {
+            callback(constants.ERROR, err);//throw err;
+        }
+    });
+}
