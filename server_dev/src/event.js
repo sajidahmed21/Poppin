@@ -9,16 +9,13 @@ var dbAdapter = require(constants.dbAdapter);
 */
 exports.getEvents = function (request, response) {
     
-    var radius = request.query.radius;
-    var longitude = request.query.longitude;
-    var latitude = request.query.latitude;
-    console.log("Long: " + longitude);
-    console.log("Lat: " + latitude);
-    console.log("Rad: " + radius);
+    var radius = parseInt(request.query.radius);
+    var longitude = parseInt(request.query.longitude);
+    var latitude = parseInt(request.query.latitude);
     
-    dbAdapter.getListOfNearbyEvents(longitude, latitude, function (result, data) {
+    dbAdapter.getListOfNearbyEvents(longitude, latitude, radius, function (result, data) {
         
-        if (result == constants.SUCCESS) {
+        if (result === constants.SUCCESS) {
             var today = new Date()/1000;
             
             /*
@@ -30,9 +27,15 @@ exports.getEvents = function (request, response) {
                     i--;
                 }
             }*/
+            
+            //Format to readable data in sending response
+            var formattedData = {};
+            for (var i = 0; i < data.length; i++) {
+                var eventID = data[i].id;
+                formattedData[eventID] = data[i];
+            }
 
-
-            common.sendSuccessResponse(data, response);
+            common.sendSuccessResponse(formattedData, response);
         }
         else {
             var message = "Database error";
@@ -53,7 +56,7 @@ exports.getEventDetails = function (request, response) {
     
     dbAdapter.getEventDetails(eventId, function (result, data) {
         
-        if (result == constants.SUCCESS) {
+        if (result === constants.SUCCESS) {
             common.sendSuccessResponse(data, response);
         }
         else {
@@ -70,25 +73,24 @@ exports.createNewEvent = function (request, response){
     var description = request.body.description;
     var startDate = request.body.start_date;
     var endDate = request.body.end_date;
-
+    var longitude = request.body.longitude;
+    var latitude = request.body.latitude;
+    var is_active = request.body.is_active
     //Probably modify these to match schema after.
-    //lat/long
-    var dateCreated = new Date();
 
     var event = {
         name: name,
         description: description,
         startDate: startDate,
         endDate: endDate,
-        //longitude: 
-        //latitude:
-        //is_active
-        dateCreated: dateCreated
+        longitude: longitude,
+        latitude: latitude,
+        is_active: is_active,
     };
     
     dbAdapter.createNewEvent(event, function(result){
-        if (result == constants.SUCCESS) {
-            common.sendSuccessResponse(null, response);
+        if (result === constants.SUCCESS) {
+            common.sendSuccessResponse(result, response);
         }
         else {
             var message = "Database error";
