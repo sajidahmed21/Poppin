@@ -3,6 +3,7 @@ exports.common = __dirname + '/common';
 exports.dbAdapter = __dirname + '/db-adapter';
 exports.user = __dirname + '/user';
 exports.event = __dirname + '/event';
+exports.communities = __dirname + '/communities';
 
 
 

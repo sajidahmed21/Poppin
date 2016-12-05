@@ -16,7 +16,7 @@ var server = require('http').Server(app);
 var constants = require('./constants');
 var user = require(constants.user);
 var event = require(constants.event);
-
+var community = require(constants.communities);
 
 /* -------- User Sign Up and Authentication -------- */
 
@@ -35,9 +35,9 @@ app.post('/event', event.createNewEvent);
 
 /* ----------------- Communities ------------------ */
 
-// TODO
+app.get('/communities', community.getCommunities);
 
-
+app.post('/communities', community.createNewCommunity);
 
 /* ---------- Server Start up  -------------------- */
 
