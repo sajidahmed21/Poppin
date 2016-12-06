@@ -122,6 +122,7 @@ CREATE TABLE IF NOT EXISTS event_community_map (
 CREATE TABLE IF NOT EXISTS user_community_map (
   user_id INT NOT NULL,
   community_id INT NOT NULL,
+  pending TINYINT(1) NOT NULL DEFAULT 0,
 
   PRIMARY KEY(user_id, community_id),
   FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE CASCADE,
