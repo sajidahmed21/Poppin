@@ -31,11 +31,32 @@ exports.getListOfNearbyEvents = function (longitude, latitude, radius, callback)
 
     console.log("Longitude: " + longitude);
     console.log("Latitude: " + latitude);
-    
-    
 
-    var queryString = "SELECT * FROM event WHERE latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?";
-    var data = [(latitude - radius), (latitude + radius), (longitude - radius),  (longitude + radius)];
+    var lon = [
+        longitude - radius/Math.abs(Math.cos(latitude * Math.PI/180)*111),
+        longitude + radius/Math.abs(Math.cos(latitude * Math.PI/180)*111)
+    ];
+
+    var lat = [
+        latitude - radius/111,
+        latitude + radius/111
+    ];
+
+    var queryString = `
+        SELECT *, (
+            6366.6 * 2 * ASIN(SQRT(
+                POWER(SIN((? - event.latitude) * PI()/180 / 2), 2) +
+                COS(? * PI()/180) * COS(event.latitude * PI()/180) *
+                POWER(SIN((? - event.longitude) * PI()/180 / 2), 2)
+            ))
+        ) as distance
+        FROM event
+        WHERE event.longitude BETWEEN ? AND ? AND event.latitude BETWEEN ? AND ?
+        ORDER BY distance ASC
+        LIMIT 100
+    `;
+
+    var data = [latitude, latitude, longitude, lon[0], lon[1], lat[0], lat[1]];
     console.log(data);
     query(queryString, data, function(err, rows){
         if(err === constants.SUCCESS){
@@ -46,9 +67,9 @@ exports.getListOfNearbyEvents = function (longitude, latitude, radius, callback)
             console.log(err);
             callback(constants.ERROR, err);//throw err;
         }
-        
+
     });
-    
+
     //callback(constants.SUCCESS, mockData);
 };
 
@@ -74,7 +95,7 @@ exports.getEventDetails = function (eventId, callback) {
     //     "date_created":"2016-10-19 01:00:00"
 
     // };
-    
+
     // callback(constants.SUCCESS, mockData);
 
     var queryString = "SELECT * FROM event WHERE id = ?";
@@ -101,13 +122,13 @@ exports.createNewEvent = function(event, callback){
             };
 
 
-    var queryString = "INSERT INTO event SET ?";    
+    var queryString = "INSERT INTO event SET ?";
 
     // Insert into database.
     query(queryString, data, function(error, response){
         callback(error);
     });
-    
+
 
 };
 

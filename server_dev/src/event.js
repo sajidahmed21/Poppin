@@ -8,25 +8,15 @@ var dbAdapter = require(constants.dbAdapter);
  * whenever a NearbyEvents request is received.
 */
 exports.getEvents = function (request, response) {
-    
+
     var radius = parseInt(request.query.radius);
-    var longitude = parseInt(request.query.longitude);
-    var latitude = parseInt(request.query.latitude);
-    
+    var longitude = parseFloat(parseFloat(request.query.longitude).toFixed(6));
+    var latitude = parseFloat(parseFloat(request.query.latitude).toFixed(6));
+
     dbAdapter.getListOfNearbyEvents(longitude, latitude, radius, function (result, data) {
-        
+
         if (result === constants.SUCCESS) {
             var today = new Date()/1000;
-            
-            /*
-            for(var i = 0; i < data.length; i++){
-                var curr_event = data[i];
-                var event_date = curr_event.end_date;
-                if(event_date < today){
-                    data.splice(i, 1);
-                    i--;
-                }
-            }*/
 
             //Format to readable data in sending response
             var formattedData = {};
@@ -50,10 +40,10 @@ exports.getEvents = function (request, response) {
  * whenever an EventDetails request is received.
 */
 exports.getEventDetails = function (request, response) {
-    
+
     var eventId = request.params.id;
     console.log("Event Id: " + eventId);
-    
+
     dbAdapter.getEventDetails(eventId, function (result, data) {
         console.log(data);
         if (result === constants.SUCCESS) {
@@ -66,7 +56,7 @@ exports.getEventDetails = function (request, response) {
     });
 };
 
-/* Creates a new event 
+/* Creates a new event
  */
 exports.createNewEvent = function (request, response){
     var name = request.body.name;
@@ -87,7 +77,7 @@ exports.createNewEvent = function (request, response){
         latitude: latitude,
         is_active: is_active,
     };
-    
+
     dbAdapter.createNewEvent(event, function(result){
         if (result === constants.SUCCESS) {
             common.sendSuccessResponse(result, response);
