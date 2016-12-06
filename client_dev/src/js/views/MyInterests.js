@@ -9,10 +9,34 @@ export default class MyInterests extends React.Component {
     constructor() {
         super();
 
-        /* Initialize blank state. */
-        this.state = {};
+        this.state = {
+            communities: {}
+        };
 
         this.onCommunitySelect = this.onCommunitySelect.bind(this);
+        this.fetch = this.fetch.bind(this);
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+        this.fetch();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    fetch() {
+        if (this.state.location === false || !this._isMounted) return;
+
+        axios.get(consts.SERVER + '/mycommunities').then(resp => {
+            if (!this._isMounted) return;
+            this.setState({
+                communities: resp.data.data
+            });
+        }).catch(err => {
+            if (!this._isMounted) return;
+        });
     }
 
     onCommunitySelect(id) {
@@ -27,7 +51,10 @@ export default class MyInterests extends React.Component {
         return (
             <Container className="myinterests-view expand">
                 <div className="message center bordered">{text['header']}</div>
-                <CommunityList onCommunitySelect={this.onCommunitySelect} />
+                <CommunityList
+                    onCommunitySelect={this.onCommunitySelect}
+                    communities={this.state.communities}
+                />
             </Container>
         );
     }

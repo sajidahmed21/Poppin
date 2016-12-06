@@ -62,6 +62,7 @@ export default class AddressPicker extends React.Component {
                     latitude={this.state.latitude}
                     longitude={this.state.longitude}
                     nearbyEvents={false}
+                    events={false}
                     isEvent={true}
                     onCurrentLocation={(loc) => {
                         if (this.state.latitude === false) {

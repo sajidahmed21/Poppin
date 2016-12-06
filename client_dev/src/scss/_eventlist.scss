@@ -76,5 +76,25 @@
             }
         }
 
+        > .error {
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+
+            span {
+                font-size: 1.5em;
+                color: #000;
+            }
+
+            i.fa {
+                display: block;
+                font-size: 3em;
+                margin: 20px 0;
+                transform: translate3d(0px,0px,0px);
+                color: $orange;
+            }
+        }
+
     }
 }

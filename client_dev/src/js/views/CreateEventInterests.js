@@ -9,8 +9,31 @@ export default class CreateEventInterests extends React.Component {
     constructor() {
         super();
 
-        /* Initialize blank state. */
-        this.state = {};
+        this.state = {
+            communities: {}
+        };
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+        this.fetch();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    fetch() {
+        if (this.state.location === false || !this._isMounted) return;
+
+        axios.get(consts.SERVER + '/communities').then(resp => {
+            if (!this._isMounted) return;
+            this.setState({
+                communities: resp.data.data
+            });
+        }).catch(err => {
+            if (!this._isMounted) return;
+        });
     }
 
     render() {
@@ -21,7 +44,9 @@ export default class CreateEventInterests extends React.Component {
         return (
             <Container className="createeventinterests-view expand">
                 <div className="message center">{text['header']}</div>
-                <CommunityList />
+                <CommunityList
+                    communities={this.state.communities}
+                />
             </Container>
         );
     }

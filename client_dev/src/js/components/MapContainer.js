@@ -11,7 +11,6 @@ export default class MapContainer extends React.Component {
 
         /* Initialize blank state. */
         this.state = {
-            events: {},
             current: {
                 loading: false,
                 latitude: false,
@@ -133,10 +132,10 @@ export default class MapContainer extends React.Component {
                           icon={iconEvent}
                       ></Marker>
                   )}
-                  {this.props.nearbyEvents && Object.keys(this.state.events).map(key => (
+                  {this.props.nearbyEvents && this.props.events !== false && Object.keys(this.props.events).map(key => (
                       <Marker
                         key={key}
-                        position={[this.state.events[key].latitude, this.state.events[key].longitude]}
+                        position={[this.props.events[key].latitude, this.props.events[key].longitude]}
                         draggable={false}
                         icon={iconEvent}
                         clickable={true}

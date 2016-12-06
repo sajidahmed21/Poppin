@@ -14,7 +14,6 @@ export default class CommunityList extends React.Component {
         /* Initialize blank state. */
         this.state = {
             'community-list-style': {},
-            communities: {},
             selected: new Set(),
             search: ''
         };
@@ -45,12 +44,6 @@ export default class CommunityList extends React.Component {
         }));
     }
 
-    componentDidMount() {
-        this.setState({ communities: update(this.state.communities, {
-            $merge: Dummy.communities
-        }) });
-    }
-
     render() {
         return (
             <div className='community-list'>
@@ -60,17 +53,17 @@ export default class CommunityList extends React.Component {
                     onChange={this.onSearch}
                 />
                 <div className='community-list-items'>
-                    {Object.keys(this.state.communities).filter((key) => (
+                    {this.props.communities && Object.keys(this.props.communities).filter((key) => (
                         (this.state.search === '' || (
-                            this.state.communities[key].name.toLowerCase().indexOf(this.state.search) >= 0 ||
-                            this.state.communities[key].description.toLowerCase().indexOf(this.state.search) >= 0
-                        )) && (typeof this.props.filter === 'undefined' || this.props.filter(this.state.communities[key]))
+                            this.props.communities[key].name.toLowerCase().indexOf(this.state.search) >= 0 ||
+                            this.props.communities[key].description.toLowerCase().indexOf(this.state.search) >= 0
+                        )) && (typeof this.props.filter === 'undefined' || this.props.filter(this.props.communities[key]))
                     )).map((key) => (
                         <CommunityListItem
                             key={key}
                             id={key}
-                            name={this.state.communities[key].name}
-                            description={this.state.communities[key].description}
+                            name={this.props.communities[key].name}
+                            description={this.props.communities[key].description}
                             onSelected={this.onCommunityClick}
                             onClick={() => {
                                 if (this.props.onCommunitySelect) {
@@ -78,7 +71,7 @@ export default class CommunityList extends React.Component {
                                 }
                             }}
                             selected={this.state.selected.has(key)}
-                            private={this.state.communities[key].private === true}
+                            private={this.props.communities[key].private === true}
                         />
                     ))}
                 </div>

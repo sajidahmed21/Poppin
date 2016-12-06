@@ -65,6 +65,7 @@ export default class Event extends React.Component {
                         latitude={this.state.event.latitude}
                         longitude={this.state.event.longitude}
                         isEvent={true}
+                        events={false}
                     />
                 </div>
                 <div className='details event-details'>

@@ -9,8 +9,35 @@ export default class FirstTimeInterests extends React.Component {
     constructor() {
         super();
 
-        /* Initialize blank state. */
-        this.state = {};
+        this.state = {
+            communities: {}
+        };
+
+        this.fetch = this.fetch.bind(this);
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+        this.fetch();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    fetch() {
+        if (this.state.location === false || !this._isMounted) return;
+
+        axios.get(consts.SERVER + '/communities', {
+            private: false
+        }).then(resp => {
+            if (!this._isMounted) return;
+            this.setState({
+                communities: resp.data.data
+            });
+        }).catch(err => {
+            if (!this._isMounted) return;
+        });
     }
 
     render() {
@@ -21,7 +48,10 @@ export default class FirstTimeInterests extends React.Component {
         return (
             <Container className="firsttimeinterests-view expand">
                 <div className="message center bordered">{text['header']}</div>
-                <CommunityList filter={el => (el.private !== true)} />
+                <CommunityList
+                    filter={el => (el.private !== true)}
+                    communities={this.state.communities}
+                />
             </Container>
         );
     }
