@@ -111,25 +111,27 @@ exports.getEventDetails = function (eventId, callback) {
 };
 
 exports.createNewEvent = function(event, callback){
+    var queryString = `
+        INSERT INTO event SET
+        name = ?, description = ?,
+        start_date = FROM_UNIXTIME(?), end_date = FROM_UNIXTIME(?),
+        longitude = ?, latitude = ?, is_active = 1
+    `;
 
-    var data = {name: event.name,
-                description: event.description,
-                start_date: event.startDate,
-                end_date: event.endDate,
-                longitude: event.longitude,
-                latitude: event.latitude,
-                is_active: event.is_active
-            };
-
-
-    var queryString = "INSERT INTO event SET ?";
+    var data = [
+        event.name, event.description,
+        event.start_date, event.end_date,
+        event.longitude, event.latitude
+    ];
 
     // Insert into database.
     query(queryString, data, function(error, response){
-        callback(error);
+        if (error === constants.SUCCESS && response.insertId) {
+            callback(constants.SUCCESS, { event_id: response.insertId });
+        } else {
+            callback(error);
+        }
     });
-
-
 };
 
 
@@ -157,7 +159,7 @@ exports.getAllCommunities = function(callback){
 exports.getSingleCommunity = function(communityId, callback){
     var queryString = "SELECT * FROM community WHERE id = ?";
 
-    query(queryString, communityId , function(error, response){
+    query(queryString, communityId, function(error, response){
         if(error === constants.SUCCESS){
             callback(constants.SUCCESS, response);
         } else {

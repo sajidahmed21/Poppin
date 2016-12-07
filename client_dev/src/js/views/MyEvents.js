@@ -17,19 +17,22 @@ export default class MyEvents extends React.Component {
         };
 
         this.onEventSelect = this.onEventSelect.bind(this);
-        this.fetchEvents = this.fetchEvents.bind(this);
+        this.fetch = this.fetch.bind(this);
     }
 
     componentDidMount() {
         this._isMounted = true;
-        this.fetchEvents();
+    }
+
+    componentWillMount() {
+        this.fetch();
     }
 
     componentWillUnmount() {
         this._isMounted = false;
     }
 
-    fetchEvents() {
+    fetch() {
         if (!this._isMounted) return;
 
         axios.get(consts.SERVER + '/myevents').then(resp => {

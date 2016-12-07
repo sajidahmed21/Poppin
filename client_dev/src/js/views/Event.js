@@ -6,6 +6,7 @@ import Container from 'muicss/lib/react/container';
 import Button from 'muicss/lib/react/button';
 
 import Dummy from '../lib/Dummy';
+import axios from 'axios';
 
 export default class Event extends React.Component {
     constructor() {
@@ -24,14 +25,47 @@ export default class Event extends React.Component {
                 communities: []
             }
         };
+
+        this.fetch = this.fetch.bind(this);
+        this.imGoing = this.imGoing.bind(this);
+        this.imInterested = this.imInterested.bind(this);
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
     }
 
     componentWillMount() {
-        if (this.props.viewOpts.id) {
+        this.fetch();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    fetch() {
+        if (!this._isMounted || !this.props.viewOpts || !this.props.viewOpts.id) return;
+
+        axios.get(consts.SERVER + '/event/' + this.props.viewOpts.id).then(resp => {
+            if (!this._isMounted) return;
+            let event =  resp.data.data;
+            if (!event.communities) {
+                event.communities = [];
+            }
             this.setState({
-                event: Dummy.events[this.props.viewOpts.id]
+                event: event
             });
-        }
+        }).catch(err => {
+            if (!this._isMounted) return;
+        });
+    }
+
+    imGoing() {
+
+    }
+
+    imInterested() {
+
     }
 
     render() {
@@ -83,8 +117,8 @@ export default class Event extends React.Component {
                     <div className='description'>{this.state.event.description}</div>
                 </div>
                 <div className='actions event-actions'>
-                    <Button color="primary">{"I'm Going"}</Button>
-                    <Button color="primary">{"I'm Interested"}</Button>
+                    <Button color="primary" onClick={this.imGoing}>{"I'm Going"}</Button>
+                    <Button color="primary" onClick={this.imInterested}>{"I'm Interested"}</Button>
                 </div>
             </Container>
         );

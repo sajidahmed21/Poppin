@@ -119,6 +119,7 @@ export default class MainView extends React.Component {
                         onNotificationClick={this.onNotificationClick}
                         loggedIn={this.isLoggedIn()}
                         notifications={this.state.notifications}
+                        viewOpts={this.state.opts || {}}
                     />
                     {views[this.state.current]}
                 </div>

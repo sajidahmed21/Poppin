@@ -6,10 +6,11 @@ import Container from 'muicss/lib/react/container';
 import CommunityList from '../components/CommunityList';
 
 export default class CreateEventInterests extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
+            event_id: props.viewOpts.event_id || false,
             communities: {}
         };
     }

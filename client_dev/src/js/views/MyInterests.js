@@ -17,9 +17,12 @@ export default class MyInterests extends React.Component {
         this.fetch = this.fetch.bind(this);
     }
 
+    componentWillMount() {
+        this.fetch();
+    }
+
     componentDidMount() {
         this._isMounted = true;
-        this.fetch();
     }
 
     componentWillUnmount() {

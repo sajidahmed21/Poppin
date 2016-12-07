@@ -31,6 +31,10 @@ export default class DatePicker extends React.Component {
                 if (!this._isMounted) return;
                 this.setState({
                     epoch: new Date(date.year, date.month, date.day, time.hour, time.minute).getTime() / 1000
+                }, () => {
+                    if (this.props.onDateSelected) {
+                        this.props.onDateSelected(this.state.epoch);
+                    }
                 });
             });
         });

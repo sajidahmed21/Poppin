@@ -65,8 +65,6 @@ exports.createNewEvent = function (request, response){
     var endDate = request.body.end_date;
     var longitude = request.body.longitude;
     var latitude = request.body.latitude;
-    var is_active = request.body.is_active
-    //Probably modify these to match schema after.
 
     var event = {
         name: name,
@@ -74,8 +72,7 @@ exports.createNewEvent = function (request, response){
         startDate: startDate,
         endDate: endDate,
         longitude: longitude,
-        latitude: latitude,
-        is_active: is_active,
+        latitude: latitude
     };
 
     dbAdapter.createNewEvent(event, function(result){

@@ -50,7 +50,7 @@ export default class TitleBar extends React.Component {
                                     if (this.props.view === 'firsttimeinterests') {
                                         this.props.onViewChange('discover');
                                     } else if (this.props.view === 'createeventinterests') {
-                                        this.props.onViewChange('event', { id: 5 });
+                                        this.props.onViewChange('event', { id: this.props.viewOpts.event_id || false });
                                     }
                                 }
                             }>

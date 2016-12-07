@@ -5,6 +5,7 @@ import Container from 'muicss/lib/react/container';
 import Button from 'muicss/lib/react/button';
 
 import Dummy from '../lib/Dummy';
+import axios from 'axios';
 
 export default class Community extends React.Component {
     constructor() {
@@ -19,14 +20,35 @@ export default class Community extends React.Component {
                 private: false
             }
         };
+
+        this.fetch = this.fetch.bind(this);
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
     }
 
     componentWillMount() {
-        if (this.props.viewOpts.id) {
+        this.fetch();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    fetch() {
+        if (!this._isMounted || !this.props.viewOpts || !this.props.viewOpts.id) return;
+
+        axios.get(consts.SERVER + '/communities?id=' + this.props.viewOpts.id).then(resp => {
+            if (!this._isMounted) return;
+            let community = resp.data.data;
+            community.private = community.private || false;
             this.setState({
-                community: Object.assign({ private: false }, Dummy.communities[this.props.viewOpts.id])
+                community: community
             });
-        }
+        }).catch(err => {
+            if (!this._isMounted) return;
+        });
     }
 
     render() {
