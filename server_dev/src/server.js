@@ -32,6 +32,9 @@ app.get('/event/:id', event.getEventDetails);
 
 app.post('/event', event.createNewEvent);
 
+//Intentions for events
+app.put('/event/updateIntention/', event.updateIntention);
+app.delete('/event/removeIntention/', event.removeIntention);
 
 /* ------------ User's Personal Events ------------ */
 

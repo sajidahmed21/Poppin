@@ -98,4 +98,66 @@ exports.myEvents = function (request, response) {
             common.sendErrorResponse(message, response);
         }
     });
-}
+};
+
+exports.updateIntention = function(request, response){
+    var eId = parseInt(request.body.eventId);
+    var userId = parseInt(request.body.userId);
+    var interested = 0;
+    var attending = 0;
+
+    if (request.body.hasOwnProperty('interested')){
+        interested = 1;
+    }
+
+    if (request.body.hasOwnProperty('attending')){
+        attending = 1;
+    }
+
+    if (!request.body.hasOwnProperty('attending') && request.body.hasOwnProperty('interested')){
+        var message = "Intention not given";
+        common.sendErrorResponse(message, response);
+    } else {
+        dbAdapter.putUserIntention(eId, userId, interested, attending, function(result){
+             if (result === constants.SUCCESS) {
+                common.sendSuccessResponse(result, response);
+            }
+            else {
+                var message = "Database error";
+                common.sendErrorResponse(message, response);
+            }
+        });
+    }
+};
+
+exports.removeIntention = function(request, response){
+    var eId = parseInt(request.body.eventId);
+    var userId = parseInt(request.body.userId);
+    var notInterested = 0;
+    var notAttending = 0;
+
+    //If notinterested/notattending flag is in the body, set their relevant attribute to 0 in db.
+    if (request.body.hasOwnProperty('interested')){
+        notInterested = 1;
+    }
+
+    if (request.body.hasOwnProperty('attending')){
+        notAttending = 1;
+    }
+
+    if (!request.body.hasOwnProperty('attending') && !request.body.hasOwnProperty('interested')){
+        var message = "Intention not given";
+        common.sendErrorResponse(message, response);
+    } else {
+        dbAdapter.removeUserIntention(eId, userId, notInterested, notAttending, function(result){
+             if (result === constants.SUCCESS) {
+                common.sendSuccessResponse(result, response);
+            }
+            else {
+                console.log(result);
+                var message = "Database error";
+                common.sendErrorResponse(message, response);
+            }
+        });
+    }
+};
