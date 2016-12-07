@@ -84,6 +84,18 @@ exports.createNewEvent = function (request, response){
             common.sendErrorResponse(message, response);
         }
     });
-
-
 };
+
+
+exports.myEvents = function (request, response) {
+    
+    dbAdapter.getEventsForUser(request.userId, function(result, data) {
+        if (result === constants.SUCCESS) {
+            common.sendSuccessResponse(data, response);
+        }
+        else {
+            var message = "Database error";
+            common.sendErrorResponse(message, response);
+        }
+    });
+}

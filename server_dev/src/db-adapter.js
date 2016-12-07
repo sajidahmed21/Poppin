@@ -11,13 +11,16 @@ var pool = mysql.createPool({
 
 function query(queryString, params, callback){
     pool.getConnection(function(error, connection) {
+        
         if (error) return callback(error);
+        
         connection.query(queryString, params, function(error, result){
             connection.release();
             if (error) return callback(error, null);
+            
             return callback(constants.SUCCESS, result);
-        })
-    })
+        });
+    });
 }
 
 /* Returns a list of all nearby events based on the given
@@ -127,6 +130,7 @@ exports.createNewEvent = function(event, callback){
     // Insert into database.
     query(queryString, data, function(error, response){
         if (error === constants.SUCCESS && response.insertId) {
+            end++;
             callback(constants.SUCCESS, { event_id: response.insertId });
         } else {
             callback(error);
@@ -164,6 +168,35 @@ exports.getSingleCommunity = function(communityId, callback){
             callback(constants.SUCCESS, response);
         } else {
             callback(constants.ERROR, err);//throw err;
+        }
+    });
+}
+
+var start = 1; // TODO: Change this
+var end = start;
+
+exports.getEventsForUser = function(userId, callback) {
+    
+    var queryString = "SELECT * FROM event WHERE id <= ? AND id >= ?";
+    
+    var params = [start, end];
+    query(queryString, params, function(result, response){
+        if(result === constants.SUCCESS) {
+            var data = {organized: response};
+            
+            queryString = "SELECT * FROM event WHERE id > ?";
+            query(queryString, end, function(result, response) {
+                
+                if(result === constants.SUCCESS){
+                    data.upcoming = response;
+                    callback(constants.SUCCESS, data);
+                }
+                else {
+                    callback(constants.ERROR, err);
+                }
+            });
+        } else {
+           callback(constants.ERROR, err); 
         }
     });
 }

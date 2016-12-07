@@ -33,6 +33,10 @@ app.get('/event/:id', event.getEventDetails);
 app.post('/event', event.createNewEvent);
 
 
+/* ------------ User's Personal Events ------------ */
+
+app.get('/myEvents', event.myEvents);
+
 /* ----------------- Communities ------------------ */
 
 app.get('/communities', community.getCommunities);
