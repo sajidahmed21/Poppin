@@ -255,3 +255,51 @@ exports.getEventsForUser = function(userId, callback) {
         }
     });
 }
+
+exports.putUserIntention = function(eId, userId, interested, attending, callback){
+    var queryString;
+    var data = [eId, userId];
+    if (interested === 1 && attending === 1){
+        queryString = `INSERT INTO intention SET event_id = ?, user_id = ?, interested=1, attending=1 
+         ON DUPLICATE KEY UPDATE attending=1, interested=1`;
+    } else if (attending === 1) {
+        queryString = `INSERT INTO intention SET event_id = ?, user_id = ?, interested=0, attending=1 
+         ON DUPLICATE KEY UPDATE attending=1`;
+    } else {
+        queryString = `INSERT INTO intention SET event_id = ?, user_id = ?, interested=1, attending=0 
+         ON DUPLICATE KEY UPDATE interested=1`;
+    }
+
+    query(queryString, data, function(error, response){
+        if (error === constants.SUCCESS) {
+            callback(constants.SUCCESS);
+        } else {
+            callback(error);
+        }
+    });
+
+}
+
+//NotInterested or NotAttending = 1 to remove.
+exports.removeUserIntention = function(eId, userId, notInterested, notAttending, callback){
+    var queryString;
+    var data = [eId, userId];
+    if (notInterested === 1 && notAttending === 1){
+        queryString = `DELETE FROM intention WHERE event_id = ? AND user_id = ?`;
+    } else if (notAttending === 1) {
+        queryString = `UPDATE intention SET attending=0 WHERE 
+            event_id = ? AND user_id = ?`;
+    } else {
+        queryString = `UPDATE intention SET interested=0 WHERE 
+            event_id = ? AND user_id = ?`;
+    }
+
+    query(queryString, data, function(error, response){
+        if (error === constants.SUCCESS) {
+            callback(constants.SUCCESS);
+        } else {
+            callback(error);
+        }
+    });
+
+}
