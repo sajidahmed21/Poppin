@@ -51,8 +51,8 @@ app.get('/event/:id', requireAuth, event.getEventDetails);
 app.post('/event', requireAuth, event.createNewEvent);
 
 //Intentions for events
-app.put('/event/updateIntention/', event.updateIntention);
-app.delete('/event/removeIntention/', event.removeIntention);
+app.put('/event/updateIntention', requireAuth, event.updateIntention);
+app.delete('/event/removeIntention', requireAuth, event.removeIntention);
 
 /* ------------ User's Personal Events ------------ */
 
