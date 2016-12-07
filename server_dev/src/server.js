@@ -14,34 +14,52 @@ var server = require('http').Server(app);
 
 // Modules specific to our project
 var constants = require('./constants');
+var common = require(constants.common);
+var dbAdapter = require(constants.dbAdapter);
 var user = require(constants.user);
 var event = require(constants.event);
 var community = require(constants.communities);
 
 /* -------- User Sign Up and Authentication -------- */
 
+var requireAuth = function (req, res, next) {
+  var authHeader = (req.get('Authorization') || "").trim().split(" ");
+  var token = authHeader[1] || false;
+  if (token === false) {
+    common.sendErrorResponse("Not authorized 005.", res);
+  } else {
+    dbAdapter.getUserByToken(token, function(result, data){
+      if (result === constants.SUCCESS) {
+        req.authenticated = data;
+        next();
+      } else {
+        common.sendErrorResponse("Not authorized 004.", res);
+      }
+    });
+  }
+};
+
 app.post('/user', user.signUp);
 
-// app.post('/auth', ....) TODO
-
+app.post('/authorize', user.authorize);
 
 /* ------------------- Events ---------------------- */
-app.get('/events', event.getEvents);
+app.get('/events', requireAuth, event.getEvents);
 
-app.get('/event/:id', event.getEventDetails);
+app.get('/event/:id', requireAuth, event.getEventDetails);
 
-app.post('/event', event.createNewEvent);
+app.post('/event', requireAuth, event.createNewEvent);
 
 
 /* ------------ User's Personal Events ------------ */
 
-app.get('/myEvents', event.myEvents);
+app.get('/myEvents', requireAuth, event.myEvents);
 
 /* ----------------- Communities ------------------ */
 
-app.get('/communities', community.getCommunities);
+app.get('/communities', requireAuth, community.getCommunities);
 
-app.post('/communities', community.createNewCommunity);
+app.post('/communities', requireAuth, community.createNewCommunity);
 
 /* ---------- Server Start up  -------------------- */
 

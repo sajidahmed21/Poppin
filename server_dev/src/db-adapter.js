@@ -11,15 +11,86 @@ var pool = mysql.createPool({
 
 function query(queryString, params, callback){
     pool.getConnection(function(error, connection) {
-        
+
         if (error) return callback(error);
-        
+
         connection.query(queryString, params, function(error, result){
             connection.release();
             if (error) return callback(error, null);
-            
+
             return callback(constants.SUCCESS, result);
         });
+    });
+}
+
+exports.getUser = function(email, callback){
+    var queryString = `
+      SELECT
+        U.id, U.first_name, U.last_name, U.email, L.password
+      FROM user U
+      JOIN login_credential L ON L.user_id = U.id
+      WHERE email = ?
+    `;
+
+    query(queryString, [email], function(error, response){
+        if(error === constants.SUCCESS && response.length > 0){
+            callback(constants.SUCCESS, response[0] || false);
+        } else {
+            console.log(error);
+            callback(constants.ERROR, error);//throw err;
+        }
+    });
+}
+
+exports.createUser = function(user, callback){
+    var queryString = `INSERT INTO user SET first_name = ?, last_name = ?, email = ?`;
+    query(queryString, [user.first_name, user.last_name, user.email], function(error, response){
+        if(error === constants.SUCCESS){
+            var user_id = response.insertId;
+            query("INSERT INTO login_credential SET user_id = ?, password = ?",
+                  [user_id, user.password], function(err, response){
+                if(err === constants.SUCCESS){
+                    callback(constants.SUCCESS, {
+                      id: user_id,
+                      first_name: user.first_name,
+                      last_name: user.last_name,
+                      email: user.email
+                    });
+                } else {
+                    callback(constants.ERROR, err);//throw err;
+                }
+            });
+        } else {
+            callback(constants.ERROR, error);//throw err;
+        }
+    });
+}
+
+exports.createAuthToken = function(auth, callback){
+    var queryString = `
+      INSERT INTO third_party_credential SET
+      user_id = ?, provider_id = ?, token = ?
+    `;
+
+    query(queryString, [auth.user_id, 'basic', auth.token], function(error, response){
+        if(error === constants.SUCCESS){
+            callback(constants.SUCCESS);
+        } else {
+            console.log(error);
+            callback(constants.ERROR, error);//throw err;
+        }
+    });
+}
+
+exports.getUserByToken = function(token, callback){
+    var queryString = "SELECT user_id FROM third_party_credential WHERE token = ?";
+
+    query(queryString, [token], function(error, response){
+        if(error === constants.SUCCESS && response.length > 0){
+            callback(constants.SUCCESS, response[0].user_id || false);
+        } else {
+            callback(constants.ERROR, error);//throw err;
+        }
     });
 }
 
@@ -85,22 +156,6 @@ exports.getListOfNearbyEvents = function (longitude, latitude, radius, callback)
  * denotes if the operation was successful.
  */
 exports.getEventDetails = function (eventId, callback) {
-
-    // var mockData = {
-
-    //     "name":"CSC301 Club",
-    //     "description":"This is an event description",
-    //     "start_date":"2016-10-10 18:00:00",
-    //     "end_date":"2016-10-10 21:00:00",
-    //     "longitude":"22.943218",
-    //     "latitude":"17.753906",
-    //     "is_active":"0",
-    //     "date_created":"2016-10-19 01:00:00"
-
-    // };
-
-    // callback(constants.SUCCESS, mockData);
-
     var queryString = "SELECT * FROM event WHERE id = ?";
 
     query(queryString, eventId, function(error, response){
@@ -176,17 +231,17 @@ var start = 1; // TODO: Change this
 var end = start;
 
 exports.getEventsForUser = function(userId, callback) {
-    
+
     var queryString = "SELECT * FROM event WHERE id <= ? AND id >= ?";
-    
+
     var params = [start, end];
     query(queryString, params, function(result, response){
         if(result === constants.SUCCESS) {
             var data = {organized: response};
-            
+
             queryString = "SELECT * FROM event WHERE id > ?";
             query(queryString, end, function(result, response) {
-                
+
                 if(result === constants.SUCCESS){
                     data.upcoming = response;
                     callback(constants.SUCCESS, data);
@@ -196,7 +251,7 @@ exports.getEventsForUser = function(userId, callback) {
                 }
             });
         } else {
-           callback(constants.ERROR, err); 
+           callback(constants.ERROR, err);
         }
     });
 }

@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS third_party_credential (
   provider_id VARCHAR(255) NOT NULL,
   token VARCHAR(255) NOT NULL,
 
-  PRIMARY KEY(user_id, provider_id),
+  PRIMARY KEY(user_id, provider_id, token),
   FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 

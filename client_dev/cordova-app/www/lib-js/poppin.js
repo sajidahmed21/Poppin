@@ -9,7 +9,7 @@ poppin.server = {
 
 poppin.auth = {
   setToken: (token) => {
-    poppin.axios().defaults.headers.common['Authorization'] = token;
+    poppin.axios().defaults.headers.common['Authorization'] = 'Bearer ' + token;
   }
 };
 
