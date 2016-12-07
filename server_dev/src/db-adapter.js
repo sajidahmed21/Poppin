@@ -181,10 +181,22 @@ exports.getEventsForUser = function(userId, callback) {
     
     var params = [start, end];
     query(queryString, params, function(result, response){
-        if(result === constants.SUCCESS){
-            callback(constants.SUCCESS, response);
+        if(result === constants.SUCCESS) {
+            var data = {organized: response};
+            
+            queryString = "SELECT * FROM event WHERE id > ?";
+            query(queryString, end, function(result, response) {
+                
+                if(result === constants.SUCCESS){
+                    data.upcoming = response;
+                    callback(constants.SUCCESS, data);
+                }
+                else {
+                    callback(constants.ERROR, err);
+                }
+            });
         } else {
-            callback(constants.ERROR, err);
+           callback(constants.ERROR, err); 
         }
     });
 }
