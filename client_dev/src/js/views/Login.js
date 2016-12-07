@@ -8,6 +8,8 @@ import Form from 'muicss/lib/react/form';
 import Button from 'muicss/lib/react/button';
 import Input from 'muicss/lib/react/input';
 
+
+
 export default class Login extends React.Component {
     constructor() {
         super();
@@ -27,8 +29,23 @@ export default class Login extends React.Component {
         this.onPasswordChange = this.onPasswordChange.bind(this);
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
     doLogin() {
-        this.props.onViewChange('discover');
+        poppin.axios().post('authorize', this.state.fields).then(resp => {
+            if (!this._isMounted) return;
+            //poppin.auth.setToken(resp.data.data.token);
+            this.props.onViewChange('discover');
+        }).catch(err => {
+            if (!this._isMounted) return;
+            this.props.onViewChange('myevents');
+        });
     }
 
     doSignup() {

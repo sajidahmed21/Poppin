@@ -17,12 +17,9 @@ export default class MyInterests extends React.Component {
         this.fetch = this.fetch.bind(this);
     }
 
-    componentWillMount() {
-        this.fetch();
-    }
-
     componentDidMount() {
         this._isMounted = true;
+        this.fetch();
     }
 
     componentWillUnmount() {
@@ -32,7 +29,7 @@ export default class MyInterests extends React.Component {
     fetch() {
         if (this.state.location === false || !this._isMounted) return;
 
-        axios.get(consts.SERVER + '/mycommunities').then(resp => {
+        poppin.axios().get('mycommunities').then(resp => {
             if (!this._isMounted) return;
             this.setState({
                 communities: resp.data.data

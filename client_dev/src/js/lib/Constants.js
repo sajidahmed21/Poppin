@@ -1,5 +1,3 @@
-const Constants = {
-    SERVER: 'http://SERVER:8080'
-};
+const Constants = {};
 
 export default Constants;

@@ -28,7 +28,7 @@ export default class FirstTimeInterests extends React.Component {
     fetch() {
         if (this.state.location === false || !this._isMounted) return;
 
-        axios.get(consts.SERVER + '/communities', {
+        poppin.axios().get('communities', {
             private: false
         }).then(resp => {
             if (!this._isMounted) return;

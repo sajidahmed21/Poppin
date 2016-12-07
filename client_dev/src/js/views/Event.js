@@ -6,7 +6,7 @@ import Container from 'muicss/lib/react/container';
 import Button from 'muicss/lib/react/button';
 
 import Dummy from '../lib/Dummy';
-import axios from 'axios';
+
 
 export default class Event extends React.Component {
     constructor() {
@@ -33,9 +33,6 @@ export default class Event extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
-    }
-
-    componentWillMount() {
         this.fetch();
     }
 
@@ -46,7 +43,7 @@ export default class Event extends React.Component {
     fetch() {
         if (!this._isMounted || !this.props.viewOpts || !this.props.viewOpts.id) return;
 
-        axios.get(consts.SERVER + '/event/' + this.props.viewOpts.id).then(resp => {
+        poppin.axios().get('event/' + this.props.viewOpts.id).then(resp => {
             if (!this._isMounted) return;
             let event =  resp.data.data;
             if (!event.communities) {

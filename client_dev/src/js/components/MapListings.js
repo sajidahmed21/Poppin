@@ -4,7 +4,6 @@ import MapContainer from './MapContainer';
 import EventList from './EventList';
 import EmptyEventList from './EmptyEventList';
 
-import axios from 'axios';
 import consts from '../lib/Constants';
 
 export default class MapListings extends React.Component {
@@ -31,7 +30,7 @@ export default class MapListings extends React.Component {
     fetchEvents() {
         if (this.state.location === false || !this._isMounted) return;
 
-        axios.get(consts.SERVER + '/events', {
+        poppin.axios().get('events', {
             params: {
                 radius: 25,
                 longitude: this.state.location.longitude,

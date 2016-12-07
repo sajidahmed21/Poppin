@@ -5,7 +5,7 @@ import Container from 'muicss/lib/react/container';
 import Button from 'muicss/lib/react/button';
 
 import Dummy from '../lib/Dummy';
-import axios from 'axios';
+
 
 export default class Community extends React.Component {
     constructor() {
@@ -26,9 +26,6 @@ export default class Community extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
-    }
-
-    componentWillMount() {
         this.fetch();
     }
 
@@ -39,7 +36,7 @@ export default class Community extends React.Component {
     fetch() {
         if (!this._isMounted || !this.props.viewOpts || !this.props.viewOpts.id) return;
 
-        axios.get(consts.SERVER + '/communities?id=' + this.props.viewOpts.id).then(resp => {
+        poppin.axios().get('communities?id=' + this.props.viewOpts.id).then(resp => {
             if (!this._isMounted) return;
             let community = resp.data.data;
             community.private = community.private || false;

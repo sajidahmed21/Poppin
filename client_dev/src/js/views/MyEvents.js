@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+
 
 /* Import Material UI Components. */
 import Container from 'muicss/lib/react/container';
@@ -22,9 +22,6 @@ export default class MyEvents extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
-    }
-
-    componentWillMount() {
         this.fetch();
     }
 
@@ -35,7 +32,7 @@ export default class MyEvents extends React.Component {
     fetch() {
         if (!this._isMounted) return;
 
-        axios.get(consts.SERVER + '/myevents').then(resp => {
+        poppin.axios().get('myevents').then(resp => {
             if (!this._isMounted) return;
             this.setState({
                 organized: resp.data.data.organized,

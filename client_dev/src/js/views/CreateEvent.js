@@ -10,7 +10,7 @@ import Textarea from 'muicss/lib/react/textarea';
 import DatePicker from '../components/DatePicker';
 import AddressPicker from '../components/AddressPicker';
 
-import axios from 'axios';
+
 
 export default class CreateEvent extends React.Component {
     constructor() {
@@ -32,7 +32,7 @@ export default class CreateEvent extends React.Component {
     }
 
     create() {
-        axios.post(consts.SERVER + '/event', this.values).then(resp => {
+        poppin.axios().post('event', this.values).then(resp => {
             if (!this._isMounted) return;
             this.props.onViewChange('createeventinterests', {
                 event_id: resp.data.data.event_id || false

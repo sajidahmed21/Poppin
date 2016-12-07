@@ -27,7 +27,7 @@ export default class CreateEventInterests extends React.Component {
     fetch() {
         if (this.state.location === false || !this._isMounted) return;
 
-        axios.get(consts.SERVER + '/communities').then(resp => {
+        poppin.axios().get('communities').then(resp => {
             if (!this._isMounted) return;
             this.setState({
                 communities: resp.data.data
